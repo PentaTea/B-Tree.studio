@@ -12,7 +12,7 @@ module.exports = {
         smoothScroll: true,
         nextLinks: true,
         prevLinks: true,
-        lastUpdated: '上次更新：',
+        lastUpdated: '上次更新',
         nav: [{
                 text: 'Home',
                 link: '/'

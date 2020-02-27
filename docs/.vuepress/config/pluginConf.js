@@ -78,5 +78,20 @@ module.exports = [
         publishedAt: $page => $page.frontmatter.date && new Date($page.frontmatter.date),
         modifiedAt: $page => $page.lastUpdated && new Date($page.lastUpdated),
     }],
-    ['vuepress-plugin-reading-time']
+    ['vuepress-plugin-reading-time'],
+    ['pangu'],
+    ['reading-progress'],
+    ['vuepress-plugin-element-tabs'],
+    ['vuepress-plugin-baidu-autopush'],
+    ['vuepress-plugin-code-copy', {
+        //selector: String,
+        //align: String,
+        color: '#55ae9c',
+        backgroundTransition: true,
+        backgroundColor: '#ffffff',
+        successText: '复制成功'
+    }],
+    ['element-ui'],
+    ['vuepress-plugin-catalog-graph']
+
 ]
