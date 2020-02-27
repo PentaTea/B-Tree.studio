@@ -3,7 +3,7 @@
   "scripts": {
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
-    "deploy": "sh ./deploy.sh"
+    "deploy-push": "sh ./deploy-push.sh"
   },
   "devDependencies": {
     "@vssue/api-github-v3": "^1.4.0",
