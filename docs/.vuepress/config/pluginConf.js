@@ -1,3 +1,4 @@
+const vssue = require('./vssueConf.js');
 module.exports = [
     // ['@vuepress/pwa', {
     //     serviceWorker: true,
@@ -56,16 +57,7 @@ module.exports = [
         },
     }, ],
 
-    ['@vssue/vuepress-plugin-vssue', {
-        // 设置 `platform` 而不是 `api`
-        platform: 'github',
-
-        // 其他的 Vssue 配置
-        owner: 'OWNER_OF_REPO',
-        repo: 'NAME_OF_REPO',
-        clientId: 'YOUR_CLIENT_ID',
-        clientSecret: 'YOUR_CLIENT_SECRET',
-    }],
+    vssue,
 
     ['named-chunks', {
         pageChunkName: page => 'page' + page.key.slice(1),

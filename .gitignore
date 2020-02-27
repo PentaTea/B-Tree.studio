@@ -2,6 +2,6 @@
 .DS_Store
 *.log
 node_modules
-
+vssueConf.js
 yarn.lock
 package-lock.json
