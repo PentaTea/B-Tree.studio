@@ -14,20 +14,57 @@ module.exports = {
         prevLinks: true,
         lastUpdated: '上次更新',
         nav: [{
-                text: 'Home',
-                link: '/'
+                text: '指南',
+                items: [{
+                    items: [{
+                        text: '了解 B-Tree',
+                        link: '/guide/'
+                    }, {
+                        text: '产品',
+                        link: '/product/'
+                    }, {
+                        text: '文档',
+                        link: '/doc/'
+                    }, ]
+                }, {
+                    text: '视频',
+                    items: [{
+                        text: 'Bilibili',
+                        link: 'https://space.bilibili.com/11443411'
+                    }]
+                }]
+            }, {
+                text: '生态系统',
+                items: [{
+                    text: '帮助',
+                    items: [{
+                        text: 'QQ群',
+                        link: '/guide/'
+                    }, ]
+                }, {
+                    text: '工具',
+                    items: [{
+                        text: '*即将开放*',
+                        link: '404'
+                    }]
+                }, {
+                    text: '信息',
+                    items: [{
+                        text: '*即将开放*',
+                        link: '404'
+                    }]
+                }]
+            }, {
+                text: '团队',
+                link: '/team/'
             },
             {
-                text: 'About',
-                link: '/about/'
+                text: '资源',
+                link: '/resources/'
             },
             {
-                text: 'Product',
-                link: '/product/'
-            },
-            {
-                text: 'Doc',
-                link: '/doc/'
+                text: '支持 B-Tree',
+                link: '/support/'
             },
         ],
         sidebar: 'auto',
