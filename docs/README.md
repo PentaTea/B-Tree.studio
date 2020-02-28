@@ -1,4 +1,5 @@
 ---
+readingShow: false
 home: true
 heroImage: /b-tree-logo.svg
 heroText: B-Tree Design Studio

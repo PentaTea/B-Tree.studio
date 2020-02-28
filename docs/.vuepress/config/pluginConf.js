@@ -80,7 +80,7 @@ module.exports = [
     }],
     ['vuepress-plugin-reading-time'],
     ['pangu'],
-    ['reading-progress'],
+    ['reading-progress', {}],
     ['vuepress-plugin-element-tabs'],
     ['vuepress-plugin-baidu-autopush'],
     ['vuepress-plugin-code-copy', {

@@ -18,17 +18,22 @@ module.exports = {
                 link: '/'
             },
             {
-                text: 'product',
+                text: 'About',
+                link: '/about/'
+            },
+            {
+                text: 'Product',
                 link: '/product/'
             },
             {
-                text: 'doc',
+                text: 'Doc',
                 link: '/doc/'
             },
         ],
         sidebar: 'auto',
         sidebarDepth: 2,
-        displayAllHeaders: true,
+        //displayAllHeaders: true,
+        activeHeaderLinks: true
 
     },
 
