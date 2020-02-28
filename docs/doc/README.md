@@ -1,1 +1,2 @@
 ![](/favicon.jpeg)
+![](/favicon.jpeg)
