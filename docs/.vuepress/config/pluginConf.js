@@ -1,12 +1,12 @@
 const vssue = require('./vssueConf.js');
 module.exports = [
-    // ['@vuepress/pwa', {
-    //     serviceWorker: true,
-    //     updatePopup: {
-    //         message: "发现新内容可用",
-    //         buttonText: "刷新"
-    //     }
-    // }],
+    ['@vuepress/pwa', {
+        serviceWorker: true,
+        updatePopup: {
+            message: "发现新内容可用",
+            buttonText: "刷新"
+        }
+    }],
     ['@vuepress/active-header-links', {
         sidebarLinkSelector: '.sidebar-link',
         headerAnchorSelector: '.header-anchor'
@@ -23,7 +23,7 @@ module.exports = [
     [
         'vuepress-plugin-medium-zoom',
         {
-            selector: 'img',
+            selector: 'p img',
             delay: 1000,
             options: {
                 margin: 24,

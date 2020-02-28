@@ -1,1 +1,1 @@
-![](/b-tree-logo.svg)
+![](/favicon.jpeg)![](/favicon.jpeg)
