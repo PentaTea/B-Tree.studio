@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: /favicon.jpeg
+heroImage: /b-tree-logo.svg
 heroText: B-Tree Design Studio
 tagline: 一个打从心底里想带给你美好的工作室
 actionText: Get Started →
