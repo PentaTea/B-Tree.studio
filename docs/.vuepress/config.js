@@ -39,7 +39,7 @@ module.exports = {
                 text: '帮助',
                 items: [{
                     text: 'QQ群',
-                    link: '/guide/'
+                    link: 'https://jq.qq.com/?_wv=1027&k=5B48Hdg'
                 }, ]
             }, {
                 text: '工具',
@@ -56,7 +56,7 @@ module.exports = {
             }]
         }, {
             text: '团队',
-            link: '/team/'
+            link: '/guide/team'
         }, {
             text: '资源',
             link: '/resources/'
@@ -73,7 +73,24 @@ module.exports = {
         sidebar: 'auto',
         sidebarDepth: 2,
         //displayAllHeaders: true,
-        activeHeaderLinks: true
+        activeHeaderLinks: true,
+        repo: 'moecopilot/B-Tree.studio',
+        // 自定义仓库链接文字。默认从 `themeConfig.repo` 中自动推断为
+        // "GitHub"/"GitLab"/"Bitbucket" 其中之一，或是 "Source"。
+        repoLabel: 'GitHub',
+
+        // 以下为可选的编辑链接选项
+
+        // 假如你的文档仓库和项目本身不在一个仓库：
+        //docsRepo: 'vuejs/vuepress',
+        // 假如文档不是放在仓库的根目录下：
+        docsDir: 'docs',
+        // 假如文档放在一个特定的分支下：
+        //docsBranch: 'master',
+        // 默认是 false, 设置为 true 来启用
+        editLinks: true,
+        // 默认为 "Edit this page"
+        editLinkText: '在 GitHub 上编辑此页'
 
     },
 
