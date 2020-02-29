@@ -35,5 +35,5 @@ fi
 git push -f git@github.com:moecopilot/B-Tree.studio.git master
 
 # 关闭pwa，方便dev调试
-# echo "module.exports = [\n    // ['@vuepress/pwa', {\n    //     serviceWorker: true,\n    //     updatePopup: {\n    //         message: \"发现内容更新\",\n    //         buttonText: \"刷新\"\n    //     }\n    // }]\n]" > docs/.vuepress/config/pwaConf.js
+echo "module.exports = []" > docs/.vuepress/config/pwaConf.js
 # 结束

@@ -1,9 +1,9 @@
 ---
 readingShow: false
 home: true
-heroImage: /b-tree-logo.svg
-heroText: 木芯｜WoodCore
-tagline: 真棒
+heroImage: ./PCB_WoodCore_animated.svg
+heroText: 木芯｜WoodCore  0.34.2
+tagline: null
 actionText: null
 actionLink: null
 features: null
