@@ -52,6 +52,9 @@ module.exports = {
                 items: [{
                     text: '*即将开放*',
                     link: 'index'
+                }, {
+                    text: '*即将开放*',
+                    link: 'index'
                 }]
             }]
         }, {
