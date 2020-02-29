@@ -1,12 +1,6 @@
 const vssue = require('./vssueConf.js');
+const pwa = require('./pwaConf.js');
 module.exports = [
-    ['@vuepress/pwa', {
-        serviceWorker: true,
-        updatePopup: {
-            message: "发现内容更新",
-            buttonText: "刷新"
-        }
-    }],
     ['@vuepress/active-header-links', {
         sidebarLinkSelector: '.sidebar-link',
         headerAnchorSelector: '.header-anchor'
@@ -92,6 +86,6 @@ module.exports = [
         successText: '复制成功'
     }],
     ['element-ui'],
-    ['vuepress-plugin-catalog-graph']
-
+    ['vuepress-plugin-catalog-graph'],
+    pwa
 ]
