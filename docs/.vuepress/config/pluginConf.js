@@ -84,5 +84,5 @@ module.exports = [
         backgroundColor: '#ffffff',
         successText: '复制成功'
     }],
-    ['element-ui'],
+    ['element-ui']
 ]
