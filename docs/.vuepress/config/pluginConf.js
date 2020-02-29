@@ -1,6 +1,13 @@
 const vssue = require('./vssueConf.js');
 const pwa = require('./pwaConf.js');
 module.exports = [
+    ['@vuepress/pwa', {
+        serviceWorker: true,
+        updatePopup: {
+            message: "发现内容更新",
+            buttonText: "刷新"
+        }
+    }],
     ['@vuepress/active-header-links', {
         sidebarLinkSelector: '.sidebar-link',
         headerAnchorSelector: '.header-anchor'
@@ -72,10 +79,8 @@ module.exports = [
         publishedAt: $page => $page.frontmatter.date && new Date($page.frontmatter.date),
         modifiedAt: $page => $page.lastUpdated && new Date($page.lastUpdated),
     }],
-    ['vuepress-plugin-reading-time'],
     ['pangu'],
     ['reading-progress', {}],
-    ['vuepress-plugin-element-tabs'],
     ['vuepress-plugin-baidu-autopush'],
     ['vuepress-plugin-code-copy', {
         //selector: String,
@@ -86,6 +91,4 @@ module.exports = [
         successText: '复制成功'
     }],
     ['element-ui'],
-    ['vuepress-plugin-catalog-graph'],
-    pwa
 ]
