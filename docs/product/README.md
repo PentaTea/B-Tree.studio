@@ -12,4 +12,4 @@ footer: null
 
 # 产品列表
 
-[产品1](./WoodCore)
+[产品1](./WoodCore.md)

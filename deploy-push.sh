@@ -12,7 +12,7 @@ echo "Please enter commit:"
 read -t 30 msg 
 
 # 开启pwa
-# echo "module.exports = [\n    ['@vuepress/pwa', {\n        serviceWorker: true,\n        updatePopup: {\n            message: \"发现内容更新\",\n            buttonText: \"刷新\"\n        }\n    }]\n]"  > docs/.vuepress/config/pwaConf.js
+echo "module.exports = ['@vuepress/pwa', {\n        serviceWorker: true,\n        updatePopup: {\n            message: \"发现内容更新\",\n            buttonText: \"刷新\"\n        }\n    }]"  > docs/.vuepress/config/pwaConf.js
 
 # 编译
 yarn docs:build
