@@ -1,16 +1,15 @@
-# 标题 H1
+---
+readingShow: false
+home: true
+heroImage: /favicon.jpeg
+heroText: 某产品
+tagline: 特别好
+actionText: 让我康康
+actionLink: /product/mou/index.html
+features: null
+footer: Mozilla Licensed | Copyright © 2020 moecopilot
+---
 
-## H2
+# 这里还能写东西吗
 
-[产品1]: /1	"111"
-
-
-### H3
-
-#### H4
-
-##### H5
-
-###### H6
-
-正文 P
+## 试试
