@@ -14,8 +14,8 @@
       <h4>
         ——
         <span id="from_who"></span>
-        《
-        <span id="from"></span> 》｜ 一言 ｜ by hitokoto.cn
+        「
+        <span id="from"></span> 」｜ 一言 ｜ by hitokoto.cn
       </h4>
     </div>
     <div class="theme-default-content">
