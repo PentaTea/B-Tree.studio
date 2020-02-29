@@ -29,12 +29,13 @@
 
     <Content class="theme-default-content custom" />
 
-    <div v-if="data.footer" class="footer">{{ data.footer }}</div>
+    <div class="footer">Mozilla Licensed | Copyright © {{d()}} moecopilot</div>
   </main>
 </template>
 
 <script>
 import NavLink from "@theme/components/NavLink.vue";
+
 export default {
   name: "Home",
   components: { NavLink },
@@ -47,6 +48,12 @@ export default {
         link: this.data.actionLink,
         text: this.data.actionText
       };
+    }
+  },
+  methods: {
+    d() {
+      var d = new Date();
+      return d.getFullYear();
     }
   }
 };
