@@ -2,3 +2,4 @@
 
 ![支付宝](./alipay.jpg)
 ![微信](./wechat-pay.png)
+
