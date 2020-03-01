@@ -19,4 +19,8 @@ module.exports = [
         name: 'theme-color',
         content: '#ffffff'
     }],
+    ['script', {
+        src: 'https://www.googletagmanager.com/gtag/js?id=UA-159369211-1'
+    }],
+    ['script', {}, 'window.dataLayer = window.dataLayer || [];function gtag() {    dataLayer.push(arguments);}gtag(\'js\', new Date());gtag(\'config\', \'UA-159369211-1\');']
 ]
