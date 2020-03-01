@@ -84,8 +84,8 @@ module.exports = [
         backgroundColor: '#ffffff',
         successText: '复制成功'
     }],
-    ['@vuepress/google-analytics', {
-        'ga': 'UA-159369211-1'
+    [' @vuepress/google-analytics', {
+        ga: 'UA-159369211-1'
     }]
     ['element-ui']
 ]
