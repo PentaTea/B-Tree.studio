@@ -34,7 +34,8 @@
     "vuepress-plugin-reading-progress": "^1.0.8",
     "vuepress-plugin-reading-time": "^0.1.1",
     "vuepress-plugin-seo": "^0.1.2",
-    "vuepress-plugin-table-of-contents": "^1.1.5"
+    "vuepress-plugin-table-of-contents": "^1.1.5",
+    "vuepress-plugin-zooming": "^1.1.7"
   },
   "dependencies": {
     "esm": "^3.2.25",

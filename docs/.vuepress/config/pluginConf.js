@@ -21,17 +21,30 @@ module.exports = [
   ],
 
   //图片放大
+  // [
+  //   "vuepress-plugin-medium-zoom", {
+  //     selector: "p img",
+  //     delay: 1000,
+  //     options: {
+  //       margin: 24,
+  //       background: "#ffffff",
+  //       scrollOffset: 0
+  //     }
+  //   }
+  // ],
   [
-    "vuepress-plugin-medium-zoom",
+    'vuepress-plugin-zooming',
     {
-      selector: "p img",
+      selector: 'p img',
       delay: 1000,
       options: {
-        margin: 24,
-        background: "#ffffff",
-        scrollOffset: 0
-      }
-    }
+        bgColor: "#ffffff",
+        zIndex: 10000,
+        bgOpacity: 0.6,
+        scaleExtra: 1,
+        transitionDuration: 0.2,
+      },
+    },
   ],
 
   //自动分组
@@ -87,12 +100,10 @@ module.exports = [
       author: (_, $site) => $site.themeConfig.author,
       tags: $page => $page.frontmatter.tags,
       twitterCard: _ => "/favicon.jpeg",
-      type: $page =>
-        ["articles", "posts", "blog"].some(folder =>
+      type: $page => ["articles", "posts", "blog"].some(folder =>
           $page.regularPath.startsWith("/" + folder)
-        )
-          ? "article"
-          : "website",
+        ) ?
+        "article" : "website",
       url: (_, $site, path) => ($site.themeConfig.domain || "") + path,
       image: ($page, $site) =>
         $page.frontmatter.image &&
