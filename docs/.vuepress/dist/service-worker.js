@@ -27,7 +27,7 @@ self.addEventListener('message', (event) => {
 self.__precacheManifest = [
   {
     "url": "404.html",
-    "revision": "efb094434a13aad49d29fd52eaeebd61"
+    "revision": "28774d43feda4c41c9f2efd1453c1be7"
   },
   {
     "url": "assets/css/0.styles.7fa40efe.css",
@@ -62,8 +62,8 @@ self.__precacheManifest = [
     "revision": "00ed1dd66a017f0e991a20d945b1a5a8"
   },
   {
-    "url": "assets/js/app.432793b7.js",
-    "revision": "f817318f7395176abf00aeea552b7ed2"
+    "url": "assets/js/app.9a51b454.js",
+    "revision": "7dc92b66801f99127d2deadbf80caea0"
   },
   {
     "url": "assets/js/layout-Layout.5d57c049.js",
@@ -78,20 +78,20 @@ self.__precacheManifest = [
     "revision": "db6ba34aa9811e393b187dc8a1964a85"
   },
   {
-    "url": "assets/js/page-2037549c.7456c9ed.js",
-    "revision": "dfdacf2e265d3724dc5dd604579c8a88"
+    "url": "assets/js/page-2037549c.d8fb84cf.js",
+    "revision": "5d447490d8f9d565d57d39395ca023f5"
   },
   {
     "url": "assets/js/page-25b298b6.cd78b2fd.js",
     "revision": "3d28cc7659e5fcf7bb2d5b8c52343955"
   },
   {
-    "url": "assets/js/page-3c041b9e.ba2dcce4.js",
-    "revision": "a152b2fdfd46d2ce4c7315544fcda568"
+    "url": "assets/js/page-3c041b9e.db1f6944.js",
+    "revision": "f9bc5f94029898fe55859b1b20f52ba0"
   },
   {
-    "url": "assets/js/page-65eaf5e4.d57fa7ef.js",
-    "revision": "e878e46ec3690bbd07a3e6a48b4039c8"
+    "url": "assets/js/page-65eaf5e4.383643bd.js",
+    "revision": "9cf315faa8879a6c8736d20b406f3fd3"
   },
   {
     "url": "assets/js/page-a2896314.164d88db.js",
@@ -119,7 +119,7 @@ self.__precacheManifest = [
   },
   {
     "url": "doc/index.html",
-    "revision": "c8026bfb57f3897219b5ff4777595ea2"
+    "revision": "6c663f767a144bca0de763612ca0cdc1"
   },
   {
     "url": "favicon.jpeg",
@@ -127,15 +127,15 @@ self.__precacheManifest = [
   },
   {
     "url": "guide/index.html",
-    "revision": "a24cb3333b109da949944c0e8ec102f3"
+    "revision": "3886d18d89e79db9042019601e39b152"
   },
   {
     "url": "guide/team/index.html",
-    "revision": "41f6073037b17f762c71b0851d1b4b82"
+    "revision": "45e2ab9d4c2f52cabe2fe78f54f48614"
   },
   {
     "url": "index.html",
-    "revision": "901cd4946c8b5493ea3741669852718b"
+    "revision": "a6f1c429374b1f609902737bf1481d42"
   },
   {
     "url": "PCB_WoodCore_animated.svg",
@@ -143,19 +143,19 @@ self.__precacheManifest = [
   },
   {
     "url": "product/index.html",
-    "revision": "3dde68a35e0e6a8a4eb02b4c7c3e737b"
+    "revision": "5e06fcb45265fa4924635c694043c8f2"
   },
   {
     "url": "product/WoodCore/index.html",
-    "revision": "7c0817609251cdd5b20b1044cf6896eb"
+    "revision": "0b888cd6e4656518bf79f0b0d6bb22f8"
   },
   {
     "url": "resources/index.html",
-    "revision": "1c7989954ff4d22f0e7c41a8d4c2b842"
+    "revision": "19bc0d3525563fd516293c3316c3a49b"
   },
   {
     "url": "support/index.html",
-    "revision": "bcaed81b7e52bbfd9cbc11a496efda2f"
+    "revision": "e3054e70fd687bbd67853a4ef2039fa3"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
