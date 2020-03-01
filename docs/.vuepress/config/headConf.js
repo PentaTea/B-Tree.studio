@@ -23,6 +23,10 @@ module.exports = [
         name: 'keywords',
         content: 'b-tree,studio,hardware,embed,mbed,b树,设计,工作室,硬件,嵌入式'
     }],
+    ['meta', {
+        name: 'baidu-site-verification',
+        content: 'Tw5hfGgVIE'
+    }],
     ['script', {
         src: 'https://www.googletagmanager.com/gtag/js?id=UA-159369211-1'
     }],
