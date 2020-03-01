@@ -3,7 +3,7 @@ const headConf = require('./config/headConf.js');
 
 module.exports = {
     title: 'B-Tree',
-    description: '一个打从心底想带给你美好的工作室',
+    description: 'B-Tree Design Studio 一个打从心底想带给你美好的工作室',
     plugins: pluginConf,
     head: headConf,
     themeConfig: {
