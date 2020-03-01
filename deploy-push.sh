@@ -9,7 +9,7 @@
 # 等待输入message，5秒超时
 echo "Please enter commit:"
 
-read -t 60 msg 
+read -t 120 msg 
 
 # 开启pwa
 echo "module.exports = ['@vuepress/pwa', {\n        serviceWorker: true,\n        updatePopup: {\n            message: \"发现内容更新\",\n            buttonText: \"刷新\"\n        }\n    }]"  > docs/.vuepress/config/pwaConf.js
