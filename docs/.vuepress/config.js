@@ -52,9 +52,6 @@ module.exports = {
                 items: [{
                     text: '*即将开放*',
                     link: 'index'
-                }, {
-                    text: '*即将开放*',
-                    link: 'index'
                 }]
             }]
         }, {
@@ -80,7 +77,10 @@ module.exports = {
         repoLabel: 'GitHub',
         docsDir: 'docs',
         editLinks: true,
-        editLinkText: '在 GitHub 上编辑此页'
+        editLinkText: '在 GitHub 上编辑此页',
+        markdown: {
+            lineNumbers: true
+        }
 
     },
 
