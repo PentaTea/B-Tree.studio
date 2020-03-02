@@ -1,5 +1,3 @@
-# TEST
+# 海星海星我觉得海星
 
 ## 海星
-
-<SP file="/svg_test.svg" />

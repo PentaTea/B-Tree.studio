@@ -18,13 +18,17 @@ export default {
       type: String,
       default: "" // 文件路径 绝对路径
     },
+    height: {
+      type: String,
+      default: "200px"
+    },
     type: {
       type: String,
       default: "delayed" // 动画类型
     },
     duration: {
-      type: Number,
-      default: 200 // 过渡时间
+      type: String,
+      default: "200" // 过渡时间
     },
     start: {
       type: String,
@@ -32,7 +36,9 @@ export default {
     },
     onReady: {
       type: Function,
-      default: function() {}
+      default: function(myVivus, height) {
+        myVivus.el.setAttribute("height", height);
+      }
     },
     callBack: {
       type: Function,
@@ -44,11 +50,11 @@ export default {
     },
     animTiming: {
       type: String,
-      default: "EASE"
+      default: null
     },
     dashGap: {
       type: Number,
-      default: 2
+      default: 5
     },
     forceRender: {
       type: Boolean,
@@ -61,9 +67,11 @@ export default {
   },
   mounted: function() {
     this.initVueSvg();
-    console.log(reqiure(this.file));
   },
   methods: {
+    Ready(e) {
+      this.onReady(e, this.height);
+    },
     initVueSvg(obj) {
       let pathTimingFunction, animTimingFunction;
       switch (this.pathTiming) {
@@ -103,9 +111,10 @@ export default {
         {
           type: this.type,
           duration: this.duration,
+          start: this.start,
           animTimingFunction: Vivus.EASE,
           file: this.file,
-          onReady: this.onReady,
+          onReady: this.Ready,
           pathTimingFunction: pathTimingFunction,
           animTimingFunction: animTimingFunction,
           dashGap: this.dashGap,
