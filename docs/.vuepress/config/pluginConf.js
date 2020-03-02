@@ -51,34 +51,15 @@ module.exports = [
   ["vuepress-plugin-auto-sidebar", {}],
 
   //自定义md容器
-  //可以多次定义
   [
     "vuepress-plugin-container",
     {
-      type: "right",
-      defaultTitle: ""
-    }
-  ],
-  [
-    "vuepress-plugin-container",
-    {
-      type: "theorem",
-      before: info => `<div class="theorem"><p class="title">${info}</p>`,
-      after: "</div>"
+      type: "PL",
+      before: file => `<div class="ProductList"><SP file="${file}" height="200" /><div><p>`,
+      after: "</p></div></div>"
     }
   ],
 
-  // 这是 VuePress 默认主题使用这个插件的方式
-  [
-    "vuepress-plugin-container",
-    {
-      type: "tip",
-      defaultTitle: {
-        "/": "TIP",
-        "/zh/": "提示"
-      }
-    }
-  ],
 
   vssue,
 

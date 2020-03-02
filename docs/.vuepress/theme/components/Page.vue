@@ -66,6 +66,8 @@ p.img-content
   display -webkit-flex
   display flex
   justify-content center
+  margin 0 20px
+  min-width 25%
 
 .reading-time
   padding-top 4rem
@@ -79,4 +81,11 @@ p.img-content
 .reading-time h4
   font-weight 400
   line-height 0.3
+
+.ProductList
+    width 100%
+    display flex
+    align-items center
+    border-top 1px solid #eaecef
+    padding 30px 20px
 </style>

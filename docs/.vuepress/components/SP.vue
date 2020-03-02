@@ -67,6 +67,7 @@ export default {
   },
   mounted: function() {
     this.initVueSvg();
+    console.log(this.file);
   },
   methods: {
     Ready(e) {

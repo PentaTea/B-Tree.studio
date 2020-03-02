@@ -1,15 +1,42 @@
 ---
 readingShow: false
 home: true
-heroImage: /b-tree-logo.svg
+heroImage: false
 heroText: B-Tree Design Studio
-tagline: 一个打从心底想带给你美好的工作室
+tagline: 产品列表
 actionText: null
 actionLink: null
 features: null
 footer: null
 ---
 
-# 产品列表
+::: PL /svg_test.svg
 
-[产品1](./WoodCore.md)
+## [产品 1](./WoodCore.md)
+
+海星海星海星海星海星海星海星 海星海星海星海星海星海星海星海星海星海星海星海星海星海星海星海星海星海星海星海星海星海星海星海星海星海
+
+:::
+
+::: PL /PCB_WoodCore_animated.svg
+
+## [产品 2](./WoodCore.md)
+
+海星海星海星海星海星海星海星 海星海星海星海星海星海星海星海星海星海星海星海星海星海星海星海星海星海星海星海星海星海星海星海星海星海
+
+:::
+::: PL /svg_test.svg
+
+## [产品 3](./WoodCore.md)
+
+海星海星海星海星海星海星海星 海星海星海星海星海星海星海星海星海星海星海星海星海星海星海星海星海星海星海星海星海星海星海星海星海星海
+
+:::
+
+::: PL /PCB_WoodCore_animated.svg
+
+## [产品 4](./WoodCore.md)
+
+海星海星海星海星海星海星海星 海星海星海星海星海星海星海星海星海星海星海星海星海星海星海星海星海星海星海星海星海星海星海星海星海星海
+
+:::

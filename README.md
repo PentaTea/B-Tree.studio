@@ -67,3 +67,9 @@
 ```
 <SP file="/svg_test.svg" />
 ```
+
+## svg 产品列表
+
+::: PL /svg_test.svg
+
+:::
