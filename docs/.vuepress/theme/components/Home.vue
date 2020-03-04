@@ -13,9 +13,10 @@
       </h1>
 
       <p v-if="data.tagline !== null" class="description">
-        <span id="ityped-description">
-          <!-- {{ data.tagline || $description || "Welcome to your VuePress site" }} -->
+        <span v-if="data.ityped === null">
+          {{ data.tagline || $description || "Welcome to your VuePress site" }}
         </span>
+        <span id="ityped-description"> </span>
       </p>
       <p v-if="data.actionText && data.actionLink" class="action">
         <NavLink class="action-button" :item="actionLink" />
@@ -59,19 +60,20 @@ export default {
     }
   },
   mounted: function() {
-    var ityped = require("ityped");
-
-    const oneElement = document.querySelector("#ityped-description");
-
-    ityped.init(oneElement, {
-      showCursor: true,
-      typeSpeed: 80,
-      backSpeed: 40,
-      backDelay: 1000,
-      loop: false,
-      cursorChar: "_",
-      strings: this.data.tagline
-    });
+    if (this.data.ityped !== null) {
+      var ityped = require("ityped");
+      const oneElement = document.querySelector("#ityped-description");
+      ityped.init(oneElement, {
+        showCursor: true,
+        typeSpeed: 80,
+        backSpeed: 40,
+        startDelay: 3000,
+        backDelay: 1000,
+        loop: false,
+        cursorChar: "_",
+        strings: this.data.tagline
+      });
+    }
   },
   methods: {
     d() {
