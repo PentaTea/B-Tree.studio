@@ -13,9 +13,10 @@
       </h1>
 
       <p v-if="data.tagline !== null" class="description">
-        {{ data.tagline || $description || "Welcome to your VuePress site" }}
+        <span id="ityped-description">
+          <!-- {{ data.tagline || $description || "Welcome to your VuePress site" }} -->
+        </span>
       </p>
-
       <p v-if="data.actionText && data.actionLink" class="action">
         <NavLink class="action-button" :item="actionLink" />
       </p>
@@ -56,6 +57,21 @@ export default {
         text: this.data.actionText
       };
     }
+  },
+  mounted: function() {
+    var ityped = require("ityped");
+
+    const oneElement = document.querySelector("#ityped-description");
+
+    ityped.init(oneElement, {
+      showCursor: true,
+      typeSpeed: 80,
+      backSpeed: 40,
+      backDelay: 1000,
+      loop: false,
+      cursorChar: "_",
+      strings: this.data.tagline
+    });
   },
   methods: {
     d() {
@@ -200,5 +216,32 @@ export default {
       }
     }
   }
+}
+
+.ityped-cursor {
+    font-size: 2.2rem;
+    opacity: 1;
+    -webkit-animation: blink 0.5s infinite;
+    -moz-animation: blink 0.5s infinite;
+    animation: blink 0.5s infinite;
+    animation-direction: alternate;
+}
+
+@keyframes blink {
+    100% {
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes blink {
+    100% {
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes blink {
+    100% {
+        opacity: 0;
+    }
 }
 </style>

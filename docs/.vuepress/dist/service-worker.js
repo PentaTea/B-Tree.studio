@@ -27,11 +27,11 @@ self.addEventListener('message', (event) => {
 self.__precacheManifest = [
   {
     "url": "404.html",
-    "revision": "e4189ff78f0acb9148a68018d29ddc8b"
+    "revision": "116008b29127f6c3c662ce3ee3cb68f9"
   },
   {
-    "url": "assets/css/0.styles.4f7ecfd0.css",
-    "revision": "e9d1894fb073ec8812de9b92d329d8d7"
+    "url": "assets/css/0.styles.ab99be11.css",
+    "revision": "6c34c10f024be3d8daa25bd4e150fdc7"
   },
   {
     "url": "assets/img/alipay.6428fd00.jpg",
@@ -46,80 +46,80 @@ self.__precacheManifest = [
     "revision": "396d5c8409c3f5498833e33e716797b8"
   },
   {
-    "url": "assets/js/14.31f885d2.js",
-    "revision": "174ef33af7b43c5adbc4d990a1e138d7"
+    "url": "assets/js/14.3f55c852.js",
+    "revision": "db7bbd87108174afa306ded63bba4124"
   },
   {
-    "url": "assets/js/15.e080ef4a.js",
-    "revision": "b92d9b758b0c685b7828b00919bbb09f"
+    "url": "assets/js/15.afce1728.js",
+    "revision": "db11a0e528f4ec37943698c12be6f9b5"
   },
   {
-    "url": "assets/js/16.59cd5c6b.js",
-    "revision": "aa62a93486f39f722cbe7c9af0dfe301"
+    "url": "assets/js/16.0965b341.js",
+    "revision": "04fc780834c060e684fab5233fbf0845"
   },
   {
-    "url": "assets/js/17.7150f127.js",
-    "revision": "fbbd59a20fa628b87d9c6d8e6143ae86"
+    "url": "assets/js/17.f6912fc3.js",
+    "revision": "3b20dd7baae627abdef624eb8a430735"
   },
   {
     "url": "assets/js/18.978597ed.js",
     "revision": "0c7d193f9481e0e703f17bcdb9459f31"
   },
   {
-    "url": "assets/js/19.2984bbaa.js",
-    "revision": "e0dd5667bb7f366673f2dff4304299e3"
+    "url": "assets/js/19.2fc77657.js",
+    "revision": "60298c7efaaa2e6715b52ddf5686ca0b"
   },
   {
-    "url": "assets/js/app.ad09f381.js",
-    "revision": "49792b63ada048fc0553b3cf8438a338"
+    "url": "assets/js/app.f2ece89b.js",
+    "revision": "34b96dadd13e0e2425fb393edb444f85"
   },
   {
-    "url": "assets/js/layout-Layout.c4b617ec.js",
-    "revision": "deaebce5e8adbb4e5ff571231284f77a"
+    "url": "assets/js/layout-Layout.8f2ab101.js",
+    "revision": "c0b77299ed70ba17052c4b7665a0fb65"
   },
   {
-    "url": "assets/js/layout-NotFound.34adb722.js",
-    "revision": "e25ba245d5d251366b5eb0071c4b6b8e"
+    "url": "assets/js/layout-NotFound.993919dd.js",
+    "revision": "abfd267459d9e96eb6fea2e21f1ad6e9"
   },
   {
-    "url": "assets/js/page-07fa8526.17dc0a0c.js",
-    "revision": "325a01bc1f028b4762cbefa939987d3c"
+    "url": "assets/js/page-07fa8526.cfbcafb6.js",
+    "revision": "ba3e044a1b7d6dffbfcd5a108afc7740"
   },
   {
-    "url": "assets/js/page-1301ab8a.0cfe8e59.js",
-    "revision": "294df59a6fdf38a22c9ae446027390c8"
+    "url": "assets/js/page-1301ab8a.bf85879b.js",
+    "revision": "25fdb0c052cc9e09cd8f6379e0b6eb60"
   },
   {
-    "url": "assets/js/page-2037549c.29b9915c.js",
-    "revision": "c7d09190edbe2bfef930b430af2ffbc5"
+    "url": "assets/js/page-2037549c.9fd883a0.js",
+    "revision": "5d2f7802880f626142e0cf00b721a2ba"
   },
   {
-    "url": "assets/js/page-25b298b6.00a2ecf1.js",
-    "revision": "c9f2d6f56e5d7ed748788fca3ecb6c71"
+    "url": "assets/js/page-25b298b6.49488d14.js",
+    "revision": "36ce6045c92ba169a90d0e7552865dda"
   },
   {
-    "url": "assets/js/page-3c041b9e.8f8a6b64.js",
-    "revision": "e26cdafb1242baf02add0ea07dc8738b"
+    "url": "assets/js/page-3c041b9e.821532c5.js",
+    "revision": "144c87c6557a2482618b77341868f532"
   },
   {
-    "url": "assets/js/page-65eaf5e4.9e9c066f.js",
-    "revision": "4926a6554f64c2ce9a18294bbae06ebf"
+    "url": "assets/js/page-65eaf5e4.47be93f4.js",
+    "revision": "5f35ae74c1c3350ea82d2297d3938ae0"
   },
   {
-    "url": "assets/js/page-a2896314.fa4c305e.js",
-    "revision": "d3c8055924b2698a53772b7557f6b832"
+    "url": "assets/js/page-a2896314.9e753d48.js",
+    "revision": "674793d744f118d9aa9fc5a9aa3d430f"
   },
   {
-    "url": "assets/js/page-a7e2470e.7fde1bb7.js",
-    "revision": "1f6a427ba4f8bdf3174ba1d736828cb6"
+    "url": "assets/js/page-a7e2470e.a2cb0a24.js",
+    "revision": "5048b1fd1360034c751167db5b3b3970"
   },
   {
-    "url": "assets/js/page-e4dfaf94.dd1d50e1.js",
-    "revision": "dc5e7535fff0b8a7101c7beaad3adbdd"
+    "url": "assets/js/page-e4dfaf94.0b75d91d.js",
+    "revision": "a0eb222187d780c2cf0359d5efd6b92a"
   },
   {
-    "url": "assets/js/vendors~layout-Layout.44e93cba.js",
-    "revision": "ce0c62b67b0d63ca66ba9d6f2d0bb5a2"
+    "url": "assets/js/vendors~layout-Layout.afafe988.js",
+    "revision": "c5d9162e54c5985439512341a977d64f"
   },
   {
     "url": "b-tree-logo.svg",
@@ -131,7 +131,7 @@ self.__precacheManifest = [
   },
   {
     "url": "doc/index.html",
-    "revision": "4451eab464da78df2bc992a5bde450cc"
+    "revision": "1e214e86ed0e66b0bf3de072ebe4dec5"
   },
   {
     "url": "favicon.jpeg",
@@ -139,15 +139,15 @@ self.__precacheManifest = [
   },
   {
     "url": "guide/index.html",
-    "revision": "1065ae0e52d8e75c1933ea7362b7a175"
+    "revision": "c0e2c7538305a7db815a78a0db24f642"
   },
   {
     "url": "guide/team/index.html",
-    "revision": "217cc7cc565263924775a75ea63c5f50"
+    "revision": "db685f4639ac156be957343cb8f5a541"
   },
   {
     "url": "index.html",
-    "revision": "d4f2d40d914bdb45aa7573981f8d38b3"
+    "revision": "0708810f9eead4d7e5354b3dffa066ae"
   },
   {
     "url": "PCB_WoodCore_animated.svg",
@@ -155,23 +155,23 @@ self.__precacheManifest = [
   },
   {
     "url": "product/某产品/index.html",
-    "revision": "cd07a96830940c3466cb362f2671d956"
+    "revision": "032f99a1f9c5366f53e2461169e1b103"
   },
   {
     "url": "product/index.html",
-    "revision": "568dacbdfb34c098915816ba3c22318e"
+    "revision": "7ce9c3ae46cd16d9747776e78a71a818"
   },
   {
     "url": "product/WoodCore/index.html",
-    "revision": "11004b9689d924d0cfd7758f405a7863"
+    "revision": "2b67018db3119d0282560a937c457e48"
   },
   {
     "url": "resources/index.html",
-    "revision": "0dcf37b218f35aaa7bf237d871062844"
+    "revision": "0a83ef9fa487538fd11bea96fa0ea94b"
   },
   {
     "url": "support/index.html",
-    "revision": "ad7d362aed5b1c192533ef2041bea40f"
+    "revision": "f803ad8d169f02e59aa34e893759c887"
   },
   {
     "url": "svg_test.svg",
