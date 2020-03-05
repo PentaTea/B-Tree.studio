@@ -7,11 +7,9 @@
         :alt="data.heroAlt || 'hero'"
         style="min-width: 200px"
       />
-
       <h1 v-if="data.heroText !== null" id="main-title">
         {{ data.heroText || $title || "Hello" }}
       </h1>
-
       <p v-if="data.tagline !== null" class="description">
         <span v-if="data.ityped !== true">
           {{ data.tagline || $description || "Welcome to your VuePress site" }}
@@ -22,7 +20,6 @@
         <NavLink class="action-button" :item="actionLink" />
       </p>
     </header>
-
     <div v-if="data.features && data.features.length" class="features">
       <div
         v-for="(feature, index) in data.features"
@@ -33,9 +30,7 @@
         <p>{{ feature.details }}</p>
       </div>
     </div>
-
     <Content class="theme-default-content custom" />
-
     <div class="footer">
       Mozilla Licensed | Copyright © {{ d() }} moecopilot ｜ Vuepress
     </div>
