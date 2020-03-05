@@ -13,7 +13,7 @@
       </h1>
 
       <p v-if="data.tagline !== null" class="description">
-        <span v-if="data.ityped === null">
+        <span v-if="data.ityped !== true">
           {{ data.tagline || $description || "Welcome to your VuePress site" }}
         </span>
         <span id="ityped-description"> </span>
@@ -60,7 +60,7 @@ export default {
     }
   },
   mounted: function() {
-    if (this.data.ityped !== null) {
+    if (this.data.ityped === true) {
       var ityped = require("ityped");
       const oneElement = document.querySelector("#ityped-description");
       ityped.init(oneElement, {
