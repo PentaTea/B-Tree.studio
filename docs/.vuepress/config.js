@@ -59,7 +59,10 @@ module.exports = {
             link: '/guide/team'
         }, {
             text: '资源',
-            link: '/resources/'
+            items: [{
+                text: '简体中文',
+                link: 'index'
+            }]
         }, {
             text: '支持 B-Tree',
             link: '/support/'
