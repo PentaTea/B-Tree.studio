@@ -3,7 +3,6 @@
     <p><img :src="img_file" :alt="name" /></p>
     <div>
       <h3>{{ name }}</h3>
-      <!-- <p>CORE FOCUS</p> -->
       <p>
         <i class="fas fa-briefcase"></i>&nbsp;{{ position }} @ B-Tree Design
         Studio
@@ -57,12 +56,12 @@ export default {
   props: {
     data: {
       type: String,
-      default: "" // 文件路径 绝对路径
+      default: ""
     }
   },
   methods: {},
   mounted: function() {
-    let a = this.data.trim().split(/\s+/);
+    var a = this.data.trim().split(/\s+/);
     this.name = a[0];
     this.img_file = a[1];
     this.position = a[2];
@@ -71,8 +70,6 @@ export default {
     this.qq = a[5];
     this.qqlink =
       "http://wpa.qq.com/msgrd?v=3&uin=" + this.qq + "&site=qq&menu=yes";
-    console.log(this.qq);
-    console.log(this.qqlink);
   }
 };
 </script>
@@ -84,6 +81,7 @@ export default {
   display: flex;
   align-items: center;
   padding: 30px 20px;
+  flex-wrap: wrap;
 }
 .BTreer img {
   max-width: 100px !important;
