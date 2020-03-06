@@ -94,6 +94,7 @@ export default {
 }
 .BTreer img {
   width: 150px;
+  height: 150px;
 }
 .BTreer h3 {
   margin: 0px !important;
