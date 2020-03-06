@@ -67,7 +67,7 @@ export default {
     this.img_file = a[1];
     this.position = a[2];
     this.location = a[3];
-    this.lang = a[4].replace(",", " | ");
+    this.lang = a[4].replace(/,/g, " | ");
     this.qq = a[5];
     this.qqlink =
       "http://wpa.qq.com/msgrd?v=3&uin=" + this.qq + "&site=qq&menu=yes";
