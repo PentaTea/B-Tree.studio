@@ -61,7 +61,7 @@ export default {
   },
   methods: {},
   mounted: function() {
-    var a = this.data.trim().split(/\s+/);
+    let a = this.data.trim().split(/\s+/);
     this.name = a[0];
     this.img_file = a[1];
     this.position = a[2];
@@ -93,8 +93,7 @@ export default {
   flex-grow: 100;
 }
 .BTreer img {
-  max-width: 150px !important;
-  height: auto;
+  width: 150px;
 }
 .BTreer h3 {
   margin: 0px !important;
