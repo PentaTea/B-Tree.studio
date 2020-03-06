@@ -1,7 +1,7 @@
 <template>
   <div class="BTreer" :id="BTreerId">
-    <p><img :src="img_file" :alt="name" /></p>
-    <div>
+    <div class="BTreer-img"><img :src="img_file" :alt="name" /></div>
+    <div class="BTreer-word">
       <h3>{{ name }}</h3>
       <p>
         <i class="fas fa-briefcase"></i>&nbsp;{{ position }} @ B-Tree Design
@@ -83,8 +83,18 @@ export default {
   padding: 30px 20px;
   flex-wrap: wrap;
 }
+.BTreer-img {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+  min-width: 250px;
+}
+.BTreer-word {
+  flex-grow: 100;
+}
 .BTreer img {
-  max-width: 100px !important;
+  max-width: 150px !important;
+  height: auto;
 }
 .BTreer h3 {
   margin: 0px !important;
