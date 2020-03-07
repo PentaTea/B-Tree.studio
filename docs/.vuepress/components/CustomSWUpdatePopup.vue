@@ -1,8 +1,10 @@
 <template>
-  <div class="custom-sw-update-popup">
-    海星海星海星<br />
-    <button @click="reload">海星海星</button>
-  </div>
+  <SWUpdatePopup v-slot="{ enabled, reload, message, buttonText }">
+    <button class="custom-sw-update-popup" @click="reload">
+      <h3>{{ message }}</h3>
+      <h3>{{ buttonText }}</h3>
+    </button>
+  </SWUpdatePopup>
 </template>
 
 <script>
@@ -18,8 +20,9 @@ export default {
   position: fixed;
   right: 1em;
   bottom: 1em;
-  padding: 1em;
-  border: 1px solid #3eaf7c;
+  padding: 1em 3em;
+  cursor: pointer;
+  outline: none;
   border-radius: 3px;
   background: #fff;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
@@ -27,8 +30,31 @@ export default {
   z-index: 2;
 }
 
-.custom-sw-update-popup button {
-  margin-top: 0.5em;
-  padding: 0.25em 2em;
+.custom-sw-update-popup {
+  text-align: center;
+  color: #2c3e50;
+  border-radius: 0.5em;
+  background: linear-gradient(limegreen, transparent),
+    linear-gradient(90deg, skyblue, transparent),
+    linear-gradient(-90deg, pink, transparent);
+  background-blend-mode: screen;
+  -webkit-animation: colorfulStripeChange 5s infinite alternate linear;
+  animation: colorfulStripeChange 5s infinite alternate linear;
+}
+.custom-sw-update-popup h3 {
+  margin: 0;
+  line-height: 2;
+}
+@-webkit-keyframes colorfulStripeChange {
+  100% {
+    -webkit-filter: hue-rotate(360deg);
+    filter: hue-rotate(360deg);
+  }
+}
+@keyframes colorfulStripeChange {
+  100% {
+    -webkit-filter: hue-rotate(360deg);
+    filter: hue-rotate(360deg);
+  }
 }
 </style>
