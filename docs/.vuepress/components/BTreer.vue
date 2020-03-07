@@ -1,6 +1,8 @@
 <template>
   <div class="BTreer" :id="BTreerId">
-    <div class="BTreer-img"><img :src="img_file" :alt="name" /></div>
+    <div class="BTreer-img">
+      <p><img :src="img_file" :alt="name" /></p>
+    </div>
     <div class="BTreer-word">
       <h3>{{ name }}</h3>
       <p>
