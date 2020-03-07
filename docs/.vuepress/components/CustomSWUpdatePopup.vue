@@ -1,6 +1,6 @@
 <template>
   <SWUpdatePopup v-slot="{ enabled, reload, message, buttonText }">
-    <button class="custom-sw-update-popup" @click="reload">
+    <button v-if="enabled" class="custom-sw-update-popup" @click="reload">
       <h3>{{ message }}</h3>
       <h3>{{ buttonText }}</h3>
     </button>
