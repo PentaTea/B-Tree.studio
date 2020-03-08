@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 #
 # VuePress 通用部署脚本
-
+#
 # Author: moecopilot
 # Email: 2490445193@qq.com
 #
+cd /Users/zhangjiaping/Desktop/project/b-tree/
 
-# 等待输入message，5秒超时
 echo "Please enter commit:"
 
 read -t 120 msg 
