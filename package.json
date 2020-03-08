@@ -6,7 +6,7 @@
   "scripts": {
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
-    "deploy-push": "sh ./deploy-push.sh",
+    "deploy-push": "sh ./automation/deploy-push.sh",
     "lighthouse": "cd lighthouse && lighthouse https://b-tree.studio"
   },
   "devDependencies": {

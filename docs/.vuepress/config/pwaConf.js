@@ -1,8 +1,1 @@
-module.exports = ['@vuepress/pwa', {
-        serviceWorker: true,
-        popupComponent: 'CustomSWUpdatePopup',
-        updatePopup: {
-            message: "发现内容更新",
-            buttonText: "刷新"
-        }
-    }]
+module.exports = ['@vuepress/pwa', {\n        serviceWorker: true,\n        popupComponent: 'CustomSWUpdatePopup',\n        updatePopup: {\n            message: "发现内容更新",\n            buttonText: "刷新"\n        }\n    }]
