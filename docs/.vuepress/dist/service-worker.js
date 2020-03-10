@@ -27,7 +27,7 @@ self.addEventListener('message', (event) => {
 self.__precacheManifest = [
   {
     "url": "404.html",
-    "revision": "0b958c20a37f09c727a1cb60b945ad4d"
+    "revision": "c940c1fabcad0be8de95a481664e1cf2"
   },
   {
     "url": "assets/css/0.styles.4c54f2e8.css",
@@ -86,8 +86,8 @@ self.__precacheManifest = [
     "revision": "24f618f603980411cee5b916e8747b73"
   },
   {
-    "url": "assets/js/app.f78e2996.js",
-    "revision": "c9f20a06efc9be63ffd65431aff5cbb9"
+    "url": "assets/js/app.e82b755f.js",
+    "revision": "038511c4e54e3634a8364168754711a3"
   },
   {
     "url": "assets/js/layout-Layout.9df51d81.js",
@@ -98,44 +98,44 @@ self.__precacheManifest = [
     "revision": "682e0430fb8f8aec56cea823beb01dd2"
   },
   {
-    "url": "assets/js/page-07fa8526.05f0e766.js",
-    "revision": "0862520997f9a1ec2d877e28a1d47c47"
+    "url": "assets/js/page-07fa8526.f112222a.js",
+    "revision": "3a3bf70fa10a4b923da113326568a1ff"
   },
   {
-    "url": "assets/js/page-1301ab8a.200f8c7a.js",
-    "revision": "954aa822313646a8ffc8d69ed656d471"
+    "url": "assets/js/page-1301ab8a.559c6a1b.js",
+    "revision": "9b168c1b63af15c9fed6f6cbc6418a86"
   },
   {
-    "url": "assets/js/page-2037549c.ef69bec0.js",
-    "revision": "f0d77d78bf2385de49dc2720b8b0ab73"
+    "url": "assets/js/page-2037549c.104b22d5.js",
+    "revision": "1b0e3f6e679394b4485826cf9f3f45a8"
   },
   {
     "url": "assets/js/page-25b298b6.b08cca5d.js",
     "revision": "287a0f12007c263e09bb82e308d6806b"
   },
   {
-    "url": "assets/js/page-3c041b9e.a47cfdd8.js",
-    "revision": "04f01351f195af402d2f6b51cd6a7393"
+    "url": "assets/js/page-3c041b9e.c0375f6b.js",
+    "revision": "ca773c41cb87358730aaf867e4536644"
   },
   {
-    "url": "assets/js/page-65eaf5e4.6b2ab4d7.js",
-    "revision": "3c8312724bdcbccf2b8b08677a9b14ef"
+    "url": "assets/js/page-65eaf5e4.a0eb4b00.js",
+    "revision": "fcc841a9a888aca9b9901abc8825ace2"
   },
   {
-    "url": "assets/js/page-7205f0b4.059a99f2.js",
-    "revision": "9be8b0decfa77e935e5c65cc2aef1ace"
+    "url": "assets/js/page-7205f0b4.04c9207c.js",
+    "revision": "2df3eb611907fe7cd27779c3fbb53e7c"
   },
   {
-    "url": "assets/js/page-a2896314.8817ed64.js",
-    "revision": "21e0fdbd71a9f60fc5ec778939d63524"
+    "url": "assets/js/page-a2896314.4511e701.js",
+    "revision": "bf7e217a924b00d01ed246e650606a2b"
   },
   {
-    "url": "assets/js/page-a7e2470e.a2b0b8d8.js",
-    "revision": "f894350061cf7ea1fd4b1de391682934"
+    "url": "assets/js/page-a7e2470e.f3bd1cb0.js",
+    "revision": "854d3c2f64da15b058c083c6d1ba2266"
   },
   {
-    "url": "assets/js/page-e4dfaf94.72bd28e9.js",
-    "revision": "b590885c2cb49de1395758ec57577034"
+    "url": "assets/js/page-e4dfaf94.bd2c8dc0.js",
+    "revision": "43d6f5e3c71df0b6b77ad6fa141ac862"
   },
   {
     "url": "assets/js/vendors~layout-Layout.24ca2b10.js",
@@ -151,11 +151,11 @@ self.__precacheManifest = [
   },
   {
     "url": "blog/index.html",
-    "revision": "557965ee8c0e75d5fe608b5362b54ec9"
+    "revision": "2aae97d0121ad40bfb1da33dcc09c7e8"
   },
   {
     "url": "doc/index.html",
-    "revision": "f2436f0f9353f2e1ffa277d549f65ad0"
+    "revision": "7512a9eae9f9e1243276eaf5e1dc8cb3"
   },
   {
     "url": "favicon.jpeg",
@@ -163,15 +163,15 @@ self.__precacheManifest = [
   },
   {
     "url": "guide/index.html",
-    "revision": "6052090bb969ca530c7a6891abdb3b4a"
+    "revision": "4eacda2a41d19470b8637cbeee0e79d2"
   },
   {
     "url": "guide/team/index.html",
-    "revision": "9730da00cc30ed47ec7e0341321dea33"
+    "revision": "594eb475b172cae8c70b77102fce85dc"
   },
   {
     "url": "index.html",
-    "revision": "363df33ffe782fc5a2e478548820ed25"
+    "revision": "58029179a1008896f5c1d622e77f54d8"
   },
   {
     "url": "PCB_WoodCore_animated.svg",
@@ -179,23 +179,23 @@ self.__precacheManifest = [
   },
   {
     "url": "product/某产品/index.html",
-    "revision": "8c28ba9d552de2c3477b54e706867edf"
+    "revision": "c553d87a0b779716839a111331d2b27a"
   },
   {
     "url": "product/index.html",
-    "revision": "75b6832a71ba7f2d8812892f4d908922"
+    "revision": "cad51976efb376aad9503487d71eac14"
   },
   {
     "url": "product/WoodCore/index.html",
-    "revision": "ed16f8554ef74f8e693d643ab89cb0d7"
+    "revision": "3ccdf96f6ca6bf39af87dedb00e20e50"
   },
   {
     "url": "resources/index.html",
-    "revision": "859f58b4e0258e47233c60692d1e588f"
+    "revision": "049a332f1df943345cedf42a49287028"
   },
   {
     "url": "support/index.html",
-    "revision": "2eba07e3055c38cd49543042ff4fd875"
+    "revision": "4158622f2329325f1b36c4d47cc42134"
   },
   {
     "url": "svg_test.svg",
