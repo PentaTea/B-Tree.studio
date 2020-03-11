@@ -1,8 +1,6 @@
-import MusicBar from './MusicBar.vue'
+import MusicBar from "./MusicBar.vue";
 
-export default ({
-  Vue
-}) => {
+export default ({ Vue }) => {
   // eslint-disable-next-line vue/match-component-file-name
-  Vue.component('MusicBar', MusicBar)
-}
+  Vue.component("MusicBar", MusicBar);
+};

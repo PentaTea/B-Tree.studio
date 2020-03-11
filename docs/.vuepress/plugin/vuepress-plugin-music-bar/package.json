@@ -25,6 +25,7 @@
   "main": "index.js",
   "devDependencies": {
     "@vuepress/shared-utils": "^1.0.0",
+    "node-fetch": "^2.6.0",
     "vuepress": "^1.0.0"
   }
 }

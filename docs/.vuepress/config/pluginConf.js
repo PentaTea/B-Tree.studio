@@ -115,6 +115,12 @@ module.exports = [
       hostname: "https://b-tree.studio"
     }
   ],
-  require('./../plugin/vuepress-plugin-music-bar/index.js')
+  [require('./../plugin/vuepress-plugin-music-bar/index.js'), {
+    platform: "music.163.com",
+    options: {
+      PlayListId: "4909779787"
+    },
+    AutoPlay: true,
+  }]
   //["music-bar"]
 ];
