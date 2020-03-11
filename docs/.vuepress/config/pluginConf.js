@@ -116,4 +116,5 @@ module.exports = [
     }
   ],
   require('./../plugin/vuepress-plugin-music-bar/index.js')
+  //["music-bar"]
 ];

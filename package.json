@@ -7,7 +7,10 @@
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "deploy-push": "sh ./automation/deploy-push.sh",
-    "lighthouse": "cd lighthouse && lighthouse https://b-tree.studio"
+    "lighthouse": "cd lighthouse && lighthouse https://b-tree.studio",
+    "music-bar更新-主版本": "cd docs/.vuepress/plugin/vuepress-plugin-music-bar && npm version major",
+    "music-bar更新-次版本": "cd docs/.vuepress/plugin/vuepress-plugin-music-bar && npm version minor",
+    "music-bar更新-补丁": "cd docs/.vuepress/plugin/vuepress-plugin-music-bar && npm version patch"
   },
   "devDependencies": {
     "@vssue/api-github-v3": "^1.4.0",
@@ -32,6 +35,7 @@
     "vuepress-plugin-element-tabs": "^0.2.8",
     "vuepress-plugin-element-ui": "^1.0.1",
     "vuepress-plugin-medium-zoom": "^1.1.8",
+    "vuepress-plugin-music-bar": "^1.0.0",
     "vuepress-plugin-named-chunks": "^1.1.2",
     "vuepress-plugin-pangu": "^1.0.1",
     "vuepress-plugin-reading-progress": "^1.0.8",
