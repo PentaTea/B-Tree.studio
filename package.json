@@ -8,9 +8,9 @@
     "docs:build": "vuepress build docs",
     "deploy-push": "sh ./automation/deploy-push.sh",
     "lighthouse": "cd lighthouse && lighthouse https://b-tree.studio",
-    "music-bar更新-主版本": "cd docs/.vuepress/plugin/vuepress-plugin-music-bar && npm version major",
-    "music-bar更新-次版本": "cd docs/.vuepress/plugin/vuepress-plugin-music-bar && npm version minor",
-    "music-bar更新-补丁": "cd docs/.vuepress/plugin/vuepress-plugin-music-bar && npm version patch"
+    "music-bar更新-主版本": "sh ./automation/music-bar_update.sh major",
+    "music-bar更新-次版本": "sh ./automation/music-bar_update.sh minor",
+    "music-bar更新-补丁": "sh ./automation/music-bar_update.sh patch"
   },
   "devDependencies": {
     "@vssue/api-github-v3": "^1.4.0",

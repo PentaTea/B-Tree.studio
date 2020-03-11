@@ -1,6 +1,6 @@
 {
   "name": "vuepress-plugin-music-bar",
-  "version": "1.0.1",
+  "version": "1.2.1",
   "description": "A music-bar plugin for vuepress",
   "keywords": [
     "vue",
