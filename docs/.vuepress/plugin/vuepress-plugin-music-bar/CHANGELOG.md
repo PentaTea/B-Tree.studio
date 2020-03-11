@@ -1,6 +1,6 @@
 # Change Log
 
-[README](./README.md) | [CHANGELOG](./CHANGELOG.md)
+[README](docs/.vuepress/plugin/vuepress-plugin-music-bar/README.md) | [CHANGELOG](docs/.vuepress/plugin/vuepress-plugin-music-bar/CHANGELOG.md)
 
 # 1.0.0
 
