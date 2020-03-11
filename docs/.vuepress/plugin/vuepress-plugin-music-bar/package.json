@@ -1,0 +1,26 @@
+{
+  "name": "vuepress-plugin-music-bar",
+  "version": "1.0.0",
+  "description": "A music-bar plugin for vuepress",
+  "keywords": [
+    "vue",
+    "vuepress",
+    "plugin",
+    "music",
+    "music-bar"
+  ],
+  "homepage": "https://github.com/moecopilot/vuepress-plugin-music-bar#readme",
+  "bugs": {
+    "url": "https://github.com/moecopilot/vuepress-plugin-music-bar/issues",
+    "email": "2490445193@qq.com"
+  },
+  "repository": "https://github.com/moecopilot/vuepress-plugin-music-bar.git",
+  "doc": "https://github.com/moecopilot/vuepress-plugin-music-bar#readme",
+  "license": "MIT",
+  "author": "moecopilot <2490445193@qq.com>",
+  "main": "index.js",
+  "devDependencies": {
+    "@vuepress/shared-utils": "^1.0.0",
+    "vuepress": "^1.0.0"
+  }
+}

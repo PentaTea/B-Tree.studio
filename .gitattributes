@@ -1,2 +1,2 @@
 *.sh linguist-language=Vue
-dist/* merge=ours
+docs/.vuepress/dist/* merge=ours

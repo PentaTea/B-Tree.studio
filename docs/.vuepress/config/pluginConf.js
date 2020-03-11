@@ -108,11 +108,12 @@ module.exports = [
       successText: "复制成功"
     }
   ],
-  ["element-ui"],
+  // ["element-ui"],
   [
     "sitemap",
     {
       hostname: "https://b-tree.studio"
     }
-  ]
+  ],
+  require('./../plugin/vuepress-plugin-music-bar/index.js')
 ];
