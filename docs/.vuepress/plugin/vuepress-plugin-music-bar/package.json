@@ -9,13 +9,17 @@
     "music",
     "music-bar"
   ],
-  "homepage": "https://github.com/moecopilot/vuepress-plugin-music-bar#readme",
+  "homepage": "https://github.com/moecopilot/B-Tree.studio/tree/master/docs/.vuepress/plugin/vuepress-plugin-music-bar#readme",
   "bugs": {
-    "url": "https://github.com/moecopilot/vuepress-plugin-music-bar/issues",
+    "url": "https://github.com/moecopilot/B-Tree.studio/issues",
     "email": "2490445193@qq.com"
   },
-  "repository": "https://github.com/moecopilot/vuepress-plugin-music-bar.git",
-  "doc": "https://github.com/moecopilot/vuepress-plugin-music-bar#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moecopilot/B-Tree.studio.git",
+    "directory": "docs/.vuepress/plugin/vuepress-plugin-music-bar"
+  },
+  "doc": "https://github.com/moecopilot/B-Tree.studio/tree/master/docs/.vuepress/plugin/vuepress-plugin-music-bar#readme",
   "license": "MIT",
   "author": "moecopilot <2490445193@qq.com>",
   "main": "index.js",
