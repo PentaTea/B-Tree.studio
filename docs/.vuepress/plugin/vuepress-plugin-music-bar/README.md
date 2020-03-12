@@ -1,6 +1,6 @@
 # vuepress-plugin-music-bar
 
-![](img/music-bar-0.png)
+![](https://raw.githubusercontent.com/moecopilot/B-Tree.studio/master/docs/.vuepress/plugin/vuepress-plugin-music-bar/img/music-bar-0.png)
 
 [README](./README.md) | [CHANGELOG](./CHANGELOG.md)
 
@@ -24,15 +24,15 @@ welcome everyone's Star and fork
 
 ### 默认收起到左边 Default stow to left
 
-![](img/music-bar-1.png)
+![](https://raw.githubusercontent.com/moecopilot/B-Tree.studio/master/docs/.vuepress/plugin/vuepress-plugin-music-bar/img/music-bar-1.png)
 
 ### 鼠标移入展开 Move in mouse to expand
 
-![](img/music-bar-2.png)
+![](https://raw.githubusercontent.com/moecopilot/B-Tree.studio/master/docs/.vuepress/plugin/vuepress-plugin-music-bar/img/music-bar-2.png)
 
 ### 阴影进度条 Shadow progress bar
 
-![](img/music-bar-3.png)
+![](https://raw.githubusercontent.com/moecopilot/B-Tree.studio/master/docs/.vuepress/plugin/vuepress-plugin-music-bar/img/music-bar-3.png)
 
 ## Quick Start
 
