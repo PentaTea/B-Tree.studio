@@ -1,6 +1,6 @@
 {
   "name": "vuepress-plugin-music-bar",
-  "version": "2.0.2",
+  "version": "2.0.4",
   "description": "A music-bar plugin for vuepress",
   "keywords": [
     "vue",
@@ -29,5 +29,8 @@
     "node-fetch": "^2.6.0",
     "vuepress": "^1.0.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "howler": "^2.1.3",
+    "node-fetch": "^2.6.0"
+  }
 }

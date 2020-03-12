@@ -98,9 +98,7 @@
 </template>
 
 <script>
-const { Howl, Howler } = require("./node_modules/howler");
-
-var src = "";
+const { Howl, Howler } = require("howler");
 export default {
   name: "MusicBar",
   data() {

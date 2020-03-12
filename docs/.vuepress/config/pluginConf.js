@@ -128,5 +128,15 @@ module.exports = [
       background: "linear-gradient(-20deg, #00cdac 0%, #8ddad5 100%)"
     }
   ]
-  //["music-bar"]
+  // [
+  //   "music-bar",
+  //   {
+  //     platform: "music.163.com",
+  //     options: {
+  //       PlayListId: "4909779787"
+  //     },
+  //     FirstClickPlay: true,
+  //     background: "linear-gradient(-20deg, #00cdac 0%, #8ddad5 100%)"
+  //   }
+  // ]
 ];
