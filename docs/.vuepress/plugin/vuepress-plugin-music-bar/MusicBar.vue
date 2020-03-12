@@ -253,7 +253,8 @@ export default {
 
 .music-bar-player {
   height: 50px;
-  width: 300px;
+  width: 30vw;
+  min-width: 250px;
   background-image: linear-gradient(-20deg, #00cdac 0%, #8ddad5 100%);
   overflow: hidden;
   position: relative;
