@@ -33,18 +33,18 @@ module.exports = [
   //   }
   // ],
   [
-    'vuepress-plugin-zooming',
+    "vuepress-plugin-zooming",
     {
-      selector: 'p img',
+      selector: "p img",
       delay: 1000,
       options: {
         bgColor: "#ffffff",
         zIndex: 10000,
         bgOpacity: 0.6,
         scaleExtra: 1,
-        transitionDuration: 0.2,
-      },
-    },
+        transitionDuration: 0.2
+      }
+    }
   ],
 
   //自动分组
@@ -55,11 +55,11 @@ module.exports = [
     "vuepress-plugin-container",
     {
       type: "PL",
-      before: file => `<div class="ProductList"><SP file="${file}" height="200" /><div><p>`,
+      before: file =>
+        `<div class="ProductList"><SP file="${file}" height="200" /><div><p>`,
       after: "</p></div></div>"
     }
   ],
-
 
   vssue,
 
@@ -81,10 +81,12 @@ module.exports = [
       author: (_, $site) => $site.themeConfig.author,
       tags: $page => $page.frontmatter.tags,
       twitterCard: _ => "/favicon.jpeg",
-      type: $page => ["articles", "posts", "blog"].some(folder =>
+      type: $page =>
+        ["articles", "posts", "blog"].some(folder =>
           $page.regularPath.startsWith("/" + folder)
-        ) ?
-        "article" : "website",
+        )
+          ? "article"
+          : "website",
       url: (_, $site, path) => ($site.themeConfig.domain || "") + path,
       image: ($page, $site) =>
         $page.frontmatter.image &&
@@ -115,12 +117,16 @@ module.exports = [
       hostname: "https://b-tree.studio"
     }
   ],
-  [require('./../plugin/vuepress-plugin-music-bar/index.js'), {
-    platform: "music.163.com",
-    options: {
-      PlayListId: "4909779787"
-    },
-    AutoPlay: true,
-  }]
+  [
+    require("./../plugin/vuepress-plugin-music-bar/index.js"),
+    {
+      platform: "music.163.com",
+      options: {
+        PlayListId: "4909779787"
+      },
+      FirstClickPlay: true,
+      background: "linear-gradient(-20deg, #00cdac 0%, #8ddad5 100%)"
+    }
+  ]
   //["music-bar"]
 ];
