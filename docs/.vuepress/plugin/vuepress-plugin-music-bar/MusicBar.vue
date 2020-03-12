@@ -3,13 +3,92 @@
     <div class="music-bar">
       <div class="card-holder">
         <div class="card-wrapper">
-          <div class="card" @click.once="FirstClick()">
+          <div class="card">
+            <div class="music-bar-top" id="music-bar-top" @click.once="FirstClick()"></div>
             <div class="music-bar-player" :style="{background:background}">
               <div class="progress" :style="{width:progress}"></div>
-              <div class="control"></div>
+              <div class="control">
+                <div @click="Skip(-1)">
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="24"
+                    height="24"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="css-i6dzq1"
+                  >
+                    <polygon points="19 20 9 12 19 4 19 20" />
+                    <line x1="5" y1="19" x2="5" y2="5" />
+                  </svg>
+                </div>
+                <div @click="Pause()">
+                  <svg
+                    v-if="!Playing"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    height="24"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="css-i6dzq1"
+                  >
+                    <polygon points="5 3 19 12 5 21 5 3" />
+                  </svg>
+                  <svg
+                    v-if="Playing"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    height="24"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="css-i6dzq1"
+                  >
+                    <rect x="6" y="4" width="4" height="16" />
+                    <rect x="14" y="4" width="4" height="16" />
+                  </svg>
+                </div>
+                <div @click="Skip(1)">
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="24"
+                    height="24"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="css-i6dzq1"
+                  >
+                    <polygon points="5 4 15 12 5 20 5 4" />
+                    <line x1="19" y1="5" x2="19" y2="19" />
+                  </svg>
+                </div>
+              </div>
             </div>
             <div class="music-bar-icon">
-              <i class="fas fa-music" style="color: #fff;"></i>
+              <svg
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+                stroke="currentColor"
+                stroke-width="1.5"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="css-i6dzq1"
+              >
+                <path d="M9 18V5l12-2v13" />
+                <circle cx="6" cy="18" r="3" />
+                <circle cx="18" cy="16" r="3" />
+              </svg>
             </div>
           </div>
         </div>
@@ -20,17 +99,18 @@
 
 <script>
 const { Howl, Howler } = require("./node_modules/howler");
+
 var src = "";
 export default {
   name: "MusicBar",
   data() {
     return {
       src: [],
-      play_list_length: Number,
-      sound: {},
-      song_index: 0,
+      play_list: [],
       song_duration: 0,
-      progress: "0%"
+      progress: "0%",
+      index: 0,
+      Playing: false
     };
   },
   computed: {
@@ -55,54 +135,81 @@ export default {
         .then(response => response.json())
         .then(data => {
           //获取歌曲id
-          this.play_list_length = data.playlist.trackIds.length;
           data.playlist.trackIds.forEach((e, i) => {
             fetch(
               "https://api.imjad.cn/cloudmusic/?type=song&id=" + e.id.toString()
             )
               .then(response => response.json())
               .then(data => {
-                console.log(data.data[0].url);
-                this.src.push(data.data[0].url);
-                if (this.src.length >= this.play_list_length) {
-                  this.HowlInit();
-                }
+                this.HowlInit(data.data[0].url);
               });
           });
         });
     },
-    HowlInit: function() {
-      console.log(this.src.length);
-      this.sound = new Howl({
-        src: this.src,
-        html5: true
-      });
-      setInterval(this.Progress, 100);
+    HowlInit: function(url) {
+      this.play_list.push(
+        new Howl({
+          src: url,
+          html5: true,
+          onend: () => {
+            this.Skip(1);
+          },
+          onplay: () => {
+            this.Playing = true;
+          },
+          onpause: () => {
+            this.Playing = false;
+          }
+        })
+      );
     },
     FirstClick: function() {
+      let top = document.getElementById("music-bar-top");
+      top.style.height = 0;
+      top.style.width = 0;
       if (MUSICBAR_OPTIONS.FirstClickPlay) {
         this.Play();
       }
     },
     Play: function() {
-      //随机播放this.sound.play(Math.floor(Math.random() * this.play_list_length));
-      console.log(this.sound.play());
-      this.song_duration = this.sound.duration();
+      this.play_list[this.index].play();
+      this.song_duration = this.play_list[this.index].duration();
+      setInterval(this.Progress, 100);
     },
     Progress: function() {
       this.progress =
-        ((this.sound.seek() / this.song_duration) * 100).toString() + "%";
+        (
+          (this.play_list[this.index].seek() / this.song_duration) *
+          100
+        ).toString() + "%";
+    },
+    Skip(num) {
+      this.play_list[this.index].stop();
+      this.index += num;
+      if (this.index >= this.play_list.length) {
+        this.index = 0;
+      }
+      if (this.index < 0) {
+        this.index = this.play_list.length - 1;
+      }
+      this.play_list[this.index].play();
+    },
+    Pause() {
+      this.Playing
+        ? this.play_list[this.index].pause()
+        : this.play_list[this.index].play();
     }
   }
 };
 </script>
+
 
 <style lang="stylus" scoped>
 .music-bar {
   position: fixed;
   left: 0.5em;
   bottom: 0.5em;
-  z-index: 1000;
+  z-index: 800;
 }
 
 .card-holder {
@@ -127,6 +234,7 @@ export default {
   background: #55ae9c;
   display: flex;
   justify-content: flex-end;
+  color: #fff;
 }
 
 .card:hover {
@@ -134,6 +242,15 @@ export default {
   left: 100%;
   margin-left: -50px;
   transition: all 0.4s ease-in-out;
+}
+
+.music-bar-top {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 100%;
+  width: 100%;
+  z-index: 900;
 }
 
 .music-bar-player {
@@ -159,6 +276,9 @@ export default {
   top: 0px;
   height: 100%;
   width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .music-bar-icon {
