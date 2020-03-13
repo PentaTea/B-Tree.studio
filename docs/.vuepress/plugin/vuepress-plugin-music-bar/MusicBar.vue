@@ -4,10 +4,19 @@
       <div class="card-holder">
         <div class="card-wrapper">
           <div class="card">
-            <div class="music-bar-top" id="music-bar-top" @click.once="FirstClick()"></div>
+            <div class="music-bar-top" ref="top" @click.once="FirstClick()"></div>
             <div class="music-bar-player" :style="{background:background}">
               <div class="progress" :style="{width:progress}"></div>
-              <div class="control">
+              <div
+                class="control"
+                ref="control"
+                @mousedown.self="mousedownHandler"
+                @mousemove="mousemoveHandler"
+                @mouseup="mouseupHandler"
+                @touchstart="mousedownHandler"
+                @touchmove="mousemoveHandler"
+                @touchend="mouseupHandler"
+              >
                 <div @click="Skip(-1)">
                   <svg
                     viewBox="0 0 24 24"
@@ -71,12 +80,12 @@
                     <line x1="19" y1="5" x2="19" y2="19" />
                   </svg>
                 </div>
-                <div>
-                  <img src="./tail-spin.svg" id="music-bar-loading" :style="{opacity:opacity}" />
-                </div>
               </div>
             </div>
             <div class="music-bar-icon">
+              <div style="position: absolute; left:60px">
+                <img src="./tail-spin.svg" id="music-bar-loading" :style="{opacity:opacity}" />
+              </div>
               <svg
                 viewBox="0 0 24 24"
                 width="24"
@@ -113,7 +122,8 @@ export default {
       index: 0,
       playing: false,
       ready: 0,
-      loaded: 0
+      loaded: 0,
+      isMouseDown: 0
     };
   },
   computed: {
@@ -177,7 +187,7 @@ export default {
       this.ready = 1;
     },
     FirstClick: function() {
-      let top = document.getElementById("music-bar-top");
+      let top = this.$refs.top;
       top.style.height = 0;
       top.style.width = 0;
       if (MUSICBAR_OPTIONS.FirstClickPlay) {
@@ -190,11 +200,12 @@ export default {
       setInterval(this.Progress, 100);
     },
     Progress: function() {
-      this.progress =
-        (
-          (this.play_list[this.index].seek() / this.song_duration) *
-          100
-        ).toString() + "%";
+      if (!this.isMouseDown)
+        this.progress =
+          (
+            (this.play_list[this.index].seek() / this.song_duration) *
+            100
+          ).toString() + "%";
     },
     Skip(num) {
       this.play_list[this.index].stop();
@@ -205,7 +216,7 @@ export default {
       if (this.index < 0) {
         this.index = this.play_list.length - 1;
       }
-      this.play_list[this.index].play();
+      this.Play();
     },
     Pause() {
       this.playing
@@ -216,6 +227,34 @@ export default {
       if (this.ready) {
         this.loaded = this.play_list[this.index].state() === "loaded";
         //console.log(this.loaded);
+      }
+    },
+    mousedownHandler(e) {
+      if (e.touches) e = e.touches[0]; //判断移动端
+      if (e.which === 1 || e.which == undefined) {
+        this.isMouseDown = true;
+      }
+    },
+    mousemoveHandler(e) {
+      if (e.touches) e = e.touches[0];
+      if (this.isMouseDown === true) {
+        // 修改进度条
+        this.progress =
+          (
+            ((e.clientX - 20) / this.$refs.control.clientWidth) *
+            100
+          ).toString() + "%";
+      }
+    },
+    mouseupHandler(e) {
+      if (e.touches) e = e.touches[0];
+      if (this.isMouseDown) {
+        // 修改seek
+        this.play_list[this.index].seek(
+          ((e.clientX - 20) / this.$refs.control.clientWidth) *
+            this.song_duration
+        );
+        this.isMouseDown = false;
       }
     }
   }
@@ -303,9 +342,11 @@ export default {
 
 #music-bar-loading {
   transition: all 0.5s ease;
+  position: relative;
 }
 
 .music-bar-icon {
+  position: relative;
   width: 50px;
   display: flex;
   justify-content: center;

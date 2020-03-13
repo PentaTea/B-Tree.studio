@@ -30,7 +30,7 @@ welcome everyone's Star and fork
 
 ![](https://raw.githubusercontent.com/moecopilot/B-Tree.studio/master/docs/.vuepress/plugin/vuepress-plugin-music-bar/img/music-bar-2.png)
 
-### 阴影进度条 Shadow progress bar
+### 阴影进度条(可拖动) Shadow progress bar(can drag)
 
 ![](https://raw.githubusercontent.com/moecopilot/B-Tree.studio/master/docs/.vuepress/plugin/vuepress-plugin-music-bar/img/music-bar-3.png)
 

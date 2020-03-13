@@ -2,6 +2,13 @@
 
 [README](./README.md) | [CHANGELOG](./CHANGELOG.md)
 
+# 3.0.0 - 2020/3/13
+
+### Added
+
+- 添加进度条拖动功能
+- 添加 loading 显示
+
 # 2.0.0 - 2020/3/13
 
 ### Added
