@@ -13,7 +13,7 @@
                 @mousedown.self="mousedownHandler"
                 @mousemove="mousemoveHandler"
                 @mouseup="mouseupHandler"
-                @touchstart="mousedownHandler"
+                @touchstart.self="mousedownHandler"
                 @touchmove="mousemoveHandler"
                 @touchend="mouseupHandler"
               >
@@ -247,7 +247,7 @@ export default {
       }
     },
     mouseupHandler(e) {
-      if (e.touches) e = e.touches[0];
+      if (e.changedTouches) e = e.changedTouches[0];
       if (this.isMouseDown) {
         // 修改seek
         this.play_list[this.index].seek(
