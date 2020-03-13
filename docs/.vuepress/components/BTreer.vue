@@ -1,16 +1,25 @@
 <template>
   <div class="BTreer" :id="BTreerId">
     <div class="BTreer-img">
-      <p><img :src="img_file" :alt="name" /></p>
+      <p>
+        <img :src="img_file" :alt="name" />
+      </p>
     </div>
     <div class="BTreer-word">
       <h3>{{ name }}</h3>
       <p>
-        <i class="fas fa-briefcase"></i>&nbsp;{{ position }} @ B-Tree Design
+        <embed src="/assets/svg/briefcase.svg" />
+        {{ position }} @ B-Tree Design
         Studio
       </p>
-      <p><i class="fas fa-map-marker-alt"></i>&nbsp;{{ location }}</p>
-      <p><i class="fas fa-globe-asia"></i>&nbsp;{{ lang }}</p>
+      <p>
+        <embed src="/assets/svg/map-pin.svg" />
+        {{ location }}
+      </p>
+      <p>
+        <embed src="/assets/svg/globe.svg" />
+        {{ lang }}
+      </p>
       <p>
         <a :href="qqlink" target="_blank">
           <i class="fab fa-qq"></i>
@@ -28,11 +37,11 @@
             <path
               fill="currentColor"
               d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"
-            ></path>
+            />
             <polygon
               fill="currentColor"
               points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"
-            ></polygon>
+            />
           </svg>
         </a>
       </p>

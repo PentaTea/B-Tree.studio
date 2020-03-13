@@ -26,7 +26,7 @@
                 </div>
                 <div @click="Pause()">
                   <svg
-                    v-if="!Playing"
+                    v-if="!playing"
                     viewBox="0 0 24 24"
                     width="24"
                     height="24"
@@ -40,7 +40,7 @@
                     <polygon points="5 3 19 12 5 21 5 3" />
                   </svg>
                   <svg
-                    v-if="Playing"
+                    v-if="playing"
                     viewBox="0 0 24 24"
                     width="24"
                     height="24"
@@ -70,6 +70,9 @@
                     <polygon points="5 4 15 12 5 20 5 4" />
                     <line x1="19" y1="5" x2="19" y2="19" />
                   </svg>
+                </div>
+                <div>
+                  <img src="./tail-spin.svg" id="music-bar-loading" :style="{opacity:opacity}" />
                 </div>
               </div>
             </div>
@@ -108,12 +111,17 @@ export default {
       song_duration: 0,
       progress: "0%",
       index: 0,
-      Playing: false
+      playing: false,
+      ready: 0,
+      loaded: 0
     };
   },
   computed: {
     background: function() {
       return MUSICBAR_OPTIONS.background ? MUSICBAR_OPTIONS.background : "";
+    },
+    opacity: function() {
+      return Number(!this.loaded);
     }
   },
   mounted: function() {
@@ -122,6 +130,7 @@ export default {
       //网易云音乐
       this.audioInit_163();
     }
+    setInterval(this.State, 100);
   },
   methods: {
     audioInit_163: function() {
@@ -153,13 +162,19 @@ export default {
             this.Skip(1);
           },
           onplay: () => {
-            this.Playing = true;
+            this.playing = true;
+            //console.log("play");
           },
           onpause: () => {
-            this.Playing = false;
+            this.playing = false;
+            //console.log("pause");
+          },
+          onload: () => {
+            //console.log("load");
           }
         })
       );
+      this.ready = 1;
     },
     FirstClick: function() {
       let top = document.getElementById("music-bar-top");
@@ -193,9 +208,15 @@ export default {
       this.play_list[this.index].play();
     },
     Pause() {
-      this.Playing
+      this.playing
         ? this.play_list[this.index].pause()
         : this.play_list[this.index].play();
+    },
+    State() {
+      if (this.ready) {
+        this.loaded = this.play_list[this.index].state() === "loaded";
+        //console.log(this.loaded);
+      }
     }
   }
 };
@@ -278,6 +299,10 @@ export default {
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+
+#music-bar-loading {
+  transition: all 0.5s ease;
 }
 
 .music-bar-icon {
