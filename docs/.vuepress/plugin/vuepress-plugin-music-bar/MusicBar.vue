@@ -314,7 +314,7 @@ export default {
 .music-bar-player {
   height: 50px;
   width: 30vw;
-  min-width: 250px;
+  min-width: 150px;
   background-image: linear-gradient(-20deg, #00cdac 0%, #8ddad5 100%);
   overflow: hidden;
   position: relative;
