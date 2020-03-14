@@ -3,7 +3,7 @@
     <div class="music-bar">
       <div class="card-holder">
         <div class="card-wrapper">
-          <div class="card">
+          <div class="card" :style="{background:frameColor}">
             <div class="music-bar-top" ref="top" @click.once="FirstClick()"></div>
             <div class="music-bar-player" :style="{background:background}">
               <div class="progress" :style="{width:progress}"></div>
@@ -111,122 +111,159 @@
 
 <script>
 const { Howl, Howler } = require("howler");
+const {
+  playList = [],
+  platform = [],
+  firstClickPlay = true,
+  background = "",
+  timeOut = 2000,
+  frameColor,
+  ...others
+} = MUSICBAR_OPTIONS;
 export default {
   name: "MusicBar",
   data() {
     return {
       src: [],
-      play_list: [],
-      song_duration: 0,
+      playList: [],
+      duration: 0,
       progress: "0%",
       index: 0,
       playing: false,
       ready: 0,
-      loaded: 0,
       isMouseDown: 0
     };
   },
   computed: {
+    frameColor: function() {
+      return frameColor ? frameColor : "";
+    },
     background: function() {
-      return MUSICBAR_OPTIONS.background ? MUSICBAR_OPTIONS.background : "";
+      return background;
     },
     opacity: function() {
       return Number(!this.loaded);
+    },
+    loaded: function() {
+      return this.ready ? this.playList[this.index].state() === "loaded" : 0;
     }
   },
   mounted: function() {
     //init
-    if (MUSICBAR_OPTIONS.platform == "music.163.com") {
-      //网易云音乐
-      this.audioInit_163();
-    }
-    setInterval(this.State, 100);
+    this.MusicBarInit();
   },
   methods: {
-    audioInit_163: function() {
+    MusicBarInit: function() {
+      //手动列表
+      playList.forEach(e => {
+        this.AudioInit_ByUrl(e);
+      });
+      //平台自动添加歌曲
+      platform.forEach(e => {
+        //多平台支持
+        if (e.name === "music.163.com") {
+          //网易云音乐
+          this.AudioInit_163(e);
+        }
+        //TODO:其他平台
+      });
+    },
+    AudioInit_ByUrl: function(e) {
+      MusicBar.log("load:" + e);
+      this.HowlInit(e);
+    },
+    AudioInit_163: function(e) {
       //获取歌单
-      fetch(
-        "https://api.imjad.cn/cloudmusic/?type=playlist&id=" +
-          MUSICBAR_OPTIONS.options.PlayListId.toString()
-      )
-        .then(response => response.json())
-        .then(data => {
-          //获取歌曲id
-          data.playlist.trackIds.forEach((e, i) => {
-            fetch(
-              "https://api.imjad.cn/cloudmusic/?type=song&id=" + e.id.toString()
-            )
-              .then(response => response.json())
-              .then(data => {
-                this.HowlInit(data.data[0].url);
-              });
-          });
-        });
+      e.playListID.forEach(id => {
+        fetch(
+          "https://api.imjad.cn/cloudmusic/?type=playlist&id=" + id.toString()
+        )
+          .then(response => response.json())
+          .then(data => {
+            //获取歌曲id
+            data.playlist.trackIds.forEach((e, i) => {
+              fetch(
+                "https://api.imjad.cn/cloudmusic/?type=song&id=" +
+                  e.id.toString()
+              )
+                .then(response => response.json())
+                .then(data => {
+                  MusicBar.log("load:" + data.data[0].url);
+                  this.HowlInit(data.data[0].url);
+                });
+            });
+          })
+          .catch(error => MusicBar.error(error));
+      });
     },
     HowlInit: function(url) {
-      this.play_list.push(
+      this.playList.push(
         new Howl({
           src: url,
-          html5: true,
+          //html5: true,
           onend: () => {
             this.Skip(1);
           },
           onplay: () => {
             this.playing = true;
-            //console.log("play");
+            MusicBar.log("play");
           },
           onpause: () => {
             this.playing = false;
-            //console.log("pause");
-          },
-          onload: () => {
-            //console.log("load");
+            MusicBar.log("pause");
           }
         })
       );
-      this.ready = 1;
+      this.ready++;
     },
     FirstClick: function() {
       let top = this.$refs.top;
       top.style.height = 0;
       top.style.width = 0;
-      if (MUSICBAR_OPTIONS.FirstClickPlay) {
+      if (firstClickPlay) {
         this.Play();
       }
+      setInterval(this.TimeOut, timeOut); //检测歌曲是否成功加载,超时换下一首
     },
     Play: function() {
-      this.play_list[this.index].play();
-      this.song_duration = this.play_list[this.index].duration();
+      this.playList[this.index].play();
+      this.duration = this.playList[this.index].duration();
       setInterval(this.Progress, 100);
     },
     Progress: function() {
       if (!this.isMouseDown)
         this.progress =
           (
-            (this.play_list[this.index].seek() / this.song_duration) *
+            (this.playList[this.index].seek() / this.duration) *
             100
           ).toString() + "%";
     },
     Skip(num) {
-      this.play_list[this.index].stop();
+      this.playList[this.index].stop();
       this.index += num;
-      if (this.index >= this.play_list.length) {
+      if (this.index >= this.playList.length) {
         this.index = 0;
       }
       if (this.index < 0) {
-        this.index = this.play_list.length - 1;
+        this.index = this.playList.length - 1;
+      }
+      if (num === 1) {
+        MusicBar.log("next");
+      } else if (num === -1) {
+        MusicBar.log("previous");
       }
       this.Play();
     },
     Pause() {
       this.playing
-        ? this.play_list[this.index].pause()
-        : this.play_list[this.index].play();
+        ? this.playList[this.index].pause()
+        : this.playList[this.index].play();
     },
-    State() {
-      if (this.ready) {
-        this.loaded = this.play_list[this.index].state() === "loaded";
-        //console.log(this.loaded);
+
+    TimeOut() {
+      if (this.ready && this.playList[this.index].state() != "loaded") {
+        MusicBar.warn("Loading timed out, trying to replace the next song");
+        this.Skip(1);
       }
     },
     mousedownHandler(e) {
@@ -250,12 +287,29 @@ export default {
       if (e.changedTouches) e = e.changedTouches[0];
       if (this.isMouseDown) {
         // 修改seek
-        this.play_list[this.index].seek(
-          ((e.clientX - 20) / this.$refs.control.clientWidth) *
-            this.song_duration
+        this.playList[this.index].seek(
+          ((e.clientX - 20) / this.$refs.control.clientWidth) * this.duration
         );
         this.isMouseDown = false;
       }
+    }
+  }
+};
+var MusicBar = {
+  log: function(msg) {
+    if (MUSICBAR_ENABLE_DEBUG)
+      console.log("%c[music-bar]" + msg, "color: green;");
+  },
+  warn: function(msg) {
+    if (MUSICBAR_ENABLE_DEBUG) console.warn("[music-bar]" + msg);
+  },
+  error: function(msg) {
+    if (MUSICBAR_ENABLE_DEBUG) console.error("[music-bar]" + msg);
+  },
+  table: function(msg) {
+    if (MUSICBAR_ENABLE_DEBUG) {
+      console.log("[music-bar]");
+      console.table(msg);
     }
   }
 };
@@ -289,7 +343,7 @@ export default {
   margin: 8px;
   background: #fff;
   transition: all 0.4s ease-in-out 0.1s;
-  background: #55ae9c;
+  background: $accentColor;
   display: flex;
   justify-content: flex-end;
   color: #fff;

@@ -13,10 +13,11 @@
     <PageNav v-bind="{ sidebarItems }" />
 
     <slot name="bottom" />
+    <Vssue :title="VssueTitle" />
   </main>
 </template>
 
-<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+
 <script>
 import PageEdit from "@theme/components/PageEdit.vue";
 import PageNav from "@theme/components/PageNav.vue";
@@ -28,6 +29,11 @@ export default {
       word_num: 0,
       word_time: 0
     };
+  },
+  computed: {
+    VssueTitle() {
+      return this.$page.path + "  " + this.$page.title;
+    }
   },
   props: ["sidebarItems"],
   mounted: function() {
@@ -49,43 +55,48 @@ export default {
 </script>
 
 <style lang="stylus">
-@require '../styles/wrapper.styl'
+@require '../styles/wrapper.styl';
 
-.page
-  padding-bottom 2rem
-  display block
+.page {
+  padding-bottom: 2rem;
+  display: block;
+}
 
-p.img-content
-  line-height 3
-  display -webkit-flex
-  display flex
-  flex-wrap wrap
-  justify-content space-around
+p.img-content {
+  line-height: 3;
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
 
-.svg-player
-  display -webkit-flex
-  display flex
-  justify-content center
-  margin 0 20px
-  min-width 25%
+.svg-player {
+  display: -webkit-flex;
+  display: flex;
+  justify-content: center;
+  margin: 0 20px;
+  min-width: 25%;
+}
 
-.reading-time
-  padding-top 4rem
-  float right
-  //writing-mode vertical-rl
-  margin-left 20px
-  margin-right 20px
-  text-align center
+.reading-time {
+  padding-top: 4rem;
+  float: right;
+  // writing-mode vertical-rl
+  margin-left: 20px;
+  margin-right: 20px;
+  text-align: center;
+}
 
+.reading-time h4 {
+  font-weight: 400;
+  line-height: 0.3;
+}
 
-.reading-time h4
-  font-weight 400
-  line-height 0.3
-
-.ProductList
-    width 100%
-    display flex
-    align-items center
-    border-top 1px solid #eaecef
-    padding 30px 20px
+.ProductList {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #eaecef;
+  padding: 30px 20px;
+}
 </style>

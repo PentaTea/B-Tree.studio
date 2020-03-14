@@ -52,12 +52,24 @@ module.exports = {
     [
       "music-bar",
       {
-        platform: "music.163.com", //目前仅支持网易云
-        options: {
-          PlayListId: "4909779787" //歌单ID
-        },
-        FirstClickPlay: true, //第一次点击标签自动播放
-        background: "linear-gradient(-20deg, #00cdac 0%, #8ddad5 100%)" //更改样式
+        playList: ["example.mp3"], //手动添加歌曲,支持 URLs 或 base64 data URIs ,默认为空数组
+        platform: [
+          //TODO:多平台支持,默认为空数组
+          {
+            name: "music.163.com", //网易云
+            playListID: ["4909779787"] //支持多个歌单 ID
+          }
+        ],
+
+        timeOut: 2000, //加载超时,单位毫秒,默认2000
+
+        firstClickPlay: true, //首次点击自动播放,对移动端友好
+
+        background: "linear-gradient(-20deg, #00cdac 0%, #8ddad5 100%)" //主容器样式
+
+        //debugMode: <Boolean> 开发模式, dev 环境下输出 log 到 console ,默认开启
+
+        //frameColor: <String> 框架颜色,默认为 $accentColor
       }
     ]
   ]
