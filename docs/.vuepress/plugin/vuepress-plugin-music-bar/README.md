@@ -20,7 +20,17 @@ Beautiful music components
 
 如果您觉得不太好康的话欢迎 fork, 大佬们点个星星救我狗命鸭
 
-welcome everyone's Star and fork
+welcome everyone's star and fork
+
+### Features
+
+- 好康,轻量 Beautiful and lightweight
+- 除本地,网络音频之外还支持从平台歌单获取链接(目前仅支持网易云音乐) In addition to local and network audio, it also supports obtaining links from the platform playlist (currently only NetEase cloud music is supported)
+- 自动加载并缓存 Load and cache automatically
+- 加载超时自动跳过 Load timeout automatically skips
+- 移动端适配 Mobile terminal adaptation
+- 多种格式支持 Multiple format support
+- 自动检测开发环境,输出 log,方便调试 Automatically detect development environment and output log for easy debugging
 
 ### 默认收起到左边 Default stow to left
 
@@ -44,37 +54,70 @@ welcome everyone's Star and fork
 
   `yarn add vuepress-plugin-music-bar`
 
-## Add to config.js
+## Add to .vuepress/config.js
 
 ```js
+module.exports = {
+  plugins: [
+    //...
+    [
+      "music-bar",
+      {
+        playList: [],
+        platform: [
+          {
+            name: "music.163.com",
+            playListID: ["4909779787"]
+          }
+        ]
+      }
+    ]
+    //...
+  ]
+};
+```
+
+### All settings and explanations
+
+```js
+//.vuepress/config.js
 module.exports = {
   plugins: [
     [
       "music-bar",
       {
-        playList: ["example.mp3"], //手动添加歌曲,支持 URLs 或 base64 data URIs ,默认为空数组
+        //手动添加歌曲,支持 URLs 或 base64 data URIs ,默认为空
+        //Add songs manually, support URLs or base64 data URIs, empty by default
+        playList: ["example.mp3"],
+
         platform: [
-          //TODO:多平台支持,默认为空数组
+          //目前仅支持网易云 TODO:多平台支持,默认为空数组
+          //Currently only supports Netease Cloud Music,
+          //the default is an empty array TODO: Multi-platform support,
           {
-            name: "music.163.com", //网易云
-            playListID: ["4909779787"] //支持多个歌单 ID
+            name: "music.163.com",
+            playListID: ["4909779787"] //支持多个歌单 ID  //Support multiple playlist IDs
           }
         ],
 
-        timeOut: 2000, //加载超时,单位毫秒,默认2000
+        timeOut: 2000, //加载超时,单位毫秒,默认2000  //Load timeout in milliseconds, default 2000
 
-        firstClickPlay: true, //首次点击自动播放,对移动端友好
+        firstClickPlay: true //首次点击自动播放,对移动端友好  //The first click autoplay, mobile friendly
 
-        background: "linear-gradient(-20deg, #00cdac 0%, #8ddad5 100%)" //主容器样式
+        //debugMode: <Boolean> Development mode, if in the dev environment,
+        //                     output log to console, enabled by default
 
-        //debugMode: <Boolean> 开发模式, dev 环境下输出 log 到 console ,默认开启
+        //background: <String> //主容器样式  //Main container style
+        //                       default: "linear-gradient(-20deg, #00cdac 0%, #8ddad5 100%)"
 
-        //frameColor: <String> 框架颜色,默认为 $accentColor
+        //frameColor: <String> default: $accentColor
       }
     ]
   ]
 };
 ```
+
+enjoy:)
 
 SVG from https://feathericons.com/
 

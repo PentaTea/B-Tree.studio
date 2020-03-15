@@ -13,7 +13,9 @@
     <PageNav v-bind="{ sidebarItems }" />
 
     <slot name="bottom" />
-    <Vssue :title="VssueTitle" />
+    <div class="page-nav" v-if="$page.frontmatter.Vssue != false">
+      <Vssue :title="VssueTitle" />
+    </div>
   </main>
 </template>
 
@@ -31,13 +33,14 @@ export default {
     };
   },
   computed: {
-    VssueTitle() {
+    VssueTitle: function() {
       return this.$page.path + "  " + this.$page.title;
     }
   },
   props: ["sidebarItems"],
   mounted: function() {
     //图片样式处理
+
     let img = document.querySelectorAll("p img");
     for (let index = 0; index < img.length; index++) {
       img[index].parentNode.setAttribute("class", "img-content");

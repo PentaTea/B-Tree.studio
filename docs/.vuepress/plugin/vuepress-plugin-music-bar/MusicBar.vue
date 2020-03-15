@@ -231,7 +231,7 @@ export default {
       setInterval(this.Progress, 100);
     },
     Progress: function() {
-      if (!this.isMouseDown)
+      if (!this.isMouseDown && this.loaded)
         this.progress =
           (
             (this.playList[this.index].seek() / this.duration) *
@@ -267,9 +267,12 @@ export default {
       }
     },
     mousedownHandler(e) {
-      if (e.touches) e = e.touches[0]; //判断移动端
-      if (e.which === 1 || e.which == undefined) {
-        this.isMouseDown = true;
+      if (this.loaded) {
+        //判断加载完成
+        if (e.touches) e = e.touches[0]; //判断移动端
+        if (e.which === 1 || e.which == undefined) {
+          this.isMouseDown = true;
+        }
       }
     },
     mousemoveHandler(e) {
