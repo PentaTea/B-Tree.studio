@@ -239,6 +239,7 @@ export default {
           ).toString() + "%";
     },
     Skip(num) {
+      this.playList[this.index].pause();
       this.playList[this.index].stop();
       this.index += num;
       if (this.index >= this.playList.length) {
@@ -371,7 +372,7 @@ var MusicBar = {
 .music-bar-player {
   height: 50px;
   width: 30vw;
-  min-width: 150px;
+  min-width: 200px;
   background-image: linear-gradient(-20deg, #00cdac 0%, #8ddad5 100%);
   overflow: hidden;
   position: relative;
