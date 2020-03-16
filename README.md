@@ -4,7 +4,7 @@
 
 ## [vuepress-plugin-music-bar](https://github.com/moecopilot/B-Tree.studio/tree/master/docs/.vuepress/plugin/vuepress-plugin-music-bar#vuepress-plugin-music-bar)
 
-[npm vuepress-plugin-music-bar](https://www.npmjs.com/package/vuepress-plugin-music-bar)
+[npm install vuepress-plugin-music-bar](https://www.npmjs.com/package/vuepress-plugin-music-bar)
 
 
 ## b-tree.studio
