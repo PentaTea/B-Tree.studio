@@ -1,13 +1,18 @@
 {
   "name": "vuepress-plugin-music-bar",
-  "version": "3.2.4",
+  "version": "3.2.5",
   "description": "A music-bar plugin for vuepress",
   "keywords": [
     "vue",
     "vuepress",
     "plugin",
     "music",
-    "music-bar"
+    "music-bar",
+    "插件",
+    "vuepress插件",
+    "音乐",
+    "bgm",
+    "player"
   ],
   "homepage": "https://github.com/moecopilot/B-Tree.studio/tree/master/docs/.vuepress/plugin/vuepress-plugin-music-bar#readme",
   "bugs": {
