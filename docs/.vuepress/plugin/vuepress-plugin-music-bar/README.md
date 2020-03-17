@@ -67,7 +67,7 @@ module.exports = {
         platform: [
           {
             name: "music.163.com",
-            playListID: ["4909779787"]
+            playListIDs: ["4909779787"]
           }
         ]
       }
@@ -96,7 +96,8 @@ module.exports = {
           //the default is an empty array TODO: Multi-platform support,
           {
             name: "music.163.com",
-            playListID: ["4909779787"] //支持多个歌单 ID  //Support multiple playlist IDs
+            songIDs[]//支持多个歌曲 ID  //Support multiple song IDs
+            playListIDs: ["4909779787"] //支持多个歌单 ID  //Support multiple playlist IDs
           }
         ],
 

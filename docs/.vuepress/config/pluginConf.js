@@ -110,7 +110,7 @@ module.exports = [
       successText: "复制成功"
     }
   ],
-  // ["element-ui"],
+  ["element-ui"],
   [
     "sitemap",
     {
@@ -120,24 +120,20 @@ module.exports = [
   [
     require("./../plugin/vuepress-plugin-music-bar/index.js"),
     {
-      playList: [], //手动添加歌曲,支持 URLs 或 base64 data URIs ,默认为空数组
+      playList: [],
+
       platform: [
-        //TODO:多平台支持,默认为空数组
         {
-          name: "music.163.com", //网易云
-          playListID: ["4909779787"] //支持多个歌单 ID
+          name: "music.163.com",
+          playListIDs: ["4909779787"]
         }
       ],
 
-      timeOut: 2000, //加载超时,单位毫秒,默认2秒
+      timeOut: 2000,
 
-      firstClickPlay: true, //首次点击bar自动播放,对移动端友好
+      firstClickPlay: true,
 
-      background: "linear-gradient(-20deg, #00cdac 0%, #8ddad5 100%)" //主容器样式
-
-      //debugMode: <Boolean> 开发模式, dev 环境下输出 log 到 console 默认开启
-
-      //frameColor: <String> 框架颜色,默认为 $accentColor
+      background: "linear-gradient(-20deg, #00cdac 0%, #8ddad5 100%)"
     }
   ]
   // [

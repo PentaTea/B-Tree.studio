@@ -1,9 +1,10 @@
 <template>
   <main class="page">
-    <div class="reading-time">
-      <h4>{{ word_time }}</h4>
-      <h4>min</h4>
-      <h4>read</h4>
+    <div class="reading-time" v-if="$page.frontmatter.readingTime != false">
+      <h4>
+        <i class="el-icon-reading"></i>
+        {{ word_time }} ′
+      </h4>
     </div>
     <slot name="top" />
 
@@ -13,7 +14,7 @@
     <PageNav v-bind="{ sidebarItems }" />
 
     <slot name="bottom" />
-    <div class="page-nav" v-if="$page.frontmatter.Vssue != false">
+    <div class="page-nav" v-if="$page.frontmatter.vssue != false">
       <Vssue :title="VssueTitle" />
     </div>
   </main>

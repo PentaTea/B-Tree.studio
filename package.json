@@ -2,7 +2,7 @@
   "name": "b-tree",
   "version": "1.0.0",
   "author": "moecopilot",
-  "license": "Mozilla",
+  "license": "MPL-2.0",
   "scripts": {
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
@@ -33,7 +33,7 @@
     "vuepress-plugin-container": "^2.1.2",
     "vuepress-plugin-disqus": "^0.2.0",
     "vuepress-plugin-element-tabs": "^0.2.8",
-    "vuepress-plugin-element-ui": "^1.0.1",
+    "vuepress-plugin-element-ui": "^1.0.2",
     "vuepress-plugin-medium-zoom": "^1.1.8",
     "vuepress-plugin-music-bar": "^3.2.1",
     "vuepress-plugin-named-chunks": "^1.1.2",
@@ -45,12 +45,14 @@
     "vuepress-plugin-zooming": "^1.1.7"
   },
   "dependencies": {
+    "core-js": "2",
     "esm": "^3.2.25",
     "ityped": "^1.0.3",
     "sass-loader": "^8.0.2",
     "sitemap": "^5.1.0",
     "vue-svg-icon": "^1.2.9",
     "vuepress-plugin-sitemap": "^2.3.1",
+    "vuescroll": "^4.15.0",
     "webpack": "^5.0.0-beta.13"
   }
 }

@@ -7,32 +7,31 @@
         :alt="data.heroAlt || 'hero'"
         style="min-width: 200px"
       />
-      <h1 v-if="data.heroText !== null" id="main-title">
-        {{ data.heroText || $title || "Hello" }}
-      </h1>
+      <h1 v-if="data.heroText !== null" id="main-title">{{ data.heroText || $title || "Hello" }}</h1>
       <p v-if="data.tagline !== null" class="description">
-        <span v-if="data.ityped !== true">
-          {{ data.tagline || $description || "Welcome to your VuePress site" }}
-        </span>
-        <span id="ityped-description"> </span>
+        <span
+          v-if="data.ityped !== true"
+        >{{ data.tagline || $description || "Welcome to your VuePress site" }}</span>
+        <span id="ityped-description"></span>
       </p>
       <p v-if="data.actionText && data.actionLink" class="action">
         <NavLink class="action-button" :item="actionLink" />
       </p>
     </header>
     <div v-if="data.features && data.features.length" class="features">
-      <div
-        v-for="(feature, index) in data.features"
-        :key="index"
-        class="feature"
-      >
+      <div v-for="(feature, index) in data.features" :key="index" class="feature">
         <h2>{{ feature.title }}</h2>
         <p>{{ feature.details }}</p>
       </div>
     </div>
     <Content class="theme-default-content custom" />
     <div class="footer">
-      Mozilla Licensed | Copyright © {{ d() }} moecopilot ｜ Vuepress
+      MPL-2.0 Licensed | Copyright © {{ d() }}
+      <a
+        href="https://github.com/moecopilot"
+        target="_blank"
+      >moecopilot</a> |
+      <RouterLink to="py-list/">友人帐</RouterLink>
     </div>
   </main>
 </template>
@@ -159,6 +158,7 @@ export default {
 
   .footer {
     padding: 2.5rem;
+    font-size: 20px;
     border-top: 1px solid $borderColor;
     text-align: center;
     color: lighten($textColor, 25%);
@@ -216,29 +216,29 @@ export default {
 }
 
 .ityped-cursor {
-    font-size: 2.2rem;
-    opacity: 1;
-    -webkit-animation: blink 0.5s infinite;
-    -moz-animation: blink 0.5s infinite;
-    animation: blink 0.5s infinite;
-    animation-direction: alternate;
+  font-size: 2.2rem;
+  opacity: 1;
+  -webkit-animation: blink 0.5s infinite;
+  -moz-animation: blink 0.5s infinite;
+  animation: blink 0.5s infinite;
+  animation-direction: alternate;
 }
 
 @keyframes blink {
-    100% {
-        opacity: 0;
-    }
+  100% {
+    opacity: 0;
+  }
 }
 
-@-webkit-keyframes blink {
-    100% {
-        opacity: 0;
-    }
+@keyframes blink {
+  100% {
+    opacity: 0;
+  }
 }
 
-@-moz-keyframes blink {
-    100% {
-        opacity: 0;
-    }
+@keyframes blink {
+  100% {
+    opacity: 0;
+  }
 }
 </style>

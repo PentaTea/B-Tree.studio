@@ -166,6 +166,8 @@ export default {
           this.AudioInit_163(e);
         }
         //TODO:其他平台
+
+        MusicBar.object(this.playList, "playList:\n");
       });
     },
     AudioInit_ByUrl: function(e) {
@@ -173,28 +175,46 @@ export default {
       this.HowlInit(e);
     },
     AudioInit_163: function(e) {
+      //获取歌曲
+      if (e.songIDs) {
+        e.songIDs.forEach(id => {
+          fetch(
+            "https://api.imjad.cn/cloudmusic/?type=song&id=" + id.toString()
+          )
+            .then(response => response.json())
+            .then(data => {
+              //获取歌曲id
+              MusicBar.log("load:" + data.data[0].url);
+              this.HowlInit(data.data[0].url);
+            })
+            .catch(error => MusicBar.error(error));
+        });
+      }
       //获取歌单
-      e.playListID.forEach(id => {
-        fetch(
-          "https://api.imjad.cn/cloudmusic/?type=playlist&id=" + id.toString()
-        )
-          .then(response => response.json())
-          .then(data => {
-            //获取歌曲id
-            data.playlist.trackIds.forEach((e, i) => {
-              fetch(
-                "https://api.imjad.cn/cloudmusic/?type=song&id=" +
-                  e.id.toString()
-              )
-                .then(response => response.json())
-                .then(data => {
-                  MusicBar.log("load:" + data.data[0].url);
-                  this.HowlInit(data.data[0].url);
-                });
-            });
-          })
-          .catch(error => MusicBar.error(error));
-      });
+      if (e.playListIDs) {
+        e.playListIDs.forEach(id => {
+          fetch(
+            "https://api.imjad.cn/cloudmusic/?type=playlist&id=" + id.toString()
+          )
+            .then(response => response.json())
+            .then(data => {
+              //获取歌曲id
+              data.playlist.trackIds.forEach((e, i) => {
+                fetch(
+                  "https://api.imjad.cn/cloudmusic/?type=song&id=" +
+                    e.id.toString()
+                )
+                  .then(response => response.json())
+                  .then(data => {
+                    MusicBar.log("load:" + data.data[0].url);
+                    this.HowlInit(data.data[0].url);
+                  })
+                  .catch(error => MusicBar.error(error));
+              });
+            })
+            .catch(error => MusicBar.error(error));
+        });
+      }
     },
     HowlInit: function(url) {
       this.playList.push(
@@ -256,6 +276,7 @@ export default {
       this.Play();
     },
     Pause() {
+      this.playing = this.playList[this.index].playing();
       this.playing
         ? this.playList[this.index].pause()
         : this.playList[this.index].play();
@@ -310,10 +331,9 @@ var MusicBar = {
   error: function(msg) {
     if (MUSICBAR_ENABLE_DEBUG) console.error("[music-bar]" + msg);
   },
-  table: function(msg) {
+  object: function(e, msg) {
     if (MUSICBAR_ENABLE_DEBUG) {
-      console.log("[music-bar]");
-      console.table(msg);
+      console.log("[music-bar] %s \n%o", msg, e);
     }
   }
 };
