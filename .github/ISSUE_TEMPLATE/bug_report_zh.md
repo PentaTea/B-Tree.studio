@@ -1,9 +1,10 @@
 ---
 name: 提交Bug报告
 about: 创建报告以帮助我们改进
-title: ""
-labels: ""
-assignees: ""
+title: "[BUG]"
+labels: bug
+assignees: ''
+
 ---
 
 **产品**
