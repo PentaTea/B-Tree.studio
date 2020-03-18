@@ -126,12 +126,12 @@ export default {
     return {
       src: [],
       playList: [],
-      duration: 0,
       progress: "0%",
       index: 0,
       playing: false,
       ready: 0,
-      isMouseDown: 0
+      isMouseDown: 0,
+      from: ""
     };
   },
   computed: {
@@ -145,9 +145,15 @@ export default {
       return Number(!this.loaded);
     },
     loaded: function() {
-      return this.ready ? this.playList[this.index].state() === "loaded" : 0;
+      return this.ready
+        ? this.playList[this.index].howl.state() === "loaded"
+        : 0;
+    },
+    duration: function() {
+      return this.playList[this.index].howl.duration();
     }
   },
+
   mounted: function() {
     //init
     this.MusicBarInit();
@@ -184,8 +190,20 @@ export default {
             .then(response => response.json())
             .then(data => {
               //获取歌曲id
-              MusicBar.log("load:" + data.data[0].url);
-              this.HowlInit(data.data[0].url);
+              let url = data.data[0].url;
+              MusicBar.log("load:" + url);
+              fetch(
+                "https://api.imjad.cn/cloudmusic/?type=detail&id=" +
+                  id.toString()
+              )
+                .then(response => response.json())
+                .then(data => {
+                  this.HowlInit(
+                    data.songs[0].name + " - " + data.songs[0].ar[0].name,
+                    url
+                  );
+                })
+                .catch(error => MusicBar.error(error));
             })
             .catch(error => MusicBar.error(error));
         });
@@ -206,8 +224,20 @@ export default {
                 )
                   .then(response => response.json())
                   .then(data => {
-                    MusicBar.log("load:" + data.data[0].url);
-                    this.HowlInit(data.data[0].url);
+                    let url = data.data[0].url;
+                    MusicBar.log("load:" + url);
+                    fetch(
+                      "https://api.imjad.cn/cloudmusic/?type=detail&id=" +
+                        e.id.toString()
+                    )
+                      .then(response => response.json())
+                      .then(data => {
+                        this.HowlInit(
+                          data.songs[0].name + " - " + data.songs[0].ar[0].name,
+                          url
+                        );
+                      })
+                      .catch(error => MusicBar.error(error));
                   })
                   .catch(error => MusicBar.error(error));
               });
@@ -216,9 +246,11 @@ export default {
         });
       }
     },
-    HowlInit: function(url) {
-      this.playList.push(
-        new Howl({
+    HowlInit: function(name, url) {
+      this.playList.push({
+        name: name,
+        url: url,
+        howl: new Howl({
           src: url,
           //html5: true,
           onend: () => {
@@ -226,14 +258,42 @@ export default {
           },
           onplay: () => {
             this.playing = true;
-            MusicBar.log("play");
+            MusicBar.log(
+              "play " +
+                " [" +
+                this.index +
+                "] " +
+                this.playList[this.index].name
+            );
           },
           onpause: () => {
             this.playing = false;
-            MusicBar.log("pause");
+            MusicBar.log(
+              "pause" +
+                " [" +
+                this.index +
+                "] " +
+                this.playList[this.index].name
+            );
+          },
+          onseek: () => {
+            MusicBar.log(
+              "seek " +
+                " [" +
+                this.index +
+                "] " +
+                this.playList[this.index].name +
+                "\nfrom " +
+                this.from +
+                " to " +
+                ((this.playList[this.index].howl.seek() / this.duration) * 100)
+                  .toFixed(2)
+                  .toString() +
+                "%"
+            );
           }
         })
-      );
+      });
       this.ready++;
     },
     FirstClick: function() {
@@ -244,23 +304,21 @@ export default {
         this.Play();
       }
       setInterval(this.TimeOut, timeOut); //检测歌曲是否成功加载,超时换下一首
+      setInterval(this.Progress, 10);
     },
     Play: function() {
-      this.playList[this.index].play();
-      this.duration = this.playList[this.index].duration();
-      setInterval(this.Progress, 100);
+      this.playList[this.index].howl.play();
     },
     Progress: function() {
       if (!this.isMouseDown && this.loaded)
         this.progress =
-          (
-            (this.playList[this.index].seek() / this.duration) *
-            100
-          ).toString() + "%";
+          ((this.playList[this.index].howl.seek() / this.duration) * 100)
+            .toFixed(2)
+            .toString() + "%";
     },
     Skip(num) {
-      this.playList[this.index].pause();
-      this.playList[this.index].stop();
+      //this.playList[this.index].howl.pause();
+      this.playList[this.index].howl.stop();
       this.index += num;
       if (this.index >= this.playList.length) {
         this.index = 0;
@@ -276,14 +334,14 @@ export default {
       this.Play();
     },
     Pause() {
-      this.playing = this.playList[this.index].playing();
+      this.playing = this.playList[this.index].howl.playing();
       this.playing
-        ? this.playList[this.index].pause()
-        : this.playList[this.index].play();
+        ? this.playList[this.index].howl.pause()
+        : this.playList[this.index].howl.play();
     },
 
     TimeOut() {
-      if (this.ready && this.playList[this.index].state() != "loaded") {
+      if (this.ready && this.playList[this.index].howl.state() != "loaded") {
         MusicBar.warn("Loading timed out, trying to replace the next song");
         this.Skip(1);
       }
@@ -302,19 +360,23 @@ export default {
       if (this.isMouseDown === true) {
         // 修改进度条
         this.progress =
-          (
-            ((e.clientX - 20) / this.$refs.control.clientWidth) *
-            100
-          ).toString() + "%";
+          (((e.clientX - 20) / this.$refs.control.clientWidth) * 100)
+            .toFixed(2)
+            .toString() + "%";
       }
     },
     mouseupHandler(e) {
       if (e.changedTouches) e = e.changedTouches[0];
       if (this.isMouseDown) {
         // 修改seek
-        this.playList[this.index].seek(
+        this.from =
+          ((this.playList[this.index].howl.seek() / this.duration) * 100)
+            .toFixed(2)
+            .toString() + "%";
+        this.playList[this.index].howl.seek(
           ((e.clientX - 20) / this.$refs.control.clientWidth) * this.duration
         );
+
         this.isMouseDown = false;
       }
     }
@@ -323,17 +385,17 @@ export default {
 var MusicBar = {
   log: function(msg) {
     if (MUSICBAR_ENABLE_DEBUG)
-      console.log("%c[music-bar]" + msg, "color: green;");
+      console.log("\n\n%c[music-bar]" + msg, "color: green;");
   },
   warn: function(msg) {
-    if (MUSICBAR_ENABLE_DEBUG) console.warn("[music-bar]" + msg);
+    if (MUSICBAR_ENABLE_DEBUG) console.warn("\n\n[music-bar]" + msg);
   },
   error: function(msg) {
-    if (MUSICBAR_ENABLE_DEBUG) console.error("[music-bar]" + msg);
+    if (MUSICBAR_ENABLE_DEBUG) console.error("\n\n[music-bar]" + msg);
   },
   object: function(e, msg) {
     if (MUSICBAR_ENABLE_DEBUG) {
-      console.log("[music-bar] %s \n%o", msg, e);
+      console.log("\n\n%c[music-bar] %s \n%o", "color: green;", msg, e);
     }
   }
 };
