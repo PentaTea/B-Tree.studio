@@ -2,6 +2,7 @@ const { path } = require("@vuepress/shared-utils");
 global.fetch = require("node-fetch");
 
 const MusicBarPlugin = (options, ctx) => ({
+  name: "music-bar",
   enhanceAppFiles: [path.resolve(__dirname, "enhanceAppFile.js")],
   globalUIComponents: "MusicBar",
   define: {
