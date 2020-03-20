@@ -44,6 +44,12 @@ welcome everyone's star and fork
 
 ![](https://raw.githubusercontent.com/moecopilot/B-Tree.studio/master/docs/.vuepress/plugin/vuepress-plugin-music-bar/img/music-bar-3.png)
 
+### 调试模式(仅在开发环境下输出 log,可关闭) Debug mode (only output log in development environment, can be closed)
+
+![](https://raw.githubusercontent.com/moecopilot/B-Tree.studio/master/docs/.vuepress/plugin/vuepress-plugin-music-bar/img/music-bar-4.png)
+
+![](https://raw.githubusercontent.com/moecopilot/B-Tree.studio/master/docs/.vuepress/plugin/vuepress-plugin-music-bar/img/music-bar-5.png)
+
 ## Quick Start
 
 - Install with npm:
