@@ -56,7 +56,7 @@ module.exports = [
     {
       type: "PL",
       before: file =>
-        `<div class="ProductList"><SP file="${file}" height="200" /><div><p>`,
+        `<div class="ProductList"><SP file="${file}" height="200px" /><div><p>`,
       after: "</p></div></div>"
     }
   ],

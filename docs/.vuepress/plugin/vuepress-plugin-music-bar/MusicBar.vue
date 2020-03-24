@@ -1,112 +1,114 @@
 <template>
-  <div>
-    <div class="music-bar">
-      <div class="card-holder">
-        <div class="card-wrapper">
-          <div class="card" :style="{background:frameColor}">
-            <div class="music-bar-top" ref="top" @click.once="FirstClick()"></div>
-            <div class="music-bar-player" :style="{background:background}">
-              <div class="progress" :style="{width:progress}"></div>
-              <div
-                class="control"
-                ref="control"
-                @mousedown.self="mousedownHandler"
-                @mousemove="mousemoveHandler"
-                @mouseup="mouseupHandler"
-                @touchstart.self="mousedownHandler"
-                @touchmove="mousemoveHandler"
-                @touchend="mouseupHandler"
-              >
-                <div @click="Skip(-1)">
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="24"
-                    height="24"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="css-i6dzq1"
-                  >
-                    <polygon points="19 20 9 12 19 4 19 20" />
-                    <line x1="5" y1="19" x2="5" y2="5" />
-                  </svg>
-                </div>
-                <div @click="Pause()">
-                  <svg
-                    v-if="!playing"
-                    viewBox="0 0 24 24"
-                    width="24"
-                    height="24"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="css-i6dzq1"
-                  >
-                    <polygon points="5 3 19 12 5 21 5 3" />
-                  </svg>
-                  <svg
-                    v-if="playing"
-                    viewBox="0 0 24 24"
-                    width="24"
-                    height="24"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="css-i6dzq1"
-                  >
-                    <rect x="6" y="4" width="4" height="16" />
-                    <rect x="14" y="4" width="4" height="16" />
-                  </svg>
-                </div>
-                <div @click="Skip(1)">
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="24"
-                    height="24"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="css-i6dzq1"
-                  >
-                    <polygon points="5 4 15 12 5 20 5 4" />
-                    <line x1="19" y1="5" x2="19" y2="19" />
-                  </svg>
+  <transition name="music-bar-fade">
+    <div v-if="display">
+      <div class="music-bar">
+        <div class="card-holder">
+          <div class="card-wrapper">
+            <div class="card" :style="{background:frameColor}">
+              <div class="music-bar-top" ref="top" @click.once="FirstClick()"></div>
+              <div class="music-bar-player" :style="{background:background}">
+                <div class="progress" :style="{width:progress}"></div>
+                <div
+                  class="control"
+                  ref="control"
+                  @mousedown.self="mousedownHandler"
+                  @mousemove="mousemoveHandler"
+                  @mouseup="mouseupHandler"
+                  @touchstart.self="mousedownHandler"
+                  @touchmove="mousemoveHandler"
+                  @touchend="mouseupHandler"
+                >
+                  <div @click="Skip(-1)">
+                    <svg
+                      viewBox="0 0 24 24"
+                      width="24"
+                      height="24"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      fill="none"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="css-i6dzq1"
+                    >
+                      <polygon points="19 20 9 12 19 4 19 20" />
+                      <line x1="5" y1="19" x2="5" y2="5" />
+                    </svg>
+                  </div>
+                  <div @click="Pause()">
+                    <svg
+                      v-if="!playing"
+                      viewBox="0 0 24 24"
+                      width="24"
+                      height="24"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      fill="none"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="css-i6dzq1"
+                    >
+                      <polygon points="5 3 19 12 5 21 5 3" />
+                    </svg>
+                    <svg
+                      v-if="playing"
+                      viewBox="0 0 24 24"
+                      width="24"
+                      height="24"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      fill="none"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="css-i6dzq1"
+                    >
+                      <rect x="6" y="4" width="4" height="16" />
+                      <rect x="14" y="4" width="4" height="16" />
+                    </svg>
+                  </div>
+                  <div @click="Skip(1)">
+                    <svg
+                      viewBox="0 0 24 24"
+                      width="24"
+                      height="24"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      fill="none"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="css-i6dzq1"
+                    >
+                      <polygon points="5 4 15 12 5 20 5 4" />
+                      <line x1="19" y1="5" x2="19" y2="19" />
+                    </svg>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="music-bar-icon">
-              <div style="position: absolute; left:60px">
-                <img src="./tail-spin.svg" id="music-bar-loading" :style="{opacity:opacity}" />
+              <div class="music-bar-icon">
+                <div style="position: absolute; left:60px">
+                  <img src="./tail-spin.svg" id="music-bar-loading" :style="{opacity:opacity}" />
+                </div>
+                <svg
+                  viewBox="0 0 24 24"
+                  width="24"
+                  height="24"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="css-i6dzq1"
+                >
+                  <path d="M9 18V5l12-2v13" />
+                  <circle cx="6" cy="18" r="3" />
+                  <circle cx="18" cy="16" r="3" />
+                </svg>
               </div>
-              <svg
-                viewBox="0 0 24 24"
-                width="24"
-                height="24"
-                stroke="currentColor"
-                stroke-width="1.5"
-                fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="css-i6dzq1"
-              >
-                <path d="M9 18V5l12-2v13" />
-                <circle cx="6" cy="18" r="3" />
-                <circle cx="18" cy="16" r="3" />
-              </svg>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 <script>
@@ -131,7 +133,8 @@ export default {
       playing: false,
       ready: 0,
       isMouseDown: 0,
-      from: ""
+      from: "",
+      display: 0
     };
   },
   computed: {
@@ -155,6 +158,7 @@ export default {
   },
 
   mounted: function() {
+    this.display = 1;
     //init
     this.MusicBarInit();
   },
@@ -491,5 +495,13 @@ var MusicBar = {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.music-bar-fade-enter-active, .music-bar-fade-leave-active {
+  transition: opacity 1s;
+}
+
+.music-bar-fade-enter, .music-bar-fade-leave-to { /* .fade-leave-active below version 2.1.8 */
+  opacity: 0;
 }
 </style>

@@ -90,22 +90,20 @@ export default {
   border-bottom: 1px dotted #ddd;
   width: 100%;
   display: flex;
-  align-items: center;
+
   padding: 30px 20px;
   flex-wrap: wrap;
 }
 .BTreer-img {
   display: flex;
   justify-content: center;
-  flex-grow: 1;
-  min-width: 250px;
-}
-.BTreer-word {
-  flex-grow: 100;
+
+  min-width: 320px;
 }
 .BTreer img {
-  width: 150px;
-  height: 150px;
+  width: auto;
+  height: 200px;
+  object-fit: contain;
 }
 .BTreer h3 {
   margin: 0px !important;

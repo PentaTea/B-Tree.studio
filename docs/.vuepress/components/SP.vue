@@ -28,7 +28,7 @@ export default {
     },
     duration: {
       type: String,
-      default: "200" // 过渡时间
+      default: "300" // 过渡时间
     },
     start: {
       type: String,
@@ -54,7 +54,7 @@ export default {
     },
     dashGap: {
       type: Number,
-      default: 5
+      default: 50
     },
     forceRender: {
       type: Boolean,
