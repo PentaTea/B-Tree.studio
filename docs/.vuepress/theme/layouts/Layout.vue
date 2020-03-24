@@ -1,6 +1,8 @@
 <template>
   <transition name="fade">
+    <div v-if="loading"></div>
     <div
+      v-else
       class="theme-container"
       :class="pageClasses"
       @touchstart="onTouchStart"
@@ -9,16 +11,20 @@
       <Navbar v-if="shouldShowNavbar" @toggle-sidebar="toggleSidebar" />
 
       <div class="sidebar-mask" @click="toggleSidebar(false)" />
-
-      <Sidebar :items="sidebarItems" @toggle-sidebar="toggleSidebar">
-        <template #top>
-          <slot name="sidebar-top" />
-        </template>
-        <template #bottom>
-          <slot name="sidebar-bottom" />
-        </template>
-      </Sidebar>
-
+      <transition name="fade">
+        <Sidebar
+          v-if="$page.frontmatter.home !=true"
+          :items="sidebarItems"
+          @toggle-sidebar="toggleSidebar"
+        >
+          <template #top>
+            <slot name="sidebar-top" />
+          </template>
+          <template #bottom>
+            <slot name="sidebar-bottom" />
+          </template>
+        </Sidebar>
+      </transition>
       <Home v-if="$page.frontmatter.home" />
 
       <Page v-else :sidebar-items="sidebarItems">
@@ -52,7 +58,8 @@ export default {
 
   data() {
     return {
-      isSidebarOpen: false
+      isSidebarOpen: false,
+      loading: 1
     };
   },
 
@@ -104,6 +111,7 @@ export default {
   },
 
   mounted() {
+    this.loading = 0;
     this.$router.afterEach(() => {
       this.isSidebarOpen = false;
     });
