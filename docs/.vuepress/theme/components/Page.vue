@@ -2,7 +2,7 @@
   <main class="page">
     <slot name="top" />
     <transition name="fade">
-      <Content class="theme-default-content" ref="mainContent" />
+      <Content v-if="!loading" class="theme-default-content" ref="mainContent" />
     </transition>
     <PageEdit />
 
@@ -23,7 +23,10 @@ import PageNav from "@theme/components/PageNav.vue";
 export default {
   components: { PageEdit, PageNav },
   data() {
-    return { word_time: 0 };
+    return {
+      word_time: 0,
+      loading: 1
+    };
   },
   computed: {
     VssueTitle: function() {
@@ -37,6 +40,7 @@ export default {
   },
   props: ["sidebarItems"],
   mounted: function() {
+    this.loading = 0;
     window.setTimeout(this.delay, 100);
   },
   methods: {
