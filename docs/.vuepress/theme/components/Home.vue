@@ -62,25 +62,28 @@ export default {
   },
   mounted: function() {
     this.loading = 0;
-    if (this.data.ityped === true) {
-      var ityped = require("ityped");
-      const oneElement = document.querySelector("#ityped-description");
-      ityped.init(oneElement, {
-        showCursor: true,
-        typeSpeed: 80,
-        backSpeed: 40,
-        startDelay: 3000,
-        backDelay: 1000,
-        loop: false,
-        cursorChar: "_",
-        strings: this.data.tagline
-      });
-    }
+    setTimeout(this.ityped, 100);
   },
   methods: {
     d() {
       var d = new Date();
       return d.getFullYear();
+    },
+    ityped() {
+      if (this.data.ityped === true) {
+        var ityped = require("ityped");
+        const oneElement = document.querySelector("#ityped-description");
+        ityped.init(oneElement, {
+          showCursor: true,
+          typeSpeed: 80,
+          backSpeed: 40,
+          startDelay: 3000,
+          backDelay: 1000,
+          loop: false,
+          cursorChar: "_",
+          strings: this.data.tagline
+        });
+      }
     }
   }
 };

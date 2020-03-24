@@ -58,7 +58,7 @@ export default {
         document.getElementsByTagName("h1")[0].innerHTML.indexOf("span") === -1
       )
         document.getElementsByTagName("h1")[0].innerHTML +=
-          "<span style='font-size:1rem;font-weight:400;user-select:none;'>&nbsp;&nbsp;&nbsp;&nbsp;<i class='el-icon-reading'></i> " +
+          "<span style='font-size:1rem;font-weight:400;user-select:none;'>&nbsp;&nbsp;&nbsp;&nbsp;<i class='el-icon-time'></i>&nbsp;" +
           (
             document
               .getElementsByClassName("theme-default-content")[0]
@@ -67,7 +67,7 @@ export default {
                 ""
               ).length / 400
           ).toFixed(2) +
-          "</span>";
+          " min</span>";
     }
   }
 };

@@ -8,22 +8,22 @@
     <div class="BTreer-word">
       <h3>{{ name }}</h3>
       <p>
-        <embed src="/assets/svg/briefcase.svg" />
+        <i class="el-icon-suitcase"></i>
         {{ position }} @ B-Tree Design
         Studio
       </p>
       <p>
-        <embed src="/assets/svg/map-pin.svg" />
+        <i class="el-icon-location-outline"></i>
         {{ location }}
       </p>
       <p>
-        <embed src="/assets/svg/globe.svg" />
+        <i class="el-icon-collection"></i>
         {{ lang }}
       </p>
       <p>
         <a :href="qqlink" target="_blank">
-          <i class="fab fa-qq"></i>
-          {{ qq }}
+          <i class="el-icon-message"></i>
+          {{ qq }}@qq.com
           <svg
             xmlns="http://www.w3.org/2000/svg"
             aria-hidden="true"

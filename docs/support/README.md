@@ -1,5 +1,7 @@
 ---
 sidebar: false
+vssue: false
+readingTime: false
 ---
 
 # 支持我们
@@ -11,3 +13,5 @@ sidebar: false
 ![微信](/support/wechat-pay.png "border-style:groove;border-width:2px;")
 
 捐赠列表：
+
+<Support/>
