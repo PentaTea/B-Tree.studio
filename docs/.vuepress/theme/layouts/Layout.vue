@@ -1,8 +1,7 @@
 <template>
   <transition name="fade">
-    <div v-if="loading"></div>
     <div
-      v-else
+      v-if="!loading"
       class="theme-container"
       :class="pageClasses"
       @touchstart="onTouchStart"
