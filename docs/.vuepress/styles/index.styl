@@ -50,7 +50,7 @@ span.title
 .theme-default-content:not(.custom) img 
   max-height 350px
   margin 20px
-  min-height: 200px;
+  //min-height: 200px;
 
 .theme-default-content:not(.custom) 
   max-width 80%
@@ -66,6 +66,21 @@ main.home
 
 table
   margin 0px
+  color $textColor
 
 th,td
   border 0px
+
+// .vssue .vssue-comments .vssue-comment .vssue-comment-avatar img
+//   min-height 0
+
+// .vssue .vssue-new-comment .vssue-comment-avatar img
+//   min-height 0
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .3s;
+}
+
+.fade-enter, .fade-leave-to { /* .fade-leave-active below version 2.1.8 */
+  opacity: 0;
+}

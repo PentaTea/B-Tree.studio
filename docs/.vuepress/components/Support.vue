@@ -18,7 +18,9 @@ export default {
     };
   },
   props: {},
-  mounted: function() {},
+  mounted: function() {
+    this.loading = 0;
+  },
   methods: {}
 };
 </script>

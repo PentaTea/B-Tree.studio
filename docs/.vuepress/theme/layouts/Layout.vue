@@ -10,20 +10,16 @@
       <Navbar v-if="shouldShowNavbar" @toggle-sidebar="toggleSidebar" />
 
       <div class="sidebar-mask" @click="toggleSidebar(false)" />
-      <transition name="fade">
-        <Sidebar
-          v-if="$page.frontmatter.home !=true"
-          :items="sidebarItems"
-          @toggle-sidebar="toggleSidebar"
-        >
-          <template #top>
-            <slot name="sidebar-top" />
-          </template>
-          <template #bottom>
-            <slot name="sidebar-bottom" />
-          </template>
-        </Sidebar>
-      </transition>
+
+      <Sidebar :items="sidebarItems" @toggle-sidebar="toggleSidebar">
+        <template #top>
+          <slot name="sidebar-top" />
+        </template>
+        <template #bottom>
+          <slot name="sidebar-bottom" />
+        </template>
+      </Sidebar>
+
       <Home v-if="$page.frontmatter.home" />
 
       <Page v-else :sidebar-items="sidebarItems">
@@ -144,13 +140,3 @@ export default {
   }
 };
 </script>
-
-<style lang="stylus">
-.fade-enter-active, .fade-leave-active {
-  transition: opacity 0.5s;
-}
-
-.fade-enter, .fade-leave-to { /* .fade-leave-active below version 2.1.8 */
-  opacity: 0;
-}
-</style>
