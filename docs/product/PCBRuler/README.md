@@ -7,7 +7,7 @@ sidebar: false
 
 > 论当今设计师如何优雅的暴露身份
 
-↓这里有个动画，如果加载不出来可以多等一小会 emmm
+↓这里有个动画，如果加载不出来可以多等一下 emmm
 
 <SP file="/assets/svg/PCBRuler.svg" start="autostart"/>
 
