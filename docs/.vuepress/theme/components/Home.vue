@@ -2,16 +2,11 @@
   <transition name="fade">
     <main v-if="!loading" class="home" aria-labelledby="main-title">
       <header class="hero">
-        <img
-          v-if="data.heroImage"
-          :src="$withBase(data.heroImage)"
-          :alt="data.heroAlt || 'hero'"
-          style="min-width: 200px"
-        />
+        <SP v-if="data.heroImage" :file="data.heroImage" height="300px" start="autostart" />
         <h1 v-if="data.heroText !== null" id="main-title">{{ data.heroText || $title || "Hello" }}</h1>
         <p v-if="data.tagline !== null" class="description">
           <span
-            v-if="data.ityped !== true"
+            v-if="typeof data.ityped == 'string'"
           >{{ data.tagline || $description || "Welcome to your VuePress site" }}</span>
           <span id="ityped-description"></span>
         </p>
@@ -40,6 +35,7 @@
 
 <script>
 import NavLink from "@theme/components/NavLink.vue";
+const Vivus = require("vivus");
 
 export default {
   name: "Home",
@@ -70,10 +66,9 @@ export default {
       return d.getFullYear();
     },
     ityped() {
-      if (this.data.ityped === true) {
+      if (typeof this.data.tagline == "object") {
         var ityped = require("ityped");
-        const oneElement = document.querySelector("#ityped-description");
-        ityped.init(oneElement, {
+        ityped.init(document.querySelector("#ityped-description"), {
           showCursor: true,
           typeSpeed: 80,
           backSpeed: 40,
@@ -99,7 +94,7 @@ export default {
   .hero {
     text-align: center;
 
-    img {
+    img, svg {
       max-width: 100%;
       max-height: 280px;
       display: block;

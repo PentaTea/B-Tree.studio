@@ -34,6 +34,7 @@
     "vuepress-plugin-disqus": "^0.2.0",
     "vuepress-plugin-element-tabs": "^0.2.8",
     "vuepress-plugin-element-ui": "^1.0.2",
+    "vuepress-plugin-mathjax": "^1.2.8",
     "vuepress-plugin-medium-zoom": "^1.1.8",
     "vuepress-plugin-music-bar": "^3.2.4",
     "vuepress-plugin-named-chunks": "^1.1.2",

@@ -23,7 +23,6 @@ p
   font-weight  400
   font-size  20px
   line-height 3
- 
 
 a  
   font-weight  400
@@ -55,6 +54,9 @@ span.title
 .theme-default-content:not(.custom) 
   max-width 80%
 
+.theme-default-content:not(.custom) li
+  font-size  19px
+
 main.home 
   max-width 80%
 
@@ -78,9 +80,17 @@ th,td
   margin 0
 
 .fade-enter-active, .fade-leave-active {
-  transition: opacity .3s;
+  transition: opacity .5s;
 }
 
 .fade-enter, .fade-leave-to { /* .fade-leave-active below version 2.1.8 */
   opacity: 0;
+}
+
+blockquote {
+    font-size: 1rem;
+    color: #777;
+    border-left: 0.2rem solid #66cc11;
+    margin: 1rem 0;
+    padding: 0.25rem 0 0.25rem 1rem;
 }

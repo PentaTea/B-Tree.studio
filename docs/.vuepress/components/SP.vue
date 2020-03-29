@@ -3,7 +3,7 @@
 </template>
 
 <script>
-//https://github.com/NBSeven/vue-svg-draw
+//base on https://github.com/NBSeven/vue-svg-draw
 const Vivus = require("vivus");
 export default {
   name: "SP",
@@ -20,7 +20,11 @@ export default {
     },
     height: {
       type: String,
-      default: "200px"
+      default: null
+    },
+    width: {
+      type: String,
+      default: "100%"
     },
     type: {
       type: String,
@@ -28,7 +32,7 @@ export default {
     },
     duration: {
       type: String,
-      default: "300" // 过渡时间
+      default: "200" // 过渡时间
     },
     start: {
       type: String,
@@ -36,8 +40,9 @@ export default {
     },
     onReady: {
       type: Function,
-      default: function(myVivus, height) {
-        myVivus.el.setAttribute("height", height);
+      default: function(myVivus, height, width) {
+        height ? myVivus.el.setAttribute("height", height) : 0;
+        width ? myVivus.el.setAttribute("height", width) : 0;
       }
     },
     callBack: {
@@ -67,11 +72,10 @@ export default {
   },
   mounted: function() {
     this.initVueSvg();
-    console.log(this.file);
   },
   methods: {
     Ready(e) {
-      this.onReady(e, this.height);
+      this.onReady(e, this.height, this.width);
     },
     initVueSvg(obj) {
       let pathTimingFunction, animTimingFunction;

@@ -96,12 +96,4 @@ p.img-content {
   margin: 0 20px;
   min-width: 25%;
 }
-
-.ProductList {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  border-top: 1px solid #eaecef;
-  padding: 30px 20px;
-}
 </style>

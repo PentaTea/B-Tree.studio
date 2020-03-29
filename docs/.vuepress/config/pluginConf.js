@@ -55,9 +55,16 @@ module.exports = [
     "vuepress-plugin-container",
     {
       type: "PL",
-      before: file =>
-        `<div class="ProductList"><SP file="${file}" height="200px" /><div><p>`,
-      after: "</p></div></div>"
+      before: data => `<PL data='${data}'>`,
+      after: "</PL>"
+    }
+  ],
+  [
+    "vuepress-plugin-container",
+    {
+      type: "Link",
+      before: src => `<a href="${src}" class="router-link-active">`,
+      after: "</a>"
     }
   ],
 
@@ -110,11 +117,20 @@ module.exports = [
       successText: "复制成功"
     }
   ],
-  ["element-ui"],
+  //["element-ui"],
   [
     "sitemap",
     {
       hostname: "https://b-tree.studio"
+    }
+  ],
+  [
+    "vuepress-plugin-mathjax",
+    {
+      target: "svg",
+      macros: {
+        "*": "\\times"
+      }
     }
   ],
   [
