@@ -110,6 +110,11 @@ export default {
     this.$router.afterEach(() => {
       this.isSidebarOpen = false;
     });
+
+    let d = new Date();
+    if (d.getMonth() + 1 == 4 && d.getDate() == 4) {
+      document.getElementsByTagName("html")[0].style.filter = "grayscale(1)";
+    }
   },
 
   methods: {

@@ -47,6 +47,10 @@ export default {
         console.error(err);
         this.loading = 0;
       });
+    let d = new Date();
+    if (d.getMonth() + 1 == 4 && d.getDate() == 4) {
+      document.getElementsByTagName("html")[0].style.filter = "grayscale(1)";
+    }
   },
   methods: {}
 };
