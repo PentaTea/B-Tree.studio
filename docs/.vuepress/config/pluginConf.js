@@ -153,7 +153,7 @@ module.exports = [
       background: "linear-gradient(-20deg, #00cdac 0%, #8ddad5 100%)"
     }
   ]
-  // [
+  // ,[
   //   "music-bar",
   //   {
   //     platform: "music.163.com",
