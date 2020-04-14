@@ -134,7 +134,6 @@ export default {
       );
       this.camera.position.set(2, 0, 0.0); //设置相机位置
       this.camera.lookAt(this.scene.position); //设置相机方向(指向的场景对象)
-      console.log((this.camera.aspect = 1));
 
       /**
        * 渲染器设置
