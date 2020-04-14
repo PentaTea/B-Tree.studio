@@ -69,14 +69,17 @@ export default {
        * 光源设置
        */
 
-      var point = new THREE.PointLight(0x888888); //点光源
-      point.position.set(4, 2, 3); //点光源位置
+      var point = new THREE.PointLight(0xffffff, 0); //点光源
+      point.position.set(10, 10, 10); //点光源位置
       this.scene.add(point); //点光源添加到场景中
-      var point2 = new THREE.PointLight(0x888888); //点光源
-      point2.position.set(-4, 2, 3); //点光源位置
+      var point2 = new THREE.PointLight(0xffffff, 2); //点光源
+      point2.position.set(-0, -10, -0); //点光源位置
       this.scene.add(point2); //点光源添加到场景中
+      var point3 = new THREE.PointLight(0xffffff, 2); //点光源
+      point3.position.set(0, 10, 0); //点光源位置
+      this.scene.add(point3); //点光源添加到场景中
 
-      var ambient = new THREE.AmbientLight(0x999999); //环境光
+      var ambient = new THREE.AmbientLight(0x222222); //环境光
       this.scene.add(ambient);
       /**
        * 相机设置
