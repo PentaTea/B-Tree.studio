@@ -33,14 +33,11 @@ export default {
       return this.$page.path + "  " + this.$page.title;
     }
   },
-  watch: {
-    $page: function() {
-      window.setTimeout(this.delay, 100);
-    }
-  },
   props: ["sidebarItems"],
-  mounted: function() {
+  mounted() {
     this.loading = 0;
+  },
+  updated() {
     window.setTimeout(this.delay, 100);
   },
   methods: {
@@ -53,21 +50,26 @@ export default {
           e.title = "";
         }
       });
-      if (
-        this.$page.frontmatter.readingTime != false &&
-        document.getElementsByTagName("h1")[0].innerHTML.indexOf("span") === -1
-      )
-        document.getElementsByTagName("h1")[0].innerHTML +=
-          "<span style='font-size:1rem;font-weight:400;user-select:none;'>&nbsp;&nbsp;&nbsp;&nbsp;<i class='el-icon-time'></i>&nbsp;" +
-          (
-            document
-              .getElementsByClassName("theme-default-content")[0]
-              .innerText.replace(
-                /[\ |\~|\`|\!|\@|\#|\$|\%|\^|\&|\*|||\-|\_|\+|\=|\||\\|\n|\r|\{|\}|\;|\:|\"|\'|\,|\<|\.|\>|\/|\?|\u3002|\uff1f|\uff01|\uff0c|\u3001|\uff1b|\uff1a|\u201c|\u201d|\u2018|\u2019|\uff08|\uff09|\u300a|\u300b|\u3008|\u3009|\u3010|\u3011|\u300e|\u300f|\u300c|\u300d|\ufe43|\ufe44|\u3014|\u3015|\u2026|\u2014|\uff5e|\ufe4f|\uffe5]/g,
-                ""
-              ).length / 400
-          ).toFixed(2) +
-          " min</span>";
+
+      if (this.$page.frontmatter.readingTime != false)
+        try {
+          document
+            .getElementsByTagName("h1")[0]
+            .removeChild(document.getElementById("readingTime"));
+        } catch (e) {
+        } finally {
+          document.getElementsByTagName("h1")[0].innerHTML +=
+            "<span id='readingTime' style='font-size:1rem;font-weight:400;user-select:none;'>&nbsp;&nbsp;&nbsp;&nbsp;<i class='el-icon-time'></i>&nbsp;" +
+            (
+              document
+                .getElementsByClassName("theme-default-content")[0]
+                .innerText.replace(
+                  /[\ |\~|\`|\!|\@|\#|\$|\%|\^|\&|\*|||\-|\_|\+|\=|\||\\|\n|\r|\{|\}|\;|\:|\"|\'|\,|\<|\.|\>|\/|\?|\u3002|\uff1f|\uff01|\uff0c|\u3001|\uff1b|\uff1a|\u201c|\u201d|\u2018|\u2019|\uff08|\uff09|\u300a|\u300b|\u3008|\u3009|\u3010|\u3011|\u300e|\u300f|\u300c|\u300d|\ufe43|\ufe44|\u3014|\u3015|\u2026|\u2014|\uff5e|\ufe4f|\uffe5]/g,
+                  ""
+                ).length / 400
+            ).toFixed(2) +
+            " min</span>";
+        }
     }
   }
 };

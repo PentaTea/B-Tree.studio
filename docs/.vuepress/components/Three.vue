@@ -1,5 +1,14 @@
 <template>
-  <div class="three-container" :id="threeId"></div>
+  <div class="three">
+    <div class="three-control">
+      <transition name="fade">
+        <div v-show="resetDisply" class="three-control-reset">
+          <el-button plain @click="Reset">重置视角</el-button>
+        </div>
+      </transition>
+    </div>
+    <div @mousedown="FristClick" @touchstart="FristClick" class="three-container" :id="threeId"></div>
+  </div>
 </template>
 
 
@@ -11,6 +20,8 @@ import { SVGRenderer } from "three/examples/jsm/renderers/SVGRenderer";
 import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader";
 import { MTLLoader } from "three/examples/jsm/loaders/MTLLoader";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import Stats from "three/examples/jsm/libs/stats.module";
+import { Loading } from "element-ui";
 
 export default {
   name: "Three",
@@ -25,7 +36,14 @@ export default {
       MTLLoader: null,
       GLTFLoader: null,
       object: {},
-      manager: null
+      manager: null,
+      container: null,
+      loadingInstance: null,
+      stats: null,
+      initialAnimate: -2,
+      controls: null,
+      resetDisply: 0,
+      widthDisplay: 0
     };
   },
   props: {
@@ -42,14 +60,38 @@ export default {
       default: "100%"
     }
   },
+  watch: {
+    initialAnimate() {
+      this.controls.autoRotateSpeed = this.initialAnimate;
+    },
+    widthDisplay() {
+      this.camera.aspect =
+        this.container.clientWidth / this.container.clientHeight;
+      this.camera.updateProjectionMatrix();
+      this.renderer.setSize(
+        this.container.clientWidth,
+        this.container.clientHeight
+      );
+      this.renderer.render(this.scene, this.camera);
+    }
+  },
   mounted: function() {
     this.init();
-    this.animate();
     this.load();
+    this.animate();
   },
   methods: {
     init() {
-      var container = document.getElementById(this.threeId);
+      this.container = document.getElementById(this.threeId);
+      // performance monitor
+      this.stats = new Stats();
+      this.stats.domElement.style.position = "relative";
+      this.stats.domElement.style.left = "0px";
+      this.stats.domElement.style.top = "0px";
+      this.stats.domElement.style.zIndex = "1000";
+      this.stats.domElement.style.display = "none";
+      this.container.appendChild(this.stats.domElement);
+
       /**
        * 创建场景对象Scene
        */
@@ -72,11 +114,11 @@ export default {
       var point = new THREE.PointLight(0xffffff, 0); //点光源
       point.position.set(10, 10, 10); //点光源位置
       this.scene.add(point); //点光源添加到场景中
-      var point2 = new THREE.PointLight(0xffffff, 2); //点光源
-      point2.position.set(-0, -10, -0); //点光源位置
+      var point2 = new THREE.PointLight(0xffffff, 3); //点光源
+      point2.position.set(-5, -5, -5); //点光源位置
       this.scene.add(point2); //点光源添加到场景中
-      var point3 = new THREE.PointLight(0xffffff, 2); //点光源
-      point3.position.set(0, 10, 0); //点光源位置
+      var point3 = new THREE.PointLight(0xffffff, 3); //点光源
+      point3.position.set(5, 5, 5); //点光源位置
       this.scene.add(point3); //点光源添加到场景中
 
       var ambient = new THREE.AmbientLight(0x222222); //环境光
@@ -84,60 +126,81 @@ export default {
       /**
        * 相机设置
        */
-      //创建相机对象
       this.camera = new THREE.PerspectiveCamera(
         50,
-        container.clientWidth / container.clientHeight,
+        this.container.clientWidth / this.container.clientHeight,
         0.001,
         1000
       );
-      this.camera.position.set(0.0, 1.5, 0.0); //设置相机位置
+      this.camera.position.set(2, 0, 0.0); //设置相机位置
       this.camera.lookAt(this.scene.position); //设置相机方向(指向的场景对象)
+      console.log((this.camera.aspect = 1));
+
       /**
-       * 创建渲染器对象
+       * 渲染器设置
        */
       //this.renderer = new SVGRenderer();
       this.renderer = new THREE.WebGLRenderer({ antialias: true });
-      this.renderer.setSize(container.clientWidth, container.clientHeight); //设置渲染区域尺寸
+      this.renderer.setSize(
+        this.container.clientWidth,
+        this.container.clientHeight
+      ); //设置渲染区域尺寸
       this.renderer.setClearColor(0xffffff, 1); //设置背景颜色
       this.renderer.render(this.scene, this.camera);
-      container.appendChild(this.renderer.domElement);
-      let controls = new THREE.OrbitControls(
+      this.renderer.domElement.style.position = "absolute";
+      this.renderer.domElement.style.left = "0px";
+      this.renderer.domElement.style.top = "0px";
+      this.container.appendChild(this.renderer.domElement);
+      this.controls = new THREE.OrbitControls(
         this.camera,
         this.renderer.domElement
       );
+      this.controls.autoRotate = true;
+      this.controls.autoRotateSpeed = this.initialAnimate;
+      this.controls.enableDamping = true;
+      this.controls.screenSpacePanning = true;
+      this.controls.saveState();
+      this.controls.update();
       this.renderer.render(this.scene, this.camera);
-      controls.addEventListener("change", this.animate);
+      //controls.addEventListener("change", this.animate);
+      /**
+       * 创建加载管理器
+       */
+      this.manager = new THREE.LoadingManager(
+        () => {
+          this.scene.add(this.object);
+          this.renderer.render(this.scene, this.camera);
+          this.stats.domElement.style.display = "";
+          this.loadingInstance.close();
+        },
+        (item, loaded, total) => {
+          console.log(item, loaded, total);
+        },
+        error => {
+          console.log(error);
+        }
+      );
+      this.manager.onStart = () => {
+        this.loadingInstance = Loading.service({ target: this.container });
+      };
     },
 
     animate: function() {
-      //requestAnimationFrame(this.animate);
+      requestAnimationFrame(this.animate);
+      //this.object.children[3].rotateY(this.initialAnimate);
+      this.widthDisplay = this.container.clientWidth;
       this.renderer.render(this.scene, this.camera);
+      this.stats.update();
+      this.controls.update();
     },
 
     load: function() {
-      this.manager = new THREE.LoadingManager(() => {
-        // this.object.traverse(function(child) {
-        //   if (child instanceof THREE.Mesh) {
-        //     child.material.shading = THREE.SmoothShading;
-        //   }
-        // });
-        //this.object.position.set(0.051, -0.02, -0.014);
-        //this.object.children[0].material.color.set(0xffffff); //设置材质颜色
-        this.scene.add(this.object);
-        this.renderer.render(this.scene, this.camera);
-      });
-
-      this.manager.onProgress = function(item, loaded, total) {
-        console.log(item, loaded, total);
-      };
-
       this.OBJLoader = new OBJLoader(this.manager); //obj加载器
       this.MTLLoader = new MTLLoader(this.manager); //材质文件加载器
       this.GLTFLoader = new GLTFLoader(this.manager); //GLTF文件加载器
 
       this.GLTFLoader.load(
-        "/assets/RapberryPiZeroOBJ/1.glb",
+        "/assets/model/RapberryPiZero.glb",
         o => {
           // 控制台查看返回结构：包含一个网格模型Mesh的组Group
           console.log(o);
@@ -186,17 +249,42 @@ export default {
       //     );
       //   }
       // );
+    },
+    FristClick() {
+      this.initialAnimate = 0;
+      this.resetDisply = 1;
+    },
+    Reset() {
+      this.controls.reset();
+      this.resetDisply = 0;
     }
   }
 };
 </script>
 
 <style>
-.three-container {
+.three {
+  position: relative;
   width: 100%;
   height: 400px;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+}
+.three-control {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+.three-control-reset {
+  z-index: 3000;
+  height: 1px;
+  position: relative;
+  top: 80%;
+}
+.three-container {
+  position: absolute;
+  border: 1px solid #eaecef;
+  width: 100%;
+  height: 100%;
 }
 </style>

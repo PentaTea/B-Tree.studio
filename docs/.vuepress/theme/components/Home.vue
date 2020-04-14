@@ -22,7 +22,7 @@
       </div>
       <Content class="theme-default-content custom" />
       <div class="footer">
-        MPL-2.0 Licensed | Copyright © {{ d() }}
+        MPL-2.0 Licensed | Copyright © {{ new Date().getFullYear()}}
         <a
           href="https://github.com/moecopilot"
           target="_blank"
@@ -58,12 +58,12 @@ export default {
   },
   mounted: function() {
     this.loading = 0;
-    setTimeout(this.ityped, 100);
+    //setTimeout(this.ityped, 100);
+    this.$nextTick().then(this.ityped);
   },
   methods: {
     d() {
-      var d = new Date();
-      return d.getFullYear();
+      return new Date().getFullYear();
     },
     ityped() {
       if (typeof this.data.tagline == "object") {
