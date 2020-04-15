@@ -27,7 +27,8 @@
           href="https://github.com/moecopilot"
           target="_blank"
         >moecopilot</a> |
-        <RouterLink to="py-list/">友人帐</RouterLink>
+        <RouterLink to="py-list/">友人帐</RouterLink>&nbsp;|
+        <RouterLink to="funcTest/">funcTest</RouterLink>
       </div>
     </main>
   </transition>

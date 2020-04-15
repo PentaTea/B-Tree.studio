@@ -42,7 +42,7 @@ export default {
       type: Function,
       default: function(myVivus, height, width) {
         height ? myVivus.el.setAttribute("height", height) : 0;
-        width ? myVivus.el.setAttribute("height", width) : 0;
+        width ? myVivus.el.setAttribute("width", width) : 0;
       }
     },
     callBack: {
