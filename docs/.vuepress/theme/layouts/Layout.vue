@@ -40,7 +40,6 @@ import Navbar from "@theme/components/Navbar.vue";
 import Page from "@theme/components/Page.vue";
 import Sidebar from "@theme/components/Sidebar.vue";
 import { resolveSidebarItems } from "../util";
-import { Loading } from "element-ui";
 
 export default {
   name: "Layout",
@@ -106,12 +105,7 @@ export default {
       ];
     }
   },
-  beforeCreate() {
-    let loadingInstance = Loading.service({});
-    this.$nextTick(() => {
-      loadingInstance.close();
-    });
-  },
+  beforeCreate() {},
 
   mounted() {
     this.loading = 0;
