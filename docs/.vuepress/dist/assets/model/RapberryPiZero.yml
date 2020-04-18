@@ -5,3 +5,8 @@ position:
   y: 0
   z: 0
 autoRotateSpeed: -2
+enableComposer: true
+exposure: 1
+bloomStrength: 0.5
+bloomThreshold: 0.4
+bloomRadius: 0.8

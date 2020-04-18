@@ -2,7 +2,13 @@
   <transition name="fade">
     <main v-if="!loading" class="home" aria-labelledby="main-title">
       <header class="hero">
-        <SP v-if="data.heroImage" :file="data.heroImage" height="300px" start="autostart" />
+        <SP
+          v-if="data.heroImage"
+          :file="data.heroImage"
+          height="300px"
+          start="autostart"
+          :callBack="callBack"
+        />
         <h1 v-if="data.heroText !== null" id="main-title">{{ data.heroText || $title || "Hello" }}</h1>
         <p v-if="data.tagline !== null" class="description">
           <span
@@ -55,12 +61,23 @@ export default {
         link: this.data.actionLink,
         text: this.data.actionText
       };
+    },
+    callBack() {
+      return new Function(this.$page.frontmatter.callBack);
     }
   },
   mounted: function() {
     this.loading = 0;
     //setTimeout(this.ityped, 100);
     this.$nextTick().then(this.ityped);
+    this.$nextTick().then(() => {
+      $webfont.load(
+        "#main-title",
+        "843c62946c2444dab6def76143010fe5",
+        "PingFangSC_L"
+      );
+      $webfont.draw();
+    });
   },
   methods: {
     d() {

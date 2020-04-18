@@ -58,5 +58,10 @@ module.exports = [
     "script",
     {},
     "window.dataLayer = window.dataLayer || [];function gtag() {    dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'UA-159369211-1');"
-  ]
+  ],
+  [
+    "script",
+    { type: "text/javascript", src: "http://cdn.repository.webfont.com/wwwroot/js/wf/youziku.api.min.js" }
+  ],
+
 ];
