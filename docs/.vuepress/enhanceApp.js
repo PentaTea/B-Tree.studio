@@ -1,12 +1,8 @@
 import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 import vuescroll from "vuescroll";
-import jquery from 'jquery';
-var window = window || {}
-window.jquery = window.$ = jquery;
 
 export default function ({ Vue }) {
-
   Vue.use(ElementUI);
   Vue.use(vuescroll, {
     ops: {

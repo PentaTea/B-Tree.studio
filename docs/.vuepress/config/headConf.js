@@ -63,5 +63,5 @@ module.exports = [
     "script",
     { type: "text/javascript", src: "http://cdn.repository.webfont.com/wwwroot/js/wf/youziku.api.min.js" }
   ],
-
+  ['script', { src: 'https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js' }]
 ];

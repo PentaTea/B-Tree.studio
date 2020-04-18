@@ -70,14 +70,14 @@ export default {
     this.loading = 0;
     //setTimeout(this.ityped, 100);
     this.$nextTick().then(this.ityped);
-    // this.$nextTick().then(() => {
-    //   $webfont.load(
-    //     "#main-title",
-    //     "843c62946c2444dab6def76143010fe5",
-    //     "PingFangSC_L"
-    //   );
-    //   $webfont.draw();
-    // });
+    this.$nextTick().then(() => {
+      $webfont.load(
+        "#main-title",
+        "843c62946c2444dab6def76143010fe5",
+        "PingFangSC_L"
+      );
+      $webfont.draw();
+    });
   },
   methods: {
     d() {
