@@ -112,7 +112,14 @@ export default {
     this.$router.afterEach(() => {
       this.isSidebarOpen = false;
     });
-
+    this.$nextTick().then(() => {
+      $webfont.load(
+        ".site-name.can-hide,#main-title",
+        "843c62946c2444dab6def76143010fe5",
+        "PingFangSC"
+      );
+      $webfont.draw();
+    });
     let d = new Date();
     // if (d.getMonth() + 1 == 4 && d.getDate() == 4) {
     //   document.getElementsByTagName("html")[0].style.filter = "grayscale(1)";
