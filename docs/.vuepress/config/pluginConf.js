@@ -105,7 +105,6 @@ module.exports = [
   ],
   ["pangu"],
   ["reading-progress", {}],
-  ["vuepress-plugin-baidu-autopush"],
   [
     "vuepress-plugin-code-copy",
     {

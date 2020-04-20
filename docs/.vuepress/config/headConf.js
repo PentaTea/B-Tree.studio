@@ -14,20 +14,6 @@ module.exports = [
     }
   ],
   [
-    "link",
-    {
-      rel: "preconnect",
-      href: "https://zz.bdstatic.com/"
-    }
-  ],
-  [
-    "link",
-    {
-      rel: "dns-prefetch",
-      href: "https://zz.bdstatic.com/"
-    }
-  ],
-  [
     "meta",
     {
       name: "theme-color",
@@ -41,27 +27,38 @@ module.exports = [
       content: "b-tree,studio,hardware,embed,mbed,b树,设计,工作室,硬件,嵌入式"
     }
   ],
-  [
-    "meta",
-    {
-      name: "baidu-site-verification",
-      content: "Tw5hfGgVIE"
-    }
-  ],
-  [
-    "script",
-    {
-      src: "https://www.googletagmanager.com/gtag/js?id=UA-159369211-1"
-    }
-  ],
-  [
-    "script",
-    {},
-    "window.dataLayer = window.dataLayer || [];function gtag() {    dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'UA-159369211-1');"
-  ],
-  [
-    "script",
-    { type: "text/javascript", src: "https://cdn.repository.webfont.com/wwwroot/js/wf/youziku.api.min.js" }
-  ],
   ['script', { src: 'https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js' }]
+  // ,[
+  //   "link",
+  //   {
+  //     rel: "preconnect",
+  //     href: "https://zz.bdstatic.com/"
+  //   }
+  // ],
+  // [
+  //   "link",
+  //   {
+  //     rel: "dns-prefetch",
+  //     href: "https://zz.bdstatic.com/"
+  //   }
+  // ],
+  // [
+  //   "meta",
+  //   {
+  //     name: "baidu-site-verification",
+  //     content: "Tw5hfGgVIE"
+  //   }
+  // ],
+  // [
+  //   "script",
+  //   {
+  //     src: "https://www.googletagmanager.com/gtag/js?id=UA-159369211-1"
+  //   }
+  // ],
+  // [
+  //   "script",
+  //   {},
+  //   "window.dataLayer = window.dataLayer || [];function gtag() {    dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'UA-159369211-1');"
+  // ],
+
 ];
