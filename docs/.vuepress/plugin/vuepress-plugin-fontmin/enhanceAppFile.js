@@ -1,4 +1,4 @@
-import './font/AaXiaBiXiaoShu-2.css'
+import './dist/font.css'
 import './fontmin.css'
 
 export default ({ Vue }) => {

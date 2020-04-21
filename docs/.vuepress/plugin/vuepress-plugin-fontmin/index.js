@@ -1,39 +1,54 @@
 const { path } = require("@vuepress/shared-utils");
 
+var Fontmin = require('fontmin');
+var rename = require('gulp-rename');
+var del = require('del');
+
 const FontminPlugin = (options, ctx) => ({
   name: "fontmin",
   enhanceAppFiles: [path.resolve(__dirname, "enhanceAppFile.js")],
   async ready() {
-    var Fontmin = require('fontmin');
-    var srcPath = 'docs/.vuepress/font/AaXiaBiXiaoShu-2.ttf';
-    var destPath = path.resolve(__dirname, "font/");
-    var text = 'B-Tree Design Studio';
+    let {
+      src,
+      text,
+      selector,
+    } = options;
+    let destPath = path.resolve(__dirname, "dist/");
+    let fontFamily;
+    await del([path.resolve(__dirname, "dist/*")]);
+    await del([path.resolve(__dirname, "fontmin.css")]);
+    if (src && text && selector) {
+      var fontmin = await new Fontmin()
+        .src(src)
+        .use(rename('font.ttf'))
+        .use(Fontmin.glyph({
+          text: text
+        }))
+        .use(Fontmin.ttf2eot())
+        .use(Fontmin.ttf2woff())
+        .use(Fontmin.ttf2svg())
+        .use(Fontmin.css({
+          //asFileName: true
+          fontFamily: function (fontInfo, ttf) {
+            let fontFamily = (ttf.name.fontFamily || fontInfo.fontFile).replace(/\W+/g, "");
+            require('fs').writeFileSync(path.resolve(__dirname, "fontmin.css"),
+              `${selector}{font-family:${fontFamily}!important;}`
+            );
+            return fontFamily;
+          },
+        }))
+        .dest(destPath);
+      fontmin.run(err => { if (err) console.error(err); });
+    } else {
+      require('fs').writeFileSync(path.resolve(__dirname, "fontmin.css"),
+        ``
+      );
+    }
 
-    // 初始化
-    var fontmin = new Fontmin()
-      .src(srcPath)               // 输入配置
-      .use(Fontmin.glyph({        // 字型提取插件
-        text: text              // 所需文字
-      }))
-      .use(Fontmin.ttf2eot())     // eot 转换插件
-      .use(Fontmin.ttf2woff())    // woff 转换插件     
-      .use(Fontmin.ttf2svg())     // svg 转换插件
-      .use(Fontmin.css({
-        asFileName: true
-      }))         // css 生成插件
-      .dest(destPath);            // 输出配置
+  },
 
-    // 执行
-    fontmin.run(function (err, files, stream) {
-      if (files || stream) {
-        console.error(files, " ", stream)
-      }
-      if (err) {                  // 异常捕捉
-        console.error(err);
-      }
-      console.log('done');        // 成功
-    });
-  }
 });
+
+
 
 module.exports = FontminPlugin;

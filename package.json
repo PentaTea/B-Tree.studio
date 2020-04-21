@@ -51,6 +51,7 @@
     "esm": "^3.2.25",
     "fontmin": "^0.9.8",
     "fs": "^0.0.1-security",
+    "gulp-rename": "^2.0.0",
     "ityped": "^1.0.3",
     "jquery": "^3.5.0",
     "js-yaml": "^3.13.1",
