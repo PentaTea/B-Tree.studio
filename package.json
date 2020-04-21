@@ -49,6 +49,7 @@
     "axios": "^0.19.2",
     "core-js": "2",
     "esm": "^3.2.25",
+    "fontmin": "^0.9.8",
     "fs": "^0.0.1-security",
     "ityped": "^1.0.3",
     "jquery": "^3.5.0",
