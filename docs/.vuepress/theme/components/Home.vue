@@ -76,7 +76,7 @@ export default {
       return new Date().getFullYear();
     },
     ityped() {
-      if (typeof this.data.tagline == "object") {
+      if (typeof this.data.tagline == "object" && !ityped) {
         var ityped = require("ityped");
         ityped.init(document.querySelector("#ityped-description"), {
           showCursor: true,
