@@ -151,7 +151,8 @@ module.exports = [
 
       background: "linear-gradient(-20deg, #00cdac 0%, #8ddad5 100%)"
     }
-  ]
+  ],
+  [require("./../plugin/vuepress-plugin-fontmin/index.js")]
   // ,[
   //   "music-bar",
   //   {
