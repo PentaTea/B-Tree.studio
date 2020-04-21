@@ -1,10 +1,10 @@
 @font-face {
-    font-family: "AaXBXS (Non-Commercial Use)";
+    font-family: "AaXiaBiXiaoShu-2";
     src: url("AaXiaBiXiaoShu-2.eot"); /* IE9 */
     src: url("AaXiaBiXiaoShu-2.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
     url("AaXiaBiXiaoShu-2.woff") format("woff"), /* chrome, firefox */
     url("AaXiaBiXiaoShu-2.ttf") format("truetype"), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
-    url("AaXiaBiXiaoShu-2.svg#AaXBXS (Non-Commercial Use)") format("svg"); /* iOS 4.1- */
+    url("AaXiaBiXiaoShu-2.svg#AaXiaBiXiaoShu-2") format("svg"); /* iOS 4.1- */
     font-style: normal;
     font-weight: normal;
 }
