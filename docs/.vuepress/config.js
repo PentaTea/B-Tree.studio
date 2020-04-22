@@ -25,6 +25,6 @@ module.exports = {
     editLinkText: "在 GitHub 上编辑此页",
     markdown: {
       lineNumbers: true
-    }
+    },
   }
 };

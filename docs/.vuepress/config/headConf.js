@@ -27,7 +27,7 @@ module.exports = [
       content: "b-tree,studio,hardware,embed,mbed,b树,设计,工作室,硬件,嵌入式"
     }
   ],
-  ['script', { src: 'https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js' }]
+  ['script', { src: 'https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js' }],
   // ,[
   //   "link",
   //   {

@@ -2,13 +2,16 @@
   <transition name="fade">
     <main v-if="!loading" class="home" aria-labelledby="main-title">
       <header class="hero">
-        <SP
-          v-if="data.heroImage"
-          :file="data.heroImage"
-          height="300px"
-          start="autostart"
-          :callBack="callBack"
-        />
+        <div style="height:300px">
+          <SP
+            v-if="data.heroImage"
+            :file="data.heroImage"
+            height="300px"
+            start="autostart"
+            :callBack="callBack"
+          />
+        </div>
+
         <h1 v-if="data.heroText !== null" id="main-title">{{ data.heroText || $title || "Hello" }}</h1>
         <p v-if="data.tagline !== null" class="description">
           <span
