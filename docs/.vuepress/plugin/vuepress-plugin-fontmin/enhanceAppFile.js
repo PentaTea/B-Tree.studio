@@ -1,5 +1,5 @@
-import './font.css'
-import './fontmin.css'
+import './fonts.css'
+import './fontminSelector.css'
 
 export default ({ Vue }) => {
 

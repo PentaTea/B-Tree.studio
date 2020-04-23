@@ -1,0 +1,41 @@
+{
+  "name": "vuepress-plugin-fontmin",
+  "version": "2.0.0",
+  "description": "A minify font plugin for vuepress",
+  "keywords": [
+    "vue",
+    "vuepress",
+    "plugin",
+    "font",
+    "minify",
+    "fontmin",
+    "插件",
+    "vuepress插件",
+    "字体",
+    "提取"
+  ],
+  "homepage": "https://github.com/moecopilot/B-Tree.studio/tree/master/docs/.vuepress/plugin/vuepress-plugin-fontmin#readme",
+  "bugs": {
+    "url": "https://github.com/moecopilot/B-Tree.studio/issues",
+    "email": "2490445193@qq.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moecopilot/B-Tree.studio.git",
+    "directory": "docs/.vuepress/plugin/vuepress-plugin-fontmin"
+  },
+  "doc": "https://github.com/moecopilot/B-Tree.studio/tree/master/docs/.vuepress/plugin/vuepress-plugin-fontmin#readme",
+  "license": "MIT",
+  "author": "moecopilot <2490445193@qq.com>",
+  "main": "index.js",
+  "dependencies": {
+    "del": "^5.1.0",
+    "fontmin": "^0.9.8",
+    "gulp-rename": "^2.0.0"
+  },
+  "files": [
+    "index.js",
+    "enhanceAppFile.js",
+    "README.md"
+  ]
+}

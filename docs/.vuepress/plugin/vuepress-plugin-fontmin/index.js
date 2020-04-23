@@ -5,15 +5,15 @@ const rename = require('gulp-rename');
 const del = require('del');
 const fs = require('fs');
 del([path.resolve(__dirname, "dist/**/*")]);
-del([path.resolve(__dirname, "fontmin.css")]);
-del([path.resolve(__dirname, "font.css")]);
+del([path.resolve(__dirname, "fontminSelector.css")]);
+del([path.resolve(__dirname, "fonts.css")]);
 
 const FontminPlugin = (options) => ({
   name: "fontmin",
   enhanceAppFiles: [path.resolve(__dirname, "enhanceAppFile.js")],
   async ready() {
-    fs.writeFileSync(path.resolve(__dirname, "fontmin.css"), ``);
-    fs.writeFileSync(path.resolve(__dirname, "font.css"), ``);
+    fs.writeFileSync(path.resolve(__dirname, "fontminSelector.css"), ``);
+    fs.writeFileSync(path.resolve(__dirname, "fonts.css"), ``);
     options.forEach(async (e, i) => {
       var fontFamily;
       let {
@@ -34,10 +34,10 @@ const FontminPlugin = (options) => ({
           .use(Fontmin.css({
             fontFamily: function (fontInfo, ttf) {
               fontFamily = (ttf.name.fontFamily || fontInfo.fontFile).replace(/\W+/g, "");
-              fs.appendFileSync(path.resolve(__dirname, "fontmin.css"),
+              fs.appendFileSync(path.resolve(__dirname, "fontminSelector.css"),
                 `${selector}{font-family:${fontFamily}!important;}`
               );
-              fs.appendFileSync(path.resolve(__dirname, "font.css"),
+              fs.appendFileSync(path.resolve(__dirname, "fonts.css"),
                 `@import './dist/${i}.css';`
               );
               return fontFamily;
