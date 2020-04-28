@@ -1,6 +1,6 @@
 {
   "name": "vuepress-plugin-fontmin",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "A minify font plugin for vuepress",
   "keywords": [
     "vue",

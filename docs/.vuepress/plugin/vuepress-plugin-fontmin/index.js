@@ -1,5 +1,4 @@
 const { path } = require("@vuepress/shared-utils");
-
 const Fontmin = require('fontmin');
 const rename = require('gulp-rename');
 const del = require('del');
@@ -14,6 +13,7 @@ const FontminPlugin = (options) => ({
   async ready() {
     fs.writeFileSync(path.resolve(__dirname, "fontminSelector.css"), ``);
     fs.writeFileSync(path.resolve(__dirname, "fonts.css"), ``);
+    typeof options === "object" ? options = [options] : 0;
     options.forEach(async (e, i) => {
       var fontFamily;
       let {

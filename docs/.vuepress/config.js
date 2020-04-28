@@ -5,9 +5,26 @@ const navConf = require("./config/navConf.js");
 module.exports = {
   title: "B-Tree",
   description: "B-Tree Design Studio 一个打从心底想带给你美好的工作室",
+  locales: {
+    '/': {
+      lang: 'zh-CN',
+      title: 'B-Tree',
+      description: 'B-Tree Design Studio 一个打从心底想带给你美好的工作室'
+    },
+
+  },
+  lang: 'zh-CN',
   plugins: pluginConf,
   head: headConf,
   themeConfig: {
+    locales: {
+      '/': {
+        lang: 'zh-CN',
+        title: 'B-Tree',
+        description: 'B-Tree Design Studio 一个打从心底想带给你美好的工作室'
+      },
+    },
+    lang: 'zh-CN',
     author: "moecopilot",
     logo: "/favicon.jpeg",
     smoothScroll: true,

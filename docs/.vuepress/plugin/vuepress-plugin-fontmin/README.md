@@ -30,7 +30,8 @@ module.exports = {
         //...
         [
             "fontmin",
-            [ //注意这里是 array ,这意味着你可以创建多个字体集以及其选择器
+            [ //注意这里可以是 object 或者 array ,
+              //这意味着你可以创建多个字体集以及其选择器.
                 {
                     selector: "#main-title,.site-name.can-hide",
                     src: "path/to/yourFont.ttf",

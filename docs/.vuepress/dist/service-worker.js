@@ -27,7 +27,7 @@ self.addEventListener('message', (event) => {
 self.__precacheManifest = [
   {
     "url": "404.html",
-    "revision": "5bf5934f6fd9d0f167404312d900cea6"
+    "revision": "432bbcb250f644e5f58f7b1a19c04ebd"
   },
   {
     "url": "assets/css/0.styles.e221104e.css",
@@ -126,8 +126,8 @@ self.__precacheManifest = [
     "revision": "3d29084fafc2c891a2391452ef8654dc"
   },
   {
-    "url": "assets/js/app.d8e95b2d.js",
-    "revision": "4a9eb5ebeb335137a59d4272be635384"
+    "url": "assets/js/app.276c637d.js",
+    "revision": "bf4884718d8444b26c031cc3e780e44a"
   },
   {
     "url": "assets/js/layout-Layout.dbbbf8e2.js",
@@ -142,12 +142,12 @@ self.__precacheManifest = [
     "revision": "8b4f9fc4ec32b606ad58f928455c95d8"
   },
   {
-    "url": "assets/js/page-142fd774.3e146941.js",
-    "revision": "ca99152bdc6785aa909baab68d6f592d"
+    "url": "assets/js/page-142fd774.769a751c.js",
+    "revision": "7a13c88d218be2c8c7da828d23031c1d"
   },
   {
-    "url": "assets/js/page-2037549c.880a86ab.js",
-    "revision": "6f87655ec570010625c533f62a0450f8"
+    "url": "assets/js/page-2037549c.f04e12b9.js",
+    "revision": "e4b7e73ece999cac013715a1d10842f0"
   },
   {
     "url": "assets/js/page-22954010.310493c1.js",
@@ -158,24 +158,24 @@ self.__precacheManifest = [
     "revision": "b7d5af4865339371495286ae76c3cfe3"
   },
   {
-    "url": "assets/js/page-3c041b9e.291156a8.js",
-    "revision": "008f9a165efdaca25dd21bb45ef4f72b"
+    "url": "assets/js/page-3c041b9e.fbf2ffd7.js",
+    "revision": "fb2a6d8e65825c8da4ddee7d48586ffe"
   },
   {
-    "url": "assets/js/page-65eaf5e4.67c19936.js",
-    "revision": "48e1b88c9176a1a4cd6a3eec8740ae24"
+    "url": "assets/js/page-65eaf5e4.fdceb3a1.js",
+    "revision": "ec36548ef4e42868cac40d30ef62086c"
   },
   {
-    "url": "assets/js/page-7205f0b4.dd9b56a5.js",
-    "revision": "4d72398d0cae25a2e614e4bfb872d961"
+    "url": "assets/js/page-7205f0b4.e40311c2.js",
+    "revision": "f1881c73b79b612f2f77ff9f34f2f5e7"
   },
   {
     "url": "assets/js/page-e4dfaf94.f6428fad.js",
     "revision": "16cff9fe1df3862f5d346997ea190e35"
   },
   {
-    "url": "assets/js/page-fd1ee6b4.933463fc.js",
-    "revision": "bb9256556899038d0400102585cb59d2"
+    "url": "assets/js/page-fd1ee6b4.cb59b76e.js",
+    "revision": "bee013961d6380a221e370a593123583"
   },
   {
     "url": "assets/js/vendors~layout-Layout.9c274e2f.js",
@@ -199,11 +199,11 @@ self.__precacheManifest = [
   },
   {
     "url": "blog/index.html",
-    "revision": "9935c1c9e2803f5fb283115211f074d9"
+    "revision": "a5d845c6a886f60d4e768550e55a4942"
   },
   {
     "url": "doc/index.html",
-    "revision": "0930c71e4e9f313e4e38fcdd1b819acb"
+    "revision": "e1b94bdb6c6ee7c426dd15ef1dbfc02d"
   },
   {
     "url": "favicon.jpeg",
@@ -211,31 +211,31 @@ self.__precacheManifest = [
   },
   {
     "url": "funcTest/index.html",
-    "revision": "41039906d6ecf93a8e0fc234477c0f90"
+    "revision": "0be6136b07d991b2678285a594e67b10"
   },
   {
     "url": "guide/index.html",
-    "revision": "117a06e0dc0f84982f8a2a6c674631b5"
+    "revision": "ab29d4eff7132340ad4a7b7097864464"
   },
   {
     "url": "guide/team/index.html",
-    "revision": "09ee174a35fe74c80d3b3cba7842db35"
+    "revision": "548ab2b3598133347c2d90f88aaf16eb"
   },
   {
     "url": "index.html",
-    "revision": "08401b47e12dc798a4d9d345486cbc24"
+    "revision": "b6c82a0e26840631fd5ca2fd4e72cad8"
   },
   {
     "url": "product/PCBRuler/index.html",
-    "revision": "f7e512dae1da2941c2218191a246f569"
+    "revision": "896b6c8208bbaf5ead45f61614b4fee2"
   },
   {
     "url": "py-list/index.html",
-    "revision": "42646bcf32d8c6ee9b5ed2d369de7986"
+    "revision": "8b7f7b293acbe85720bb862973bf4000"
   },
   {
     "url": "resources/index.html",
-    "revision": "2f68fc3a50481ada6b4a8871ee47c7a1"
+    "revision": "cdd4e576a8f1a700e9946f6864b8263b"
   },
   {
     "url": "support/alipay.jpg",
@@ -243,7 +243,7 @@ self.__precacheManifest = [
   },
   {
     "url": "support/index.html",
-    "revision": "ab7f37e006b6a6fddb560744c9be4aa5"
+    "revision": "f4c08573eed8afa6b89c5a6544f2990f"
   },
   {
     "url": "support/wechat-pay.png",
