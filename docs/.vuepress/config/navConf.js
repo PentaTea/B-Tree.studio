@@ -67,7 +67,11 @@ module.exports = [
   },
   {
     text: "资源",
-    link: "/resources/"
+    items: [{
+      text: "周易加解密",
+      link: "/resources/ZhouYiEncode"
+    }],
+
   },
   {
     text: "支持 B-Tree",
