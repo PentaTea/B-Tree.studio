@@ -155,9 +155,9 @@ module.exports = [
   [
     require("./../plugin/vuepress-plugin-fontmin/index.js"),
     {
-      selector: '#main-title,.site-name.can-hide',
+      selector: '#main-title,.site-name.can-hide,.subtitle',
       src: 'docs/.vuepress/font/PingFangLight.ttf',
-      text: 'B-Tree Design Studio',
+      text: 'B-Tree Design Studio 嵌入式 / 软件 / web / 产品 / 建模 / 算法 / 编曲 / 绘画',
     }
   ],
   // ["fontmin", [

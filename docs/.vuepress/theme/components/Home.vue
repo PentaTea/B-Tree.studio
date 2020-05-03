@@ -13,6 +13,7 @@
         </div>
 
         <h1 v-if="data.heroText !== null" id="main-title">{{ data.heroText || $title || "Hello" }}</h1>
+        <h1 v-if="data.subtitle !== null" class="subtitle">{{data.subtitle}}</h1>
         <p v-if="data.tagline !== null" class="description">
           <span
             v-if="typeof data.ityped == 'string'"
@@ -23,19 +24,24 @@
           <NavLink class="action-button" :item="actionLink" />
         </p>
       </header>
+      <Content class="theme-default-content" />
       <div v-if="data.features && data.features.length" class="features">
+        <div class="feature-top">
+          <h3>
+            <span>设计原则</span>
+          </h3>
+        </div>
         <div v-for="(feature, index) in data.features" :key="index" class="feature">
           <h2>{{ feature.title }}</h2>
           <p>{{ feature.details }}</p>
         </div>
       </div>
-      <Content class="theme-default-content custom" />
       <div class="footer">
         MPL-2.0 Licensed | Copyright © {{ new Date().getFullYear()}}
         <a
-          href="https://github.com/moecopilot"
+          href="https://github.com/PentaTea"
           target="_blank"
-        >moecopilot</a> |
+        >PentaTea</a> |
         <RouterLink to="py-list/">友人帐</RouterLink>&nbsp;|
         <RouterLink to="funcTest/">funcTest</RouterLink>
       </div>
@@ -106,6 +112,7 @@ export default {
 
   .hero {
     text-align: center;
+    border-bottom: 1px solid #eaecef;
 
     img, svg {
       max-width: 100%;
@@ -119,7 +126,7 @@ export default {
     }
 
     h1, .description, .action {
-      margin: 1.8rem auto;
+      margin: 1.4rem auto;
     }
 
     .description {
@@ -259,5 +266,25 @@ export default {
   100% {
     opacity: 0;
   }
+}
+
+.feature-top {
+  width: 100%;
+  text-align: center;
+
+  h3 {
+    font-weight: 400;
+    color: #3a5169;
+    margin: 1.5em;
+
+    span {
+      border-bottom: 3px solid #4a7189;
+    }
+  }
+}
+
+.subtitle {
+  font-weight: 300;
+  font-size: 1.5rem !important;
 }
 </style>
