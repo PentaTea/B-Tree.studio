@@ -118,6 +118,16 @@ module.exports = [
   ],
   //["element-ui"],
   [
+    '@vuepress/last-updated',
+    {
+      transformer: (timestamp, lang) => {
+        const moment = require('moment')
+        moment.locale(lang)
+        return moment(timestamp).format("MM DD YYYY HH:mm")
+      }
+    }
+  ],
+  [
     "sitemap",
     {
       hostname: "https://b-tree.studio"
