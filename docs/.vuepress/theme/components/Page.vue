@@ -10,7 +10,7 @@
 
     <slot name="bottom" />
     <div class="page-nav" v-if="$page.frontmatter.vssue != false">
-      <div id="valine-vuepress-comment"></div>
+      <div id="valine"></div>
       <!-- <Vssue :title="VssueTitle" /> -->
     </div>
   </main>
