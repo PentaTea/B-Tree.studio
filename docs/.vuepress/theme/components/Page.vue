@@ -9,10 +9,9 @@
     <PageNav v-bind="{ sidebarItems }" />
 
     <slot name="bottom" />
-    <div class="page-nav" v-if="$page.frontmatter.vssue != false">
-      <div id="valine"></div>
-      <!-- <Vssue :title="VssueTitle" /> -->
-    </div>
+    <Comments />
+    <!-- <span id="valine"></span> -->
+    <!-- <Vssue :title="VssueTitle" /> -->
   </main>
 </template>
 

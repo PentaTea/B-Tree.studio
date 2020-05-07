@@ -50,6 +50,7 @@
   },
   "dependencies": {
     "@vssue/api-github-v4": "^1.4.0",
+    "@vuepress-reco/vuepress-plugin-comments": "^1.4.3",
     "axios": "^0.19.2",
     "clipboard": "^2.0.6",
     "core-js": "2",
