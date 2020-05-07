@@ -1,6 +1,5 @@
 ---
 sidebar: false
-vssue: false
 readingTime: false
 ---
 

@@ -43,6 +43,12 @@ module.exports = {
     markdown: {
       lineNumbers: true
     },
+    // flexSearchOptions: {
+    //   encode: "icase",
+    //   tokenize: "strict",
+    //   threshold: 7,
+    //   depth: 3
+    // }
   }
 
 };

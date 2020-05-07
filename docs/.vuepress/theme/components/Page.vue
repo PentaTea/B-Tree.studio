@@ -9,7 +9,7 @@
     <PageNav v-bind="{ sidebarItems }" />
 
     <slot name="bottom" />
-    <Comments />
+    <Comments :isShowComments="shouldShowComments" />
     <!-- <span id="valine"></span> -->
     <!-- <Vssue :title="VssueTitle" /> -->
   </main>
@@ -28,8 +28,9 @@ export default {
     };
   },
   computed: {
-    VssueTitle: function() {
-      return this.$page.path + "  " + this.$page.title;
+    shouldShowComments() {
+      const { comments } = this.$frontmatter;
+      return comments;
     }
   },
   props: ["sidebarItems"],

@@ -1,7 +1,8 @@
-const vssue = require("./vssueConf.js");
+const comments = require("./comments.js");
 const pwa = require("./pwaConf.js");
 module.exports = [
   pwa,
+  // ['flexsearch'],
   [
     "@vuepress/active-header-links",
     {
@@ -67,9 +68,7 @@ module.exports = [
       after: "</a>"
     }
   ],
-
-  vssue,
-
+  comments,
   [
     "named-chunks",
     {

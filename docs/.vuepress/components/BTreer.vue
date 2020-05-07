@@ -5,12 +5,11 @@
         <img :src="img_file" :alt="name" />
       </p>
     </div>
-    <div class="BTreer-word">
-      <h3>{{ name }}</h3>
+    <div class="BTreer-word theme-default-content custom">
+      <slot></slot>
       <p>
         <i class="el-icon-suitcase"></i>
-        {{ position }} @ B-Tree Design
-        Studio
+        {{ position }}
       </p>
       <p>
         <i class="el-icon-location-outline"></i>
@@ -21,9 +20,9 @@
         {{ lang }}
       </p>
       <p>
-        <a :href="qqlink" target="_blank">
+        <a :href="'mailto:'+mail" target="_blank">
           <i class="el-icon-message"></i>
-          {{ qq }}@qq.com
+          {{ mail }}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             aria-hidden="true"
@@ -56,16 +55,19 @@ export default {
     return {
       BTreerId: "BTreerId" + this._uid,
       img_file: "",
-      name: "",
+      Name: "",
       position: "",
       location: "",
       lang: "",
-      qq: "",
-      qqlink: ""
+      mail: ""
     };
   },
   props: {
     data: {
+      type: String,
+      default: ""
+    },
+    name: {
       type: String,
       default: ""
     }
@@ -73,14 +75,12 @@ export default {
   methods: {},
   mounted: function() {
     let a = this.data.trim().split(/\s+/);
-    this.name = a[0];
-    this.img_file = a[1];
-    this.position = a[2];
-    this.location = a[3];
-    this.lang = a[4].replace(/,/g, " | ");
-    this.qq = a[5];
-    this.qqlink =
-      "http://wpa.qq.com/msgrd?v=3&uin=" + this.qq + "&site=qq&menu=yes";
+    let i = 0;
+    this.img_file = a[i++];
+    this.position = a[i++];
+    this.location = a[i++];
+    this.lang = a[i++].replace(/,/g, " | ");
+    this.mail = a[i++];
   }
 };
 </script>
@@ -90,7 +90,7 @@ export default {
   border-bottom: 1px dotted #ddd;
   width: 100%;
   display: flex;
-
+  align-items: center;
   padding: 30px 20px;
   flex-wrap: wrap;
 }
@@ -101,17 +101,28 @@ export default {
   min-width: 320px;
 }
 .BTreer img {
-  width: auto;
-  height: 200px;
+  width: 200px;
+  height: auto;
   object-fit: contain;
+  position: relative;
+  top: 4.6rem;
+}
+.BTreer-word {
+  position: relative;
+  top: 2.3rem;
 }
 .BTreer h3 {
   margin: 0px !important;
   line-height: 2;
   font-weight: 400;
+  position: relative;
+  top: -4.6rem;
+  padding-top: 4.6rem;
 }
 .BTreer p {
   margin: 0px !important;
   line-height: 2;
+  position: relative;
+  top: -4.6rem;
 }
 </style>
