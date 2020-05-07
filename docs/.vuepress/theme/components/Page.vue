@@ -16,7 +16,6 @@
   </main>
 </template>
 
-
 <script>
 import PageEdit from "@theme/components/PageEdit.vue";
 import PageNav from "@theme/components/PageNav.vue";
@@ -39,7 +38,7 @@ export default {
     this.loading = 0;
   },
   updated() {
-    window.setTimeout(this.delay, 100);
+    window.setTimeout(this.delay, 3000);
   },
   methods: {
     delay() {
