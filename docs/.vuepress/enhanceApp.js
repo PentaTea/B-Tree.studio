@@ -1,11 +1,10 @@
 import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 import vuescroll from "vuescroll";
-import ace from 'ace-builds';
+
 
 export default function ({ Vue }) {
   Vue.use(ElementUI);
-  Vue.use(ace);
   Vue.use(vuescroll, {
     ops: {
       vuescroll: {
