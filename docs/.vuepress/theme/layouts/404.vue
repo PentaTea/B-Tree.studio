@@ -16,9 +16,7 @@
           「 {{from}} 」｜ 一言 ｜ by hitokoto.cn
         </h4>
       </div>
-      <div class="theme-default-content">
-        <Vssue title="404" />
-      </div>
+      <Comments path="404" />
     </div>
   </transition>
 </template>
@@ -33,7 +31,6 @@ export default {
       loading: 1
     };
   },
-  props: {},
   mounted: function() {
     fetch("https://v1.hitokoto.cn")
       .then(response => response.json())
@@ -47,10 +44,6 @@ export default {
         console.error(err);
         this.loading = 0;
       });
-    let d = new Date();
-    if (d.getMonth() + 1 == 4 && d.getDate() == 4) {
-      document.getElementsByTagName("html")[0].style.filter = "grayscale(1)";
-    }
   },
   methods: {}
 };

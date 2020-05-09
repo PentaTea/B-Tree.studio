@@ -7,6 +7,10 @@ sidebar: false
 
 > 论当今设计师如何优雅的暴露身份
 
+:::: el-alert title="暂未发售" type="warning" description="我现在没有台锯啊啊！等我回家再说。" show-icon
+
+::::
+
 ↓这里有个动画，如果加载不出来可以多等一下 emmm
 
 <SP file="/assets/svg/PCBRuler.svg" start="autostart"/>

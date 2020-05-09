@@ -3,7 +3,7 @@ readingShow: false
 home: true
 heroImage: /b-tree-logo.svg
 heroText: B-Tree Design Studio
-subtitle: 嵌入式 / 软件 / web / 产品 / 建模 / 算法 / 编曲 / 绘画
+subtitle: 嵌入式 / 软件 / 前端 / 产品 / 建模 / 算法 / 编曲 / 绘画
 ityped: true
 tagline: ["一个打从心底想带给你美好的工作室"]
 actionText: 开始上手 →
@@ -23,14 +23,14 @@ features:
 - 嵌入式系统 / 方案 / 产品设计
 - 电路以及 PCB 方案设计
 - 软件设计
-- web 前端
+- web 前端产品设计 / 运营
 - 功能性产品设计
 - 产品原型设计
 - 产品测试
 - Blender 建模，渲染等
 - Logic Pro 作曲编曲
 - 绘画
-- 手工艺品制作（滴胶，陶艺，木艺等）
+- 手工艺品制作 （~~看心情，太麻烦不接~~）（滴胶，陶艺，木艺等）
 
 ## 联系我们
 

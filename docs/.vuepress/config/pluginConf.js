@@ -115,7 +115,7 @@ module.exports = [
       successText: "复制成功"
     }
   ],
-  //["element-ui"],
+  ["element-ui"],
   [
     '@vuepress/last-updated',
     {

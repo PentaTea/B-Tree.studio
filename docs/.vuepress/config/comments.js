@@ -5,10 +5,12 @@ module.exports = [
         options: {
             appId: 'W2cy1EaT3UblAepXS7EEatVR-gzGzoHsz',
             appKey: 'qltbJ0agDFNAe9AEDbLiHe4d',
-            placeholder: '支持MarkDown语言,昵称支持QQ号喵~',
+            placeholder: '评论支持MarkDown语言\n昵称支持QQ号\n邮箱支持Gravatar头像哦\n喵~',
             recordIP: true,
             enableQQ: true,
             visitor: true,
+            requiredFields: ['nick'],
+            avatarForce: true,
             // 设置Bilibili表情包地址
             emojiCDN: '//i0.hdslb.com/bfs/emote/',
             // 表情title和图片映射
