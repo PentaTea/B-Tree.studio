@@ -38,7 +38,7 @@ export default {
     this.loading = 0;
   },
   updated() {
-    window.setTimeout(this.delay, 3000);
+    window.setTimeout(this.delay, 100);
   },
   methods: {
     delay() {
