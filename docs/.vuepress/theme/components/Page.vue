@@ -36,12 +36,12 @@ export default {
   props: ["sidebarItems"],
   mounted() {
     this.loading = 0;
-    setTimeout(() => {
-      if (window.location.href.indexOf("#comments") !== -1) {
-        document.getElementById("valine").scrollIntoView();
-        console.log("#comments");
-      }
-    }, 1000);
+    // setTimeout(() => {
+    //   if (window.location.href.indexOf("#comments") !== -1) {
+    //     document.getElementById("valine").scrollIntoView();
+    //     console.log("#comments");
+    //   }
+    // }, 1000);
   },
   updated() {
     window.setTimeout(this.delay, 100);
@@ -79,6 +79,19 @@ export default {
     }
   }
 };
+</script>
+<script>
+if (window.location.hash) {
+  var checkExist = setInterval(function() {
+    if ($(window.location.hash).length) {
+      $("html, body").animate(
+        { scrollTop: $(window.location.hash).offset().top - 90 },
+        0
+      );
+      clearInterval(checkExist);
+    }
+  }, 100);
+}
 </script>
 
 <style lang="stylus">

@@ -48,3 +48,16 @@ export default {
   methods: {}
 };
 </script>
+<script>
+if (window.location.hash) {
+  var checkExist = setInterval(function() {
+    if ($(window.location.hash).length) {
+      $("html, body").animate(
+        { scrollTop: $(window.location.hash).offset().top - 90 },
+        0
+      );
+      clearInterval(checkExist);
+    }
+  }, 100);
+}
+</script>
