@@ -36,6 +36,12 @@ export default {
   props: ["sidebarItems"],
   mounted() {
     this.loading = 0;
+    setTimeout(() => {
+      if (window.location.href.indexOf("#comments") !== -1) {
+        document.getElementById("valine").scrollIntoView();
+        console.log("#comments");
+      }
+    }, 1000);
   },
   updated() {
     window.setTimeout(this.delay, 100);
