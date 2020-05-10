@@ -166,7 +166,7 @@ module.exports = [
     {
       selector: '#main-title,.site-name.can-hide,.subtitle',
       src: 'docs/.vuepress/font/PingFangLight.ttf',
-      text: 'B-Tree Design Studio 嵌入式 / 软件 / web / 产品 / 建模 / 算法 / 编曲 / 绘画',
+      text: 'B-Tree Design Studio 嵌入式 / 软件 / 前端 / 产品 / 建模 / 算法 / 编曲 / 绘画',
     }
   ],
   // ["fontmin", [

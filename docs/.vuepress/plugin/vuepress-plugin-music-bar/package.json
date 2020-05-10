@@ -1,6 +1,6 @@
 {
   "name": "vuepress-plugin-music-bar",
-  "version": "3.7.4",
+  "version": "3.7.5",
   "description": "A music-bar plugin for vuepress",
   "keywords": [
     "vue",
@@ -14,19 +14,19 @@
     "bgm",
     "player"
   ],
-  "homepage": "https://github.com/moecopilot/B-Tree.studio/tree/master/docs/.vuepress/plugin/vuepress-plugin-music-bar#readme",
+  "homepage": "https://github.com/PentaTea/B-Tree.studio/tree/master/docs/.vuepress/plugin/vuepress-plugin-music-bar#readme",
   "bugs": {
-    "url": "https://github.com/moecopilot/B-Tree.studio/issues",
+    "url": "https://github.com/PentaTea/B-Tree.studio/issues",
     "email": "2490445193@qq.com"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/moecopilot/B-Tree.studio.git",
+    "url": "git+https://github.com/PentaTea/B-Tree.studio.git",
     "directory": "docs/.vuepress/plugin/vuepress-plugin-music-bar"
   },
-  "doc": "https://github.com/moecopilot/B-Tree.studio/tree/master/docs/.vuepress/plugin/vuepress-plugin-music-bar#readme",
+  "doc": "https://github.com/PentaTea/B-Tree.studio/tree/master/docs/.vuepress/plugin/vuepress-plugin-music-bar#readme",
   "license": "MIT",
-  "author": "moecopilot <2490445193@qq.com>",
+  "author": "PentaTea <2490445193@qq.com>",
   "main": "index.js",
   "devDependencies": {
     "@vuepress/shared-utils": "^1.0.0",
