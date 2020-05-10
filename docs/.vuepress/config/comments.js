@@ -3,8 +3,8 @@ module.exports = [
     {
         solution: 'valine',
         options: {
-            appId: 'W2cy1EaT3UblAepXS7EEatVR-gzGzoHsz',
-            appKey: 'qltbJ0agDFNAe9AEDbLiHe4d',
+            appId: 'a9Gy3iv0FHSNQejx23JVADD5-MdYXbMMI',
+            appKey: 'AitCiRPzfh0jcNmO4lTs5DYU',
             placeholder: '评论支持MarkDown语言\n昵称支持QQ号\n邮箱支持Gravatar头像哦\n喵~',
             recordIP: true,
             enableQQ: true,
