@@ -28,8 +28,7 @@ module.exports = [
     }
   ],
   ['script', { src: 'https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js' }],
-  ['script', { src: 'https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.11/ace.js' }]
-  // ,[
+  // [
   //   "link",
   //   {
   //     rel: "preconnect",

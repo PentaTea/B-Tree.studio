@@ -16,7 +16,7 @@
           「 {{from}} 」｜ 一言 ｜ by hitokoto.cn
         </h4>
       </div>
-      <Comments path="404" />
+      <Comments path="/404/" />
     </div>
   </transition>
 </template>
