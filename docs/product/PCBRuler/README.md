@@ -11,9 +11,9 @@ sidebar: false
 
 ::::
 
-↓这里有个动画，如果加载不出来可以多等一下 emmm
+~~↓这里有个动画，如果加载不出来可以多等一下 emmm~~
 
-<SP file="/assets/svg/PCBRuler.svg" start="autostart"/>
+`这里原来有个动画但实在太卡就删了`
 
 ## 介绍
 
