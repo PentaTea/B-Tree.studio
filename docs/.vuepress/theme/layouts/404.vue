@@ -46,11 +46,15 @@ export default {
       });
     if (window.location.hash) {
       var checkExist = setInterval(function() {
-        if ($(window.location.hash).length) {
-          $("html, body").animate(
-            { scrollTop: $(window.location.hash).offset().top - 90 },
-            0
-          );
+        try {
+          if ($(window.location.hash).length) {
+            $("html, body").animate(
+              { scrollTop: $(window.location.hash).offset().top - 90 },
+              0
+            );
+            clearInterval(checkExist);
+          }
+        } catch (error) {
           clearInterval(checkExist);
         }
       }, 100);

@@ -44,14 +44,18 @@ export default {
     // }, 1000);
   },
   updated() {
-    window.setTimeout(this.delay, 100);
+    setTimeout(this.delay, 100);
     if (window.location.hash) {
       var checkExist = setInterval(function() {
-        if ($(window.location.hash).length) {
-          $("html, body").animate(
-            { scrollTop: $(window.location.hash).offset().top - 90 },
-            0
-          );
+        try {
+          if ($(window.location.hash).length) {
+            $("html, body").animate(
+              { scrollTop: $(window.location.hash).offset().top - 90 },
+              0
+            );
+            clearInterval(checkExist);
+          }
+        } catch (error) {
           clearInterval(checkExist);
         }
       }, 100);
@@ -60,7 +64,9 @@ export default {
   methods: {
     delay() {
       document.querySelectorAll("p img").forEach((e, i) => {
-        e.parentNode.setAttribute("class", "img-content");
+        let p = e.parentNode;
+        p.innerHTML = "<div>" + p.innerHTML + "</div>";
+        p.setAttribute("class", "img-content");
         if (e.title) {
           console.log(e.title);
           e.style.cssText += e.title;
@@ -115,5 +121,16 @@ p.img-content {
   justify-content: center;
   margin: 0 20px;
   min-width: 25%;
+}
+
+#footer {
+  z-index: 11;
+  padding: 1.5rem;
+  font-size: 20px;
+  border-top: 1px solid $borderColor;
+  text-align: center;
+  color: lighten($textColor, 25%);
+  position: relative;
+  background-color: white;
 }
 </style>

@@ -27,11 +27,11 @@ self.addEventListener('message', (event) => {
 self.__precacheManifest = [
   {
     "url": "404.html",
-    "revision": "231e89ee8f4398dca1dd1ec2bc4d7076"
+    "revision": "9d8fbc041270974cc01167da14b5b1df"
   },
   {
-    "url": "assets/css/0.styles.af92e5fb.css",
-    "revision": "4484d24d69c7fba2d368f3629dc63241"
+    "url": "assets/css/0.styles.3168d201.css",
+    "revision": "1652bfa0e3a585031f480766fe1b87c0"
   },
   {
     "url": "assets/fonts/element-icons.535877f5.woff",
@@ -86,20 +86,20 @@ self.__precacheManifest = [
     "revision": "4db4145d0b9091d7e254db0f0627c339"
   },
   {
-    "url": "assets/js/17.fbb3f955.js",
-    "revision": "287dab6db35e36e7cbf38e497446dbcf"
+    "url": "assets/js/17.186d9704.js",
+    "revision": "80bb10d6d9f6a086030a15fcf103e5d1"
   },
   {
-    "url": "assets/js/18.c0c767f4.js",
-    "revision": "ffe5d2dd4d2b21e43f618cfb84044141"
+    "url": "assets/js/18.cf5c026b.js",
+    "revision": "66c447e810460a35a6c0d9ff9ab145ff"
   },
   {
-    "url": "assets/js/19.87b40084.js",
-    "revision": "9126f4d3217115b347cd0fd0b607ff56"
+    "url": "assets/js/19.6a190916.js",
+    "revision": "8039c251906cd6bfb0a2de44173456e6"
   },
   {
-    "url": "assets/js/20.9a915a69.js",
-    "revision": "a0429d7634b4ec53d56900a31a1b1fb6"
+    "url": "assets/js/20.6935790e.js",
+    "revision": "9098055585800ff75dba86031b62ca81"
   },
   {
     "url": "assets/js/21.805b0315.js",
@@ -110,8 +110,8 @@ self.__precacheManifest = [
     "revision": "e33f107b525dbdb441fbeac8049f487a"
   },
   {
-    "url": "assets/js/23.e6072f38.js",
-    "revision": "192718a0a0d2be93ee35cf4380defa04"
+    "url": "assets/js/23.15536ed6.js",
+    "revision": "142b9f11ee43c9477c30b42753a8eed6"
   },
   {
     "url": "assets/js/24.1f671b20.js",
@@ -138,56 +138,56 @@ self.__precacheManifest = [
     "revision": "c5f660424456dc000a62adb684b22502"
   },
   {
-    "url": "assets/js/app.cc6c1e45.js",
-    "revision": "e6bd03fcb0684352db3847be35917000"
+    "url": "assets/js/app.5e3c830a.js",
+    "revision": "a792424c88a5a31298fd994438201134"
   },
   {
-    "url": "assets/js/layout-Layout.5486fac7.js",
-    "revision": "a09de049580a483026d89be85d6b6677"
+    "url": "assets/js/layout-Layout.869bc59f.js",
+    "revision": "2d7adc6ee6a0c48f6f566d512f7e9937"
   },
   {
-    "url": "assets/js/layout-NotFound.4f18fa04.js",
-    "revision": "2272e54c91fcde513d0d28e67d23f2b0"
+    "url": "assets/js/layout-NotFound.ebf35171.js",
+    "revision": "b005ad68d05e3492df034ca0adb5fe41"
   },
   {
-    "url": "assets/js/page-069942c9.fc48db01.js",
-    "revision": "a5056d7e9a6aead97c901158cffaa59c"
+    "url": "assets/js/page-069942c9.58174a3c.js",
+    "revision": "9d9cb7f40c0063ba50bbdc30f209c5c6"
   },
   {
-    "url": "assets/js/page-142fd774.a1d05203.js",
-    "revision": "fb19003f3fd5fbfaa7c37da65e526f7c"
+    "url": "assets/js/page-142fd774.18dec07f.js",
+    "revision": "7b4d2933e58d7217d81ad43624bbf4c0"
   },
   {
-    "url": "assets/js/page-2037549c.5ae4db86.js",
-    "revision": "f283aac6e0757cfd0f61f74d81f7ddfd"
+    "url": "assets/js/page-2037549c.9865a31e.js",
+    "revision": "0dc135694665041764fda14661bb82b1"
   },
   {
     "url": "assets/js/page-22954010.92e75535.js",
     "revision": "6f3762c9e486bac6eaf4bc0439742bab"
   },
   {
-    "url": "assets/js/page-25b298b6.5f86c929.js",
-    "revision": "aa96b6c3e2c0167c415c29c77d24f0de"
+    "url": "assets/js/page-25b298b6.6724b4aa.js",
+    "revision": "5c936d64e5bb232529605baa47626fcd"
   },
   {
     "url": "assets/js/page-3c041b9e.736595bf.js",
     "revision": "92d7adc1dc1521d50619c21e1ae6ab76"
   },
   {
-    "url": "assets/js/page-65eaf5e4.1a6f4eea.js",
-    "revision": "4a3d944663121b88979928be145f4e1e"
+    "url": "assets/js/page-65eaf5e4.7c834287.js",
+    "revision": "4879be5ce3cf93b50ff3fffc9036b704"
   },
   {
     "url": "assets/js/page-7205f0b4.2dbc6b49.js",
     "revision": "f2a1efa877b1147c1fce3016804aa020"
   },
   {
-    "url": "assets/js/page-e4dfaf94.adae20f1.js",
-    "revision": "70ab42ebe1ac66fd64c2d9ac117c179f"
+    "url": "assets/js/page-e4dfaf94.2cfe2891.js",
+    "revision": "d3c685b62722a2dbcb4eb94169f171a2"
   },
   {
-    "url": "assets/js/page-fd1ee6b4.98308dcb.js",
-    "revision": "266e7773063ac939cb41e42105de7b79"
+    "url": "assets/js/page-fd1ee6b4.ca431718.js",
+    "revision": "d9dc16e97e2612f9aca0bfd87ac5bdce"
   },
   {
     "url": "assets/js/vendors~layout-Layout.d78b1b5b.js",
@@ -211,11 +211,11 @@ self.__precacheManifest = [
   },
   {
     "url": "blog/index.html",
-    "revision": "cdce2af6a44981d746f90f4e41862d89"
+    "revision": "0ae29bbc0eb27213476909c73b736847"
   },
   {
     "url": "doc/index.html",
-    "revision": "9f5c452b5327d7869c266421ffae3a79"
+    "revision": "faaea8197d55d198caf04e478ef33a5e"
   },
   {
     "url": "favicon.jpeg",
@@ -223,31 +223,31 @@ self.__precacheManifest = [
   },
   {
     "url": "funcTest/index.html",
-    "revision": "f3471e197718644f8566a85cd5e828c0"
+    "revision": "884a7203a8f72af762eac07d4b43c0e0"
   },
   {
     "url": "guide/index.html",
-    "revision": "04896580b86ad06c4aaf0a4794ba2fc9"
+    "revision": "ac41d1ae3f9a16c1001835f1885a9cfb"
   },
   {
     "url": "guide/team/index.html",
-    "revision": "6022eec50de122a3af504d9b32d112c4"
+    "revision": "112171947f604145099b5703516b7e6f"
   },
   {
     "url": "index.html",
-    "revision": "127aa67e5823a029ae72431cc4cf8be0"
+    "revision": "219875a2b13a9eccb275ce21e7a3a2fa"
   },
   {
     "url": "product/PCBRuler/index.html",
-    "revision": "b239fe610c650ca68755cad19b1d993e"
+    "revision": "c54203618181065b6e9d8ba03ebccd09"
   },
   {
     "url": "py-list/index.html",
-    "revision": "80e260d73b8e1845768ce9f558fe933f"
+    "revision": "d793debb37ca4d3a0b5e17cd86f5250d"
   },
   {
     "url": "resources/ZhouYiEncode/index.html",
-    "revision": "14d6f0105cf3e553d0560ca833b9c680"
+    "revision": "e6ec50830c7af4409fef17c535464a5a"
   },
   {
     "url": "support/alipay.jpg",
@@ -255,7 +255,7 @@ self.__precacheManifest = [
   },
   {
     "url": "support/index.html",
-    "revision": "8880c3dfc2c9db1fd7f81288395bec7f"
+    "revision": "d88614e5dcdc6e0d3bcb0fcb036f4644"
   },
   {
     "url": "support/wechat-pay.png",

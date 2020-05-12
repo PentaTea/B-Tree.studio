@@ -43,8 +43,8 @@
             href="https://github.com/PentaTea"
             target="_blank"
           >PentaTea</a> |
-          <RouterLink to="py-list/">友人帐</RouterLink>&nbsp;|
-          <RouterLink to="funcTest/">funcTest</RouterLink>
+          <RouterLink to="/py-list/">友人帐</RouterLink>&nbsp;|
+          <RouterLink to="/funcTest/">funcTest</RouterLink>
         </div>
       </main>
     </div>
