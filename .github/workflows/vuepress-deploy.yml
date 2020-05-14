@@ -18,5 +18,5 @@ jobs:
         # TARGET_REPO: username/repo
         TARGET_BRANCH: master
         TARGET_LINK: https://TZNslVKsMb:${{ secrets.CODING_TOKEN }}@b-tree.coding.net/b-tree/B-Tree.Studio.git
-        BUILD_SCRIPT: yarn && yarn docs:build
+        BUILD_SCRIPT: yarn && yarn docs:build && git config --global sendpack.sideband false
         BUILD_DIR: docs/.vuepress/dist/
