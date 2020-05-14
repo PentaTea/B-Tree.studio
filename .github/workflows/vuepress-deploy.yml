@@ -1,31 +1,17 @@
-name: vuepress-deploy
-
-# 在master分支发生push事件时触发。
-on:
-  push:
-    branches:
-      - master
-
+name: Build and Deploy
+on: [push]
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [13.x]
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v1
+    - name: Checkout
+      uses: actions/checkout@master
 
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-
-      - name: run deploy.sh
-        env:
-          # GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          CODING_TOKEN: ${{ secrets.CODING_TOKEN }}
-        run: npm install && npm run deploy
-        # package.json 中添加 "deploy": "bash deploy.sh"
+    - name: vuepress-deploy
+      uses: jenkey2011/vuepress-deploy@master
+      env:
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        # TARGET_REPO: username/repo
+        # TARGET_BRANCH: master
+        BUILD_SCRIPT: yarn && yarn docs:build
+        BUILD_DIR: docs/.vuepress/dist/
