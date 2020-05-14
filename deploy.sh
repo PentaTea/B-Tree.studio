@@ -7,10 +7,11 @@ cd docs/.vuepress/dist # 进入生成的文件夹
 # deploy to coding
 # echo 'www.b-tree.studio' > CNAME  # 自定义域名
 if [ -z "$CODING_TOKEN" ]; then  # -z 字符串 长度为0则为true；$CODING_TOKEN来自于github仓库`Settings/Secrets`设置的私密环境变量
+  msg='deploy'
   codingUrl=git@e.coding.net:b-tree/B-Tree.Studio.git
 else
-  codingUrl=https://xugaoyi:${CODING_TOKEN}@git.dev.tencent.com/xugaoyi/xugaoyi.git
-  https://TZNslVKsMb:b7ca301581a2b8467cdc5ccbc3159c925321f275@b-tree.coding.net/b-tree/B-Tree.Studio.git
+  msg='来自github action的自动部署'
+  codingUrl=https://TZNslVKsMb:${CODING_TOKEN}@b-tree.coding.net/b-tree/B-Tree.Studio.git
 fi
 git add -A
 git commit -m "${msg}"
