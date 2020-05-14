@@ -37,7 +37,6 @@
             <p>{{ feature.details }}</p>
           </div>
         </div>
-        <Comments path="/" v-show="0" />
         <div class="footer">
           MPL-2.0 Licensed | Copyright © 2019-{{ new Date().getFullYear()}}
           <a
@@ -45,9 +44,7 @@
             target="_blank"
           >PentaTea</a> |
           <RouterLink to="/py-list/">友人帐</RouterLink>&nbsp;|
-          <RouterLink to="/funcTest/">funcTest</RouterLink>&nbsp;|
-          <i class="el-icon-view"></i>
-          <AccessNumber :flagTitle="$title" />
+          <RouterLink to="/funcTest/">funcTest</RouterLink>
         </div>
       </main>
     </div>
@@ -63,7 +60,8 @@ export default {
   components: { NavLink },
   data() {
     return {
-      loading: 1
+      loading: 1,
+      Comments: 0
     };
   },
   computed: {
@@ -84,6 +82,9 @@ export default {
     this.loading = 0;
     //setTimeout(this.ityped, 100);
     this.$nextTick().then(this.ityped);
+  },
+  destroyed: function() {
+    this.Comments = 1;
   },
   methods: {
     d() {

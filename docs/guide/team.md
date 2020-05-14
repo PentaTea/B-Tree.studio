@@ -9,7 +9,7 @@ readingTime: false
 
 ## 工作室核心成员
 
-核心成员会负责 B-Tree 工作室的项目研发，维护，测试，以及生态建设
+核心成员会负责 B-Tree Studio 的项目研发，维护，测试，以及生态建设
 
 <BTreer data="/assets/img/五茶.jpg Creator 中国-福建-福州 中文,English 2490445193@qq.com">
 

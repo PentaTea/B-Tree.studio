@@ -1,5 +1,5 @@
 module.exports = [
-    '@vuepress-reco/comments',
+    require('./../plugin/@vuepress-reco/vuepress-plugin-comments/index.js'),
     {
         solution: 'valine',
         options: {
