@@ -18,13 +18,11 @@ jobs:
         # TARGET_BRANCH: master
         BUILD_SCRIPT: yarn && yarn docs:build
         BUILD_DIR: docs/.vuepress/dist/
-  push:
-    runs-on: ubuntu-latest
-    steps:
+        
     - name: Checkout
       uses: actions/checkout@master
       with:
         ref: github-pages
 
     - name: push
-      run: git add -A && git commit -m 来自 github action 的自动部署 && git push -f https://TZNslVKsMb:${{ secrets.CODING_TOKEN }}@b-tree.coding.net/b-tree/B-Tree.Studio.git master
+      run: git add -A && git commit -m "来自 github action 的自动部署" && git push -f https://TZNslVKsMb:${{ secrets.CODING_TOKEN }}@b-tree.coding.net/b-tree/B-Tree.Studio.git master
