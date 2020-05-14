@@ -10,7 +10,7 @@ if [ -z "$CODING_TOKEN" ]; then  # -z 字符串 长度为0则为true；$CODING_T
   msg='deploy'
   codingUrl=git@e.coding.net:b-tree/B-Tree.Studio.git
 else
-  msg='来自github action的自动部署'
+  msg='来自 github action 的自动部署'
   codingUrl=https://TZNslVKsMb:${CODING_TOKEN}@b-tree.coding.net/b-tree/B-Tree.Studio.git
 fi
 git add -A
