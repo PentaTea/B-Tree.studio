@@ -37,14 +37,17 @@
             <p>{{ feature.details }}</p>
           </div>
         </div>
+        <Comments path="/" v-show="0" />
         <div class="footer">
-          MPL-2.0 Licensed | Copyright © {{ new Date().getFullYear()}}
+          MPL-2.0 Licensed | Copyright © 2019-{{ new Date().getFullYear()}}
           <a
             href="https://github.com/PentaTea"
             target="_blank"
           >PentaTea</a> |
           <RouterLink to="/py-list/">友人帐</RouterLink>&nbsp;|
-          <RouterLink to="/funcTest/">funcTest</RouterLink>
+          <RouterLink to="/funcTest/">funcTest</RouterLink>&nbsp;|
+          <i class="el-icon-view"></i>
+          <AccessNumber :flagTitle="$title" />
         </div>
       </main>
     </div>

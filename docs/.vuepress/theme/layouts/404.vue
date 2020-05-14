@@ -17,6 +17,17 @@
         </h4>
       </div>
       <Comments path="/404/" />
+      <div id="footer" v-if="!$page.frontmatter.home">
+        MPL-2.0 Licensed | Copyright © {{ new Date().getFullYear()}}
+        <a
+          href="https://github.com/PentaTea"
+          target="_blank"
+        >PentaTea</a> |
+        <RouterLink to="/py-list/">友人帐</RouterLink>&nbsp;|
+        <RouterLink to="/funcTest/">funcTest</RouterLink>&nbsp;|
+        <i class="el-icon-view"></i>
+        <AccessNumber idVal="/404/" flagTitle="404" />
+      </div>
     </div>
   </transition>
 </template>

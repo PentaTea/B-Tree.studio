@@ -37,7 +37,9 @@
           target="_blank"
         >PentaTea</a> |
         <RouterLink to="/py-list/">友人帐</RouterLink>&nbsp;|
-        <RouterLink to="/funcTest/">funcTest</RouterLink>
+        <RouterLink to="/funcTest/">funcTest</RouterLink>&nbsp;|
+        <i class="el-icon-view"></i>
+        <AccessNumber :flagTitle="$title" />
       </div>
     </div>
   </transition>

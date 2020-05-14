@@ -108,12 +108,27 @@ blockquote {
   .dropdown-title
     outline none
 
-#valine
-  max-width 80%
-  margin auto
 
 #valine.v[data-class=v] .vwrap 
     border 1px solid #66ccff
+    
 
 .v[data-class=v] .veditor 
     font-size 1.3em
+
+.valine-wrapper #valine.v code, .valine-wrapper #valine.v pre
+  background-color #f3f4f4
+
+#footer {
+  z-index: 11;
+  padding: 1.5rem;
+  font-size: 20px;
+  border-top: 1px solid $borderColor;
+  text-align: center;
+  color: lighten($textColor, 25%);
+  position: relative;
+  background-color: white;
+}
+
+.leancloud-visitors-count
+  color #4e6e8e;

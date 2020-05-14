@@ -10,6 +10,7 @@
 
     <slot name="bottom" />
     <Comments :isShowComments="shouldShowComments" />
+
     <!-- <span id="valine"></span> -->
     <!-- <Vssue :title="VssueTitle" /> -->
   </main>
@@ -44,7 +45,7 @@ export default {
     // }, 1000);
   },
   updated() {
-    setTimeout(this.delay, 100);
+    //setTimeout(this.delay, 100);
     if (window.location.hash) {
       var checkExist = setInterval(function() {
         try {
@@ -63,16 +64,18 @@ export default {
   },
   methods: {
     delay() {
-      document.querySelectorAll("p img").forEach((e, i) => {
-        let p = e.parentNode;
-        p.innerHTML = "<div>" + p.innerHTML + "</div>";
-        p.setAttribute("class", "img-content");
-        if (e.title) {
-          console.log(e.title);
-          e.style.cssText += e.title;
-          e.title = "";
-        }
-      });
+      document
+        .querySelectorAll(":not(comments-wrapper) p img")
+        .forEach((e, i) => {
+          let p = e.parentNode;
+          p.innerHTML = "<div>" + p.innerHTML + "</div>";
+          p.setAttribute("class", "img-content");
+          if (e.title) {
+            console.log(e.title);
+            e.style.cssText += e.title;
+            e.title = "";
+          }
+        });
 
       if (this.$page.frontmatter.readingTime != false)
         try {
@@ -121,16 +124,5 @@ p.img-content {
   justify-content: center;
   margin: 0 20px;
   min-width: 25%;
-}
-
-#footer {
-  z-index: 11;
-  padding: 1.5rem;
-  font-size: 20px;
-  border-top: 1px solid $borderColor;
-  text-align: center;
-  color: lighten($textColor, 25%);
-  position: relative;
-  background-color: white;
 }
 </style>
