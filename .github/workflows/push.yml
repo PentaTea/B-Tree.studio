@@ -1,0 +1,14 @@
+name: Push
+on: 
+  push:
+    branches:
+      - github-pages
+jobs:
+  push:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@github-pages
+
+    - name: push
+      run: git add -A && git commit -m 来自 github action 的自动部署 && git push -f https://TZNslVKsMb:${{ secrets.CODING_TOKEN }}@b-tree.coding.net/b-tree/B-Tree.Studio.git master
