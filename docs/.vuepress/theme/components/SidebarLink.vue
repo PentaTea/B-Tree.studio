@@ -37,7 +37,7 @@ export default {
         $themeLocaleConfig.sidebarDepth,
         $themeConfig.sidebarDepth,
         1
-      ].find(depth => depth !== undefined) + 1;
+      ].find(depth => depth !== undefined) + 2;
 
     const displayAllHeaders =
       $themeLocaleConfig.displayAllHeaders || $themeConfig.displayAllHeaders;

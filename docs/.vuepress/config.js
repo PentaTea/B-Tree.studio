@@ -41,7 +41,8 @@ module.exports = {
     editLinks: true,
     editLinkText: "在 GitHub 上编辑此页",
     markdown: {
-      lineNumbers: true
+      lineNumbers: true,
+      extractHeaders: ['h2', 'h3', 'h4']
     },
     // flexSearchOptions: {
     //   encode: "icase",
