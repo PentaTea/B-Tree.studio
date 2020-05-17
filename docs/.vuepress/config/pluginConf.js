@@ -2,7 +2,35 @@ const comments = require("./comments.js");
 const pwa = require("./pwaConf.js");
 module.exports = [
   pwa,
-  // ['flexsearch'],
+  ['@vuepress/blog', {
+    directories: [
+      {
+        id: 'post',
+        dirname: 'blog/post',
+        path: '/blog/',
+        layout: 'BlogLayout',
+        itemLayout: 'Layout',
+        itemPermalink: 'blog/post/:slug',
+        title: "博客",
+
+      },
+    ],
+    frontmatters: [
+      {
+        // Unique ID of current classification
+        id: 'tag',
+        // Decide that the frontmatter keys will be grouped under this classification
+        keys: ['tag'],
+        // Path of the `entry page` (or `list page`)
+        path: '/blog/tag/',
+        // Layout of the `entry page`
+        layout: 'BlogLayout',
+        // Layout of the `scope page`
+        scopeLayout: 'BlogLayout'
+      },
+    ]
+  }],
+  ['img-lazy'],
   [
     "@vuepress/active-header-links",
     {

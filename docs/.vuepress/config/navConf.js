@@ -47,6 +47,10 @@ module.exports = [
           {
             text: "博客",
             link: "/blog/"
+          },
+          {
+            text: "博客 Tag 列表",
+            link: "/blog/tag/"
           }
         ]
       },

@@ -1,9 +1,11 @@
 <template>
   <main class="page">
     <slot name="top" />
+
     <transition name="fade">
       <Content v-if="!loading" class="theme-default-content" ref="mainContent" />
     </transition>
+
     <PageEdit />
 
     <PageNav v-bind="{ sidebarItems }" />
