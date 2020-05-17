@@ -77,7 +77,9 @@ module.exports = [
   ],
 
   //自动分组
-  ["vuepress-plugin-auto-sidebar", {}],
+  ["vuepress-plugin-auto-sidebar", {
+    collapsable: true
+  }],
 
   //自定义md容器
   [

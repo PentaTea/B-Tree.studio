@@ -35,7 +35,7 @@ module.exports = {
     sidebar: "auto",
     sidebarDepth: 2,
     activeHeaderLinks: true,
-    repo: "moecopilot/B-Tree.studio",
+    repo: "PentaTea/B-Tree.studio",
     repoLabel: "GitHub",
     docsDir: "docs",
     editLinks: true,
