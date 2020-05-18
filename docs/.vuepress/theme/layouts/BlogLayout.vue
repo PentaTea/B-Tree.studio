@@ -17,6 +17,7 @@
         </template>
         <template #bottom>
           <slot name="sidebar-bottom" />
+          <div class="sidebar-bottom"></div>
         </template>
       </Sidebar>
 
@@ -28,10 +29,8 @@
         </template>
         <template #bottom>
           <slot name="page-bottom" />
-          <transition name="fade">
-            <Tag v-if="$frontmatterKey" />
-            <PostList v-else />
-          </transition>
+          <Tag v-if="$frontmatterKey" />
+          <PostList v-else />
         </template>
       </Page>
       <div id="footer" v-if="!$page.frontmatter.home">
@@ -161,3 +160,9 @@ export default {
   }
 };
 </script>
+
+<style lang="stylus">
+.sidebar-bottom {
+  height: 100px;
+}
+</style>

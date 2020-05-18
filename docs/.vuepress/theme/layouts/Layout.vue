@@ -17,6 +17,7 @@
         </template>
         <template #bottom>
           <slot name="sidebar-bottom" />
+          <div class="sidebar-bottom"></div>
         </template>
       </Sidebar>
 
@@ -157,3 +158,9 @@ export default {
   }
 };
 </script>
+
+<style lang="stylus">
+.sidebar-bottom {
+  height: 100px;
+}
+</style>
