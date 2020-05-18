@@ -15,20 +15,20 @@
 <script>
 import isNil from "lodash/isNil";
 import { endingSlashRE, outboundRE } from "../util";
+import moment from "moment";
 
 export default {
   name: "PageEdit",
 
+  data() {
+    return {
+      RemoteLastUpdated: null
+    };
+  },
+
   computed: {
     lastUpdated() {
-      console.log(this.$site.themeConfig);
-      console.log(this.$page.relativePath);
-
-      console.log(
-        `https://api.github.com/repos/${this.$site.themeConfig.repo}/commits?path=docs/${this.$page.relativePath}`
-      );
-
-      return this.$page.lastUpdated;
+      return this.$page.lastUpdated || this.RemoteLastUpdated || "Unknown";
     },
 
     lastUpdatedText() {
@@ -74,7 +74,24 @@ export default {
     }
   },
 
+  created() {
+    this.getRemoteLastUpdated();
+  },
   methods: {
+    getRemoteLastUpdated() {
+      let axios = require("axios");
+
+      axios
+        .get(
+          `https://api.github.com/repos/${this.$site.themeConfig.repo}/commits?path=docs/${this.$page.relativePath}`
+        )
+        .then(response => {
+          if (response.data[0])
+            this.RemoteLastUpdated = moment(
+              response.data[0].commit.committer.date
+            ).format("YYYY/MM/DD HH:mm:ss");
+        });
+    },
     createEditLink(repo, docsRepo, docsDir, docsBranch, path) {
       const bitbucket = /bitbucket.org/;
       if (bitbucket.test(repo)) {

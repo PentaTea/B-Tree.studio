@@ -28,8 +28,10 @@
         </template>
         <template #bottom>
           <slot name="page-bottom" />
-          <Tag v-if="$frontmatterKey" />
-          <PostList v-else />
+          <transition name="fade">
+            <Tag v-if="$frontmatterKey" />
+            <PostList v-else />
+          </transition>
         </template>
       </Page>
       <div id="footer" v-if="!$page.frontmatter.home">
