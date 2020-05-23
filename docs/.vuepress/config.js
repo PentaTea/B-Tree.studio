@@ -2,6 +2,7 @@ const pluginConf = require("./config/pluginConf.js");
 const headConf = require("./config/headConf.js");
 const navConf = require("./config/navConf.js");
 
+
 module.exports = {
   title: "B-Tree",
   description: "B-Tree Design Studio 一个打从心底想带给你美好的工作室",
@@ -40,16 +41,14 @@ module.exports = {
     docsDir: "docs",
     editLinks: true,
     editLinkText: "在 GitHub 上编辑此页",
-    markdown: {
-      lineNumbers: true,
-      extractHeaders: ['h2', 'h3', 'h4']
-    },
-    // flexSearchOptions: {
-    //   encode: "icase",
-    //   tokenize: "strict",
-    //   threshold: 7,
-    //   depth: 3
-    // }
-  }
 
-};
+  },
+  markdown: {
+    lineNumbers: true,
+    extractHeaders: ['h2', 'h3', 'h4'],
+    extendMarkdown: md => {
+      md.use(require('markdown-it-checkbox'))
+      md.use(require('markdown-it-plantuml'))
+    },
+  }
+}

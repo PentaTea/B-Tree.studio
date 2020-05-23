@@ -95,6 +95,14 @@ export default {
     console.log(this.pages);
     this.themeColor = randomColor();
     this.timestamp = new Date().getTime();
+    const refresh = setInterval(() => {
+      if (this.$page.path.indexOf("/post/") !== -1) {
+        clearInterval(refresh);
+        return;
+      }
+      this.$refs.waterfall.refresh();
+      console.log("refresh");
+    }, 2000);
   },
 
   methods: {

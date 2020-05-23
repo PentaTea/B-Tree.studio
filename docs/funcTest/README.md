@@ -19,28 +19,58 @@ readingTime: false
 
 <Three conf="RapberryPiZero.yml"/>
 
-## Github Action
+## uml
 
-``` YAML
-name: Build and Deploy
-on:
-  push:
-    branches:
-      - master
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout
-      uses: actions/checkout@master
+@startuml
+clock clk with period 1
+binary "enable" as EN
+concise "dataBus" as db
 
-    - name: vuepress-deploy
-      uses: PentaTea/vuepress-deploy@master
-      env:
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        # TARGET_REPO: username/repo
-        TARGET_BRANCH: master
-        TARGET: https://TZNslVKsMb:${{ secrets.CODING_TOKEN }}@b-tree.coding.net/b-tree/B-Tree.Studio.git
-        BUILD_SCRIPT: yarn && yarn docs:build
-        BUILD_DIR: docs/.vuepress/dist/
+@0 as :start
+@5 as :en_high
+@10 as :en_low
+
+@:start
+EN is low
+db is "0x0000"
+
+@:en_high
+EN is high
+
+@:en_low
+EN is low
+
+@:en_high-2
+db is "0xf23a"
+
+@:en_high+6
+db is "0x0000"
+@enduml
+
+```
+@startuml
+clock clk with period 1
+binary "enable" as EN
+concise "dataBus" as db
+
+@0 as :start
+@5 as :en_high
+@10 as :en_low
+
+@:start
+EN is low
+db is "0x0000"
+
+@:en_high
+EN is high
+
+@:en_low
+EN is low
+
+@:en_high-2
+db is "0xf23a"
+
+@:en_high+6
+db is "0x0000"
+@enduml
 ```
