@@ -42,12 +42,7 @@
                   <ul :class="['thumbnail-list',imgCont(page.data)]">
                     <li v-for="src in thumbnail(page.data)">
                       <div class="item">
-                        <img-lazy
-                          @load="$refs.waterfall.refresh()"
-                          draggable="false"
-                          :src="src"
-                          alt
-                        />
+                        <img-lazy @load="refresh()" draggable="false" :src="src" alt />
                       </div>
                     </li>
                   </ul>
@@ -78,7 +73,8 @@ export default {
     return {
       paginationComponent: null,
       themeColor: null,
-      timestamp: null
+      timestamp: null,
+      refresh_handle: null
     };
   },
 
@@ -92,20 +88,19 @@ export default {
     this.paginationComponent = this.getPaginationComponent();
   },
   mounted() {
-    console.log(this.pages);
+    this.refresh();
     this.themeColor = randomColor();
     this.timestamp = new Date().getTime();
-    const refresh = setInterval(() => {
-      if (this.$page.path.indexOf("/post/") !== -1) {
-        clearInterval(refresh);
-        return;
-      }
-      this.$refs.waterfall.refresh();
-      console.log("refresh");
-    }, 2000);
+    this.refresh_handle = setInterval(this.refresh, 2000);
   },
 
   methods: {
+    refresh() {
+      if (this.$refs.waterfall) {
+        this.$refs.waterfall.refresh();
+        console.log("refresh");
+      }
+    },
     getPaginationComponent() {
       const n = "Pagination";
       if (n === "Pagination") {

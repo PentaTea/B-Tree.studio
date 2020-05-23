@@ -110,7 +110,7 @@ blockquote {
   .dropdown-title
     outline none
 
-
+//valine 外观样式
 #valine.v[data-class=v] .vwrap 
     border 1px solid #66ccff  !important
     
@@ -121,6 +121,16 @@ blockquote {
 .valine-wrapper #valine.v code, .valine-wrapper #valine.v pre
   background-color #f3f4f4
 
+//表情包大小设定
+.v[data-class=v] .vwrap .vemojis i
+  width auto !important
+  margin 5px
+
+.v[data-class=v] .emoji, .v[data-class=v] .vemoji 
+  max-width: 50px !important
+  margin 5px !important
+
+//页脚
 #footer {
   z-index: 11;
   padding: 1.5rem;
@@ -135,5 +145,9 @@ blockquote {
 .leancloud-visitors-count
   color #4e6e8e;
 
+//el抽屉字体
 .el-collapse-item__header 
   font-size 20px !important
+
+.el-collapse-item__wrap
+  overflow visible
