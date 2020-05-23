@@ -36,7 +36,13 @@ features:
 
 QQ:`2490445193`
 
+QQ Group:`895722928`
+
 Wechat:`13864029857`
+
+## 进一步了解
+
+接下来您可以查看我们的[指南页](/guide/)，[非定制类型的产品](/guide/#产品)或者[团队介绍](/guide/team/)，也可以去[我的博客](/blog/)溜一遭
 
 <svg aria-hidden="true" focusable="false" style="width:0;height:0;position:absolute;">
         <linearGradient

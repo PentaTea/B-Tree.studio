@@ -45,9 +45,6 @@ export default {
     //     console.log("#comments");
     //   }
     // }, 1000);
-  },
-  updated() {
-    //setTimeout(this.delay, 100);
     if (window.location.hash) {
       var checkExist = setInterval(function() {
         try {
@@ -63,6 +60,9 @@ export default {
         }
       }, 100);
     }
+  },
+  updated() {
+    //setTimeout(this.delay, 100);
   },
   methods: {
     delay() {
