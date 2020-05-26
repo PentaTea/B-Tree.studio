@@ -81,7 +81,7 @@
     "valine": "^1.4.14",
     "vue-svg-icon": "^1.2.9",
     "vue-waterfall": "^1.0.6",
-    "vuepress-plugin-fontmin": "^2.0.1",
+    "vuepress-plugin-fontmin": "^2.0.3",
     "vuepress-plugin-img-lazy": "^1.0.3",
     "vuepress-plugin-sitemap": "^2.3.1",
     "vuescroll": "^4.15.0",
