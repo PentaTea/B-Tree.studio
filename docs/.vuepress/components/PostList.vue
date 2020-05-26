@@ -140,14 +140,6 @@ export default {
 <style lang="stylus">
 $card-radius = 8px;
 
-html {
-  box-sizing: border-box;
-}
-
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-
 #PostList-layout {
   max-width: 100%;
   box-sizing: border-box;
