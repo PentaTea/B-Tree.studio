@@ -190,7 +190,7 @@ module.exports = [
     }
   ],
   [
-    require("./../plugin/vuepress-plugin-fontmin/index.js"),
+    "fontmin",
     {
       selector: '#main-title,.site-name.can-hide,.subtitle',
       src: 'docs/.vuepress/font/PingFangLight.ttf',
