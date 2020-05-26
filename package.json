@@ -41,7 +41,6 @@
     "vuepress-plugin-disqus": "^0.2.0",
     "vuepress-plugin-element-tabs": "^0.2.8",
     "vuepress-plugin-element-ui": "^1.1.0",
-    "vuepress-plugin-flexsearch": "^0.0.7",
     "vuepress-plugin-mathjax": "^1.2.8",
     "vuepress-plugin-medium-zoom": "^1.1.8",
     "vuepress-plugin-music-bar": "^3.2.4",
