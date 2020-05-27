@@ -169,26 +169,26 @@ module.exports = [
       }
     }
   ],
-  [
-    require("./../plugin/vuepress-plugin-music-bar/index.js"),
-    {
-      playList: [],
+  // [
+  //   require("./../plugin/vuepress-plugin-music-bar/index.js"),
+  //   {
+  //     playList: [],
 
-      platform: [
-        {
-          name: "music.163.com",
-          songIDs: ["1297333740"],
-          playListIDs: ["4909779787"]
-        }
-      ],
+  //     platform: [
+  //       {
+  //         name: "music.163.com",
+  //         songIDs: ["1297333740"],
+  //         playListIDs: ["4909779787"]
+  //       }
+  //     ],
 
-      timeOut: 2000,
+  //     timeOut: 2000,
 
-      firstClickPlay: true,
+  //     firstClickPlay: true,
 
-      background: "linear-gradient(-20deg, #00cdac 0%, #8ddad5 100%)"
-    }
-  ],
+  //     background: "linear-gradient(-20deg, #00cdac 0%, #8ddad5 100%)"
+  //   }
+  // ],
   [
     "fontmin",
     {
