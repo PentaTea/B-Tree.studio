@@ -1,20 +1,21 @@
 {
   "index_name": "b-tree-studio",
-  "start_urls": [
-    "http://www.b-tree.studio/",
-    "http://www.b-tree.studio/guide/",
-    "http://www.b-tree.studio/blog/post/爵士理论/"
-  ],
-  "sitemap_urls": ["http://www.b-tree.studio/sitemap.xml"],
+  "start_urls": ["http://b-tree.studio"],
   "stop_urls": [],
   "selectors": {
-    "lvl0": ".sidebar-heading",
-    "lvl1": ".theme-default-content h1",
-    "lvl2": ".theme-default-content h2",
-    "lvl3": ".theme-default-content h3",
-    "lvl4": ".theme-default-content h4",
-    "text": ".theme-default-content p,.theme-default-content li"
+    "lvl0": {
+      "selector": "p.sidebar-heading.open",
+      "global": true,
+      "default_value": "Documentation"
+    },
+    "lvl1": "h1",
+    "lvl2": "h2",
+    "lvl3": "h3",
+    "lvl4": "h4",
+    "text": "p, li"
   },
-  "selectors_exclude": [".site-name", "main-title"],
+  "scrap_start_urls": false,
+  "strip_chars": " .,;:#",
+  "selectors_exclude": [],
   "only_content_level": true
 }

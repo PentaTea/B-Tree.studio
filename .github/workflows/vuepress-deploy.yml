@@ -1,5 +1,5 @@
 name: Build and Deploy
-on: 
+on:
   push:
     branches:
       - master
@@ -7,15 +7,15 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-16.04
     steps:
-    - name: Checkout
-      uses: actions/checkout@master
+      - name: Checkout
+        uses: actions/checkout@master
 
-    - name: vuepress-deploy
-      uses: PentaTea/vuepress-deploy@master
-      env:
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        TARGET_REPO: PentaTea/PentaTea.github.io
-        TARGET_BRANCH: master
-        #TARGET_LINK: https://TZNslVKsMb:${{ secrets.CODING_TOKEN }}@b-tree.coding.net/b-tree/B-Tree.Studio.git
-        BUILD_SCRIPT: yarn && yarn docs:build && git config --global http.postBuffer 524288000
-        BUILD_DIR: docs/.vuepress/dist/
+      - name: vuepress-deploy
+        uses: PentaTea/vuepress-deploy@master
+        env:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          #TARGET_REPO: PentaTea/PentaTea.github.io
+          #TARGET_BRANCH: master
+          #TARGET_LINK: https://TZNslVKsMb:${{ secrets.CODING_TOKEN }}@b-tree.coding.net/b-tree/B-Tree.Studio.git
+          BUILD_SCRIPT: yarn && yarn docs:build && git config --global http.postBuffer 524288000
+          BUILD_DIR: docs/.vuepress/dist/
