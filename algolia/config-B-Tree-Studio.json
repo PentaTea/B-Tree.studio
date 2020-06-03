@@ -1,6 +1,7 @@
 {
   "index_name": "b-tree-studio",
   "start_urls": [
+    "http://www.b-tree.studio/",
     "http://www.b-tree.studio/guide/",
     "http://www.b-tree.studio/blog/post/爵士理论/"
   ],
@@ -8,13 +9,12 @@
   "stop_urls": [],
   "selectors": {
     "lvl0": ".sidebar-heading",
-    "lvl1": "h1",
-    "lvl2": "h2",
-    "lvl3": "h3",
-    "lvl4": "h4",
-    "text": "p"
+    "lvl1": ".theme-default-content h1",
+    "lvl2": ".theme-default-content h2",
+    "lvl3": ".theme-default-content h3",
+    "lvl4": ".theme-default-content h4",
+    "text": ".theme-default-content p,.theme-default-content li"
   },
   "selectors_exclude": [".site-name", "main-title"],
-  "conversation_id": ["534091583"],
-  "nb_hits": 18645
+  "only_content_level": true
 }
