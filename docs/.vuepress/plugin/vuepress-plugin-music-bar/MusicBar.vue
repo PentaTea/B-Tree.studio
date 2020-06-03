@@ -304,6 +304,7 @@ export default {
         howl: new Howl({
           src: url,
           html5: true,
+          preload: "metadata",
           onend: () => {
             this.Skip(1);
           },

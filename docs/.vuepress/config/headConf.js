@@ -27,7 +27,7 @@ module.exports = [
       content: "b-tree,studio,hardware,embed,mbed,b树,设计,工作室,硬件,嵌入式"
     }
   ],
-  ['script', { src: 'https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js' }],
+  ['script', { src: '/js/jquery-3.5.1.min.js' }],
   // [
   //   "link",
   //   {
