@@ -14,8 +14,8 @@ jobs:
       uses: PentaTea/vuepress-deploy@master
       env:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        # TARGET_REPO: username/repo
-        #TARGET_BRANCH: master
+        TARGET_REPO: PentaTea/PentaTea.github.io
+        TARGET_BRANCH: master
         #TARGET_LINK: https://TZNslVKsMb:${{ secrets.CODING_TOKEN }}@b-tree.coding.net/b-tree/B-Tree.Studio.git
         BUILD_SCRIPT: yarn && yarn docs:build && git config --global http.postBuffer 524288000
         BUILD_DIR: docs/.vuepress/dist/
