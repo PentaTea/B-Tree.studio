@@ -1,10 +1,6 @@
 {
   "index_name": "B-Tree_Studio",
-  "start_urls": [
-    {
-      "url": "http://www.b-tree.studio/"
-    }
-  ],
+  "start_urls": ["http://www.b-tree.studio"],
   "sitemap_urls": ["http://www.b-tree.studio/sitemap.xml"],
   "stop_urls": [],
   "selectors": {
