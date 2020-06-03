@@ -4,7 +4,7 @@
   "author": "moecopilot",
   "license": "MPL-2.0",
   "scripts": {
-    "docs:dev": "vuepress dev docs --no-cache",
+    "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "push": "sh ./automation/push.sh",
     "lighthouse": "cd lighthouse && lighthouse https://b-tree.studio",

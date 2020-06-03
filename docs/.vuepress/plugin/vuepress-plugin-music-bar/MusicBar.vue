@@ -5,6 +5,22 @@
         <div class="card-holder">
           <div class="card-wrapper">
             <div class="card" :style="{background:frameColor}">
+              <div class="card-console">
+                <div>
+                  <el-slider
+                    v-model="volume"
+                    vertical
+                    height="150px"
+                    :show-tooltip="false"
+                    :format-tooltip="format"
+                  ></el-slider>
+                </div>
+
+                <div class="card-log">
+                  <div class="text">{{log}}</div>
+                </div>
+              </div>
+
               <div class="music-bar-top" ref="top" @click.once="FirstClick()"></div>
               <div class="music-bar-player" :style="{background:background}">
                 <div class="progress" :style="{width:progress}"></div>
@@ -134,10 +150,41 @@ export default {
       ready: 0,
       isMouseDown: 0,
       from: "",
-      display: 0
+      display: 0,
+      log: "",
+      loading: 0,
+      volumeCache: 100,
+      MusicBar: {
+        log: msg => {
+          if (MUSICBAR_ENABLE_DEBUG)
+            console.log("\n\n%c[music-bar]" + msg, "color: green;");
+          this.log += msg + "\r\n";
+        },
+        warn: msg => {
+          if (MUSICBAR_ENABLE_DEBUG) console.warn("\n\n[music-bar]" + msg);
+        },
+        error: msg => {
+          if (MUSICBAR_ENABLE_DEBUG) console.error("\n\n[music-bar]" + msg);
+        },
+        object: (e, msg) => {
+          if (MUSICBAR_ENABLE_DEBUG) {
+            console.log("\n\n%c[music-bar] %s \n%o", "color: green;", msg, e);
+          }
+        }
+      }
     };
   },
   computed: {
+    volume: {
+      set: function(value) {
+        console.log(value);
+        this.volumeCache = value;
+        Howler.volume(value / 100);
+      },
+      get: function() {
+        return this.volumeCache;
+      }
+    },
     frameColor: function() {
       return frameColor ? frameColor : "";
     },
@@ -148,7 +195,7 @@ export default {
       return Number(!this.loaded);
     },
     loaded: function() {
-      return this.ready
+      return this.ready && !this.loading
         ? this.playList[this.index].howl.state() === "loaded"
         : 0;
     },
@@ -177,11 +224,11 @@ export default {
         }
         //TODO:其他平台
 
-        MusicBar.object(this.playList, "playList:\n");
+        this.MusicBar.object(this.playList, "playList:\n");
       });
     },
     AudioInit_ByUrl: function(e) {
-      MusicBar.log("load:" + e);
+      this.MusicBar.log("load:" + e);
       this.HowlInit(e);
     },
     AudioInit_163: function(e) {
@@ -195,7 +242,7 @@ export default {
             .then(data => {
               //获取歌曲id
               let url = data.data[0].url;
-              MusicBar.log("load:" + url);
+              this.MusicBar.log("load:" + url);
               fetch(
                 "https://api.imjad.cn/cloudmusic/?type=detail&id=" +
                   id.toString()
@@ -207,9 +254,9 @@ export default {
                     url
                   );
                 })
-                .catch(error => MusicBar.error(error));
+                .catch(error => this.MusicBar.error(error));
             })
-            .catch(error => MusicBar.error(error));
+            .catch(error => this.MusicBar.error(error));
         });
       }
       //获取歌单
@@ -229,7 +276,7 @@ export default {
                   .then(response => response.json())
                   .then(data => {
                     let url = data.data[0].url;
-                    MusicBar.log("load:" + url);
+                    this.MusicBar.log("load:" + url);
                     fetch(
                       "https://api.imjad.cn/cloudmusic/?type=detail&id=" +
                         e.id.toString()
@@ -241,12 +288,12 @@ export default {
                           url
                         );
                       })
-                      .catch(error => MusicBar.error(error));
+                      .catch(error => this.MusicBar.error(error));
                   })
-                  .catch(error => MusicBar.error(error));
+                  .catch(error => this.MusicBar.error(error));
               });
             })
-            .catch(error => MusicBar.error(error));
+            .catch(error => this.MusicBar.error(error));
         });
       }
     },
@@ -256,13 +303,13 @@ export default {
         url: url,
         howl: new Howl({
           src: url,
-          //html5: true,
+          html5: true,
           onend: () => {
             this.Skip(1);
           },
           onplay: () => {
             this.playing = true;
-            MusicBar.log(
+            this.MusicBar.log(
               "play " +
                 " [" +
                 this.index +
@@ -272,7 +319,7 @@ export default {
           },
           onpause: () => {
             this.playing = false;
-            MusicBar.log(
+            this.MusicBar.log(
               "pause" +
                 " [" +
                 this.index +
@@ -281,20 +328,36 @@ export default {
             );
           },
           onseek: () => {
-            MusicBar.log(
-              "seek " +
-                " [" +
-                this.index +
-                "] " +
-                this.playList[this.index].name +
-                "\nfrom " +
-                this.from +
-                " to " +
-                ((this.playList[this.index].howl.seek() / this.duration) * 100)
-                  .toFixed(2)
-                  .toString() +
-                "%"
-            );
+            let waitSeek = () => {
+              let seek = this.playList[this.index].howl.seek();
+              if (isNaN(seek)) {
+                let seekTimeout = setTimeout(() => {
+                  waitSeek();
+                }, 20);
+              } else {
+                if (this.loading) {
+                  this.loading = 0;
+                  this.MusicBar.log(
+                    "seek " +
+                      " [" +
+                      this.index +
+                      "] " +
+                      this.playList[this.index].name +
+                      "\nfrom " +
+                      this.from +
+                      " to " +
+                      ((seek / this.duration) * 100).toFixed(2).toString() +
+                      "%"
+                  );
+                }
+              }
+            };
+            waitSeek();
+          },
+          onfade: () => {
+            this.playing
+              ? this.playList[this.index].howl.pause()
+              : this.playList[this.index].howl.play();
           }
         })
       });
@@ -331,22 +394,28 @@ export default {
         this.index = this.playList.length - 1;
       }
       if (num === 1) {
-        MusicBar.log("next");
+        this.MusicBar.log("next");
       } else if (num === -1) {
-        MusicBar.log("previous");
+        this.MusicBar.log("previous");
       }
       this.Play();
     },
     Pause() {
       this.playing = this.playList[this.index].howl.playing();
-      this.playing
-        ? this.playList[this.index].howl.pause()
-        : this.playList[this.index].howl.play();
+      this.playing ? this.fadeOut() : this.fadeIn();
+    },
+    fadeIn() {
+      this.playList[this.index].howl.fade(0, this.volume / 100, 300);
+    },
+    fadeOut() {
+      this.playList[this.index].howl.fade(this.volume / 100, 0, 300);
     },
 
     TimeOut() {
       if (this.ready && this.playList[this.index].howl.state() != "loaded") {
-        MusicBar.warn("Loading timed out, trying to replace the next song");
+        this.MusicBar.warn(
+          "Loading timed out, trying to replace the next song"
+        );
         this.Skip(1);
       }
     },
@@ -373,6 +442,7 @@ export default {
       if (e.changedTouches) e = e.changedTouches[0];
       if (this.isMouseDown) {
         // 修改seek
+        this.loading = 1;
         this.from =
           ((this.playList[this.index].howl.seek() / this.duration) * 100)
             .toFixed(2)
@@ -383,23 +453,9 @@ export default {
 
         this.isMouseDown = false;
       }
-    }
-  }
-};
-var MusicBar = {
-  log: function(msg) {
-    if (MUSICBAR_ENABLE_DEBUG)
-      console.log("\n\n%c[music-bar]" + msg, "color: green;");
-  },
-  warn: function(msg) {
-    if (MUSICBAR_ENABLE_DEBUG) console.warn("\n\n[music-bar]" + msg);
-  },
-  error: function(msg) {
-    if (MUSICBAR_ENABLE_DEBUG) console.error("\n\n[music-bar]" + msg);
-  },
-  object: function(e, msg) {
-    if (MUSICBAR_ENABLE_DEBUG) {
-      console.log("\n\n%c[music-bar] %s \n%o", "color: green;", msg, e);
+    },
+    format(val) {
+      return val / 100;
     }
   }
 };
@@ -412,89 +468,127 @@ var MusicBar = {
   left: 0.5em;
   bottom: 0.5em;
   z-index: 800;
-}
 
-.card-holder {
-  width: 0px;
-  overflow: visible;
-  float: left;
-}
+  .card-holder {
+    width: 0px;
+    overflow: visible;
+    float: left;
+  }
 
-.card-wrapper {
-  display: inline-block;
-  float: right;
-  clear: both;
-}
+  .card-wrapper {
+    display: inline-block;
+    float: right;
+    clear: both;
+  }
 
-.card {
-  position: relative;
-  left: 50px;
-  padding: 0px 0px 0px 64px;
-  margin: 8px;
-  background: #fff;
-  transition: all 0.4s ease-in-out 0.1s;
-  background: $accentColor;
-  display: flex;
-  justify-content: flex-end;
-  color: #fff;
-}
+  .card {
+    position: relative;
+    left: 50px;
+    padding: 0px 0px 0px 64px;
+    margin: 8px;
+    background: #fff;
+    transition: all 0.4s ease-in-out 0.1s;
+    background: $accentColor;
+    display: flex;
+    justify-content: flex-end;
+    color: #fff;
+  }
 
-.card:hover {
-  position: relative;
-  left: 100%;
-  margin-left: -50px;
-  transition: all 0.4s ease-in-out;
-}
+  .card:hover {
+    position: relative;
+    left: 100%;
+    margin-left: -50px;
+    transition: all 0.4s ease-in-out;
+  }
 
-.music-bar-top {
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  height: 100%;
-  width: 100%;
-  z-index: 900;
-}
+  .card::after {
+    content: '';
+    position: absolute;
+    left: 42px;
+    bottom: 50px;
+    // background: rgba(0, 0, 0, 0.2);
+    width: calc(100% - 42px - 50px);
+    height: 200px;
+  }
 
-.music-bar-player {
-  height: 50px;
-  width: 30vw;
-  min-width: 200px;
-  background-image: linear-gradient(-20deg, #00cdac 0%, #8ddad5 100%);
-  overflow: hidden;
-  position: relative;
-}
+  .card-console {
+    position: absolute;
+    display: flex;
+    left: 64px;
+    bottom: 50px;
+    // background: rgba(0, 0, 0, 0.2);
+    height: 170px;
+    width: calc(100% - 42px - 100px);
+    z-index: 20;
 
-.progress {
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  height: 100%;
-  width: 0%;
-  background-color: rgba(0, 0, 0, 0.07);
-}
+    .card-log {
+      margin-left: 20px;
+      width: 100%;
+      // background: rgba(0, 0, 0, 0.2);
+      position: relative;
+      overflow-y: hidden;
 
-.control {
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
+      .text {
+        color: green;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        white-space: pre-line;
+        word-wrap: break-word;
+      }
+    }
+  }
 
-#music-bar-loading {
-  transition: all 0.5s ease;
-  position: relative;
-}
+  .music-bar-top {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    z-index: 900;
+  }
 
-.music-bar-icon {
-  position: relative;
-  width: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  .music-bar-player {
+    height: 50px;
+    width: 35vw;
+    min-width: 200px;
+    background-image: linear-gradient(-20deg, #00cdac 0%, #8ddad5 100%);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .progress {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    height: 100%;
+    width: 0%;
+    background-color: rgba(0, 0, 0, 0.07);
+  }
+
+  .control {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  #music-bar-loading {
+    transition: all 0.5s ease;
+    position: relative;
+  }
+
+  .music-bar-icon {
+    position: relative;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .music-bar-fade-enter-active, .music-bar-fade-leave-active {
