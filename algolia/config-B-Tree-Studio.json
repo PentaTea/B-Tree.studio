@@ -2,10 +2,10 @@
   "index_name": "B-Tree_Studio",
   "start_urls": [
     {
-      "url": "https://www.b-tree.studio/"
+      "url": "http://www.b-tree.studio/"
     }
   ],
-  "sitemap_urls": ["https://www.b-tree.studio/sitemap.xml"],
+  "sitemap_urls": ["http://www.b-tree.studio/sitemap.xml"],
   "stop_urls": [],
   "selectors": {
     "lvl0": ".sidebar-heading",
