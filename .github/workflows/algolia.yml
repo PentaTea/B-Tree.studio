@@ -1,0 +1,16 @@
+on:
+  schedule:
+    - cron: "0 0 * * *"
+name: Update algolia-docsearch every day
+jobs:
+  updateAlgoliaIndexBTree:
+    name: Index B-Tree.Studio
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Run docsearch for B-Tree.Studio
+        uses: darrenjennings/algolia-docsearch-action@master
+        with:
+          algolia_api_key: ${{ secrets.ALGOLIA_API_KEY }}
+          algolia_application_id: ${{ secrets.ALGOLIA_APPLICATION_ID }}
+          file: algolia/config-B-Tree-Studio.json
