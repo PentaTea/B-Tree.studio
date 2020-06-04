@@ -7,7 +7,7 @@
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "push": "sh ./automation/push.sh",
-    "lighthouse": "cd lighthouse && lighthouse https://b-tree.studio",
+    "lighthouse": "cd lighthouse && lighthouse https://www.b-tree.studio",
     "music-bar更新-主版本": "sh ./automation/music-bar_update.sh major",
     "music-bar更新-次版本": "sh ./automation/music-bar_update.sh minor",
     "music-bar更新-补丁": "sh ./automation/music-bar_update.sh patch"
