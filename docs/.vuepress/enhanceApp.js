@@ -1,11 +1,11 @@
 import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 import vuescroll from "vuescroll";
-import ImgLazy from 'vuepress-plugin-img-lazy/ImgLazy'
+// import ImgLazy from 'vuepress-plugin-img-lazy/ImgLazy'
 
 export default function ({ Vue }) {
   Vue.use(ElementUI);
-  Vue.component(ImgLazy.name, ImgLazy)
+  // Vue.component(ImgLazy.name, ImgLazy)
   Vue.use(vuescroll, {
     ops: {
       vuescroll: {

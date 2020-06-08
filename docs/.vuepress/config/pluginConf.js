@@ -12,7 +12,6 @@ module.exports = [
         itemLayout: 'Layout',
         itemPermalink: 'blog/post/:slug',
         title: "博客",
-
       },
     ],
     frontmatters: [
@@ -30,7 +29,7 @@ module.exports = [
       },
     ]
   }],
-  ['img-lazy'],
+  // ['img-lazy'],
   [
     "@vuepress/active-header-links",
     {
@@ -48,19 +47,6 @@ module.exports = [
       notFoundPath: "/404.html"
     }
   ],
-
-  //图片放大
-  // [
-  //   "vuepress-plugin-medium-zoom", {
-  //     selector: "p img",
-  //     delay: 1000,
-  //     options: {
-  //       margin: 24,
-  //       background: "#ffffff",
-  //       scrollOffset: 0
-  //     }
-  //   }
-  // ],
   [
     "vuepress-plugin-zooming",
     {
@@ -197,22 +183,5 @@ module.exports = [
       text: 'B-Tree Design Studio 嵌入式 / 软件 / 前端 / 产品 / 建模 / 算法 / 编曲 / 绘画',
     }
   ],
-  // ["fontmin", [
-  //   {
-  //     selector: '#main-title,.site-name.can-hide',
-  //     src: 'docs/.vuepress/font/PingFangLight.ttf',
-  //     text: 'B-Tree Design Studio',
-  //   },
-  // ]],
-  // ,[
-  //   "music-bar",
-  //   {
-  //     platform: "music.163.com",
-  //     options: {
-  //       PlayListId: "4909779787"
-  //     },
-  //     FirstClickPlay: true,
-  //     background: "linear-gradient(-20deg, #00cdac 0%, #8ddad5 100%)"
-  //   }
-  // ]
+
 ];
