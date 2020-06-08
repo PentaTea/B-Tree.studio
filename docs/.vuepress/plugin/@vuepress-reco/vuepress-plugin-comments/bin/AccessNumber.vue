@@ -16,11 +16,15 @@ export default {
   },
   methods: {
     getIdVal(path) {
-      if (!path) {
-        path = location.pathname;
+      try {
+        if (!path) {
+          path = location.pathname;
+        }
+        const base = this.$site.base;
+        return base.slice(0, base.length - 1) + path;
+      } catch (error) {
+        return 0;
       }
-      const base = this.$site.base;
-      return base.slice(0, base.length - 1) + path;
     }
   }
 };

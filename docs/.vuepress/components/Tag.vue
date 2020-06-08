@@ -1,6 +1,7 @@
 <template>
   <div id="TagList-layout" class="theme-default-content">
     <Waterfall
+      v-if="load"
       :list="$frontmatterKey.list"
       :gutter="10"
       :width="240"
@@ -57,9 +58,11 @@ export default {
 
   created() {},
   mounted() {
-    console.log(this.$frontmatterKey.list);
+    this.load = 1;
+    this.refresh();
     this.themeColor = randomColor();
     this.timestamp = new Date().getTime();
+    this.refresh_handle = setInterval(this.refresh, 2000);
   },
 
   methods: {
@@ -71,7 +74,8 @@ export default {
           hue: "random",
           luminosity: "bright",
           format: "rgba",
-          alpha: 0.1
+          alpha: 0.1,
+          load: 0
         }) +
         ";"
       );

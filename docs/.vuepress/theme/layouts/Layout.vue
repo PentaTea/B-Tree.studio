@@ -1,48 +1,46 @@
 <template>
-  <transition name="fade">
-    <div
-      class="theme-container"
-      :class="pageClasses"
-      @touchstart="onTouchStart"
-      @touchend="onTouchEnd"
-    >
-      <Navbar v-if="shouldShowNavbar" @toggle-sidebar="toggleSidebar" />
+  <div
+    class="theme-container"
+    :class="pageClasses"
+    @touchstart="onTouchStart"
+    @touchend="onTouchEnd"
+  >
+    <Navbar v-if="shouldShowNavbar" @toggle-sidebar="toggleSidebar" />
 
-      <div class="sidebar-mask" @click="toggleSidebar(false)" />
+    <div class="sidebar-mask" @click="toggleSidebar(false)" />
 
-      <Sidebar :items="sidebarItems" @toggle-sidebar="toggleSidebar">
-        <template #top>
-          <slot name="sidebar-top" />
-        </template>
-        <template #bottom>
-          <slot name="sidebar-bottom" />
-          <div class="sidebar-bottom"></div>
-        </template>
-      </Sidebar>
+    <Sidebar :items="sidebarItems" @toggle-sidebar="toggleSidebar">
+      <template #top>
+        <slot name="sidebar-top" />
+      </template>
+      <template #bottom>
+        <slot name="sidebar-bottom" />
+        <div class="sidebar-bottom"></div>
+      </template>
+    </Sidebar>
 
-      <Home v-if="$page.frontmatter.home" />
+    <Home v-if="$page.frontmatter.home" />
 
-      <Page v-else :sidebar-items="sidebarItems">
-        <template #top>
-          <slot name="page-top" />
-        </template>
-        <template #bottom>
-          <slot name="page-bottom" />
-        </template>
-      </Page>
-      <div id="footer" v-if="!$page.frontmatter.home">
-        MPL-2.0 Licensed | Copyright © {{ new Date().getFullYear()}}
-        <a
-          href="https://github.com/PentaTea"
-          target="_blank"
-        >PentaTea</a> |
-        <RouterLink to="/py-list/">友人帐</RouterLink>&nbsp;|
-        <RouterLink to="/funcTest/">funcTest</RouterLink>&nbsp;|
-        <i class="el-icon-view"></i>
-        <AccessNumber :flagTitle="$title" />
-      </div>
+    <Page v-else :sidebar-items="sidebarItems">
+      <template #top>
+        <slot name="page-top" />
+      </template>
+      <template #bottom>
+        <slot name="page-bottom" />
+      </template>
+    </Page>
+    <div id="footer" v-if="!$page.frontmatter.home">
+      MPL-2.0 Licensed | Copyright © {{ new Date().getFullYear()}}
+      <a
+        href="https://github.com/PentaTea"
+        target="_blank"
+      >PentaTea</a> |
+      <RouterLink to="/py-list/">友人帐</RouterLink>&nbsp;|
+      <RouterLink to="/funcTest/">funcTest</RouterLink>&nbsp;|
+      <i class="el-icon-view"></i>
+      <AccessNumber :flagTitle="$title" />
     </div>
-  </transition>
+  </div>
 </template>
 
 <script>
@@ -65,6 +63,7 @@ export default {
   data() {
     return {
       isSidebarOpen: false,
+      loading: 1,
       loadingInstance: null
     };
   },
@@ -118,6 +117,7 @@ export default {
   beforeCreate() {},
 
   mounted() {
+    this.loading = 0;
     this.$router.afterEach(() => {
       this.isSidebarOpen = false;
     });

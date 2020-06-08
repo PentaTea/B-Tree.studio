@@ -1,6 +1,7 @@
 <template>
   <div id="PostList-layout" class="theme-default-content">
     <Waterfall
+      v-if="load"
       :list="pages"
       :gutter="10"
       :width="240"
@@ -74,7 +75,8 @@ export default {
       paginationComponent: null,
       themeColor: null,
       timestamp: null,
-      refresh_handle: null
+      refresh_handle: null,
+      load: 0
     };
   },
 
@@ -88,6 +90,7 @@ export default {
     this.paginationComponent = this.getPaginationComponent();
   },
   mounted() {
+    this.load = 1;
     this.refresh();
     this.themeColor = randomColor();
     this.timestamp = new Date().getTime();

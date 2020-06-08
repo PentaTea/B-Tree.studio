@@ -60,6 +60,7 @@ export default {
   components: { NavLink },
   data() {
     return {
+      loading: 1,
       Comments: 0
     };
   },
@@ -78,6 +79,7 @@ export default {
     }
   },
   mounted: function() {
+    this.loading = 0;
     //setTimeout(this.ityped, 100);
     this.$nextTick().then(this.ityped);
   },

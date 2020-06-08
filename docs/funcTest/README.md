@@ -17,7 +17,9 @@ readingTime: false
 <Three conf="RapberryPiZero.yml"/>
 ```
 
+<ClientOnly>
 <Three conf="RapberryPiZero.yml"/>
+</ClientOnly>
 
 ## uml
 

@@ -49,14 +49,18 @@ import DropdownTransition from "@theme/components/DropdownTransition.vue";
 export default {
   name: "SidebarGroup",
   data() {
-    return {};
+    return {
+      loading: 1
+    };
   },
   components: {
     DropdownTransition
   },
 
   props: ["item", "open", "collapsable", "depth"],
-  mounted: function() {},
+  mounted: function() {
+    this.loading = 0;
+  },
   // ref: https://vuejs.org/v2/guide/components-edge-cases.html#Circular-References-Between-Components
   beforeCreate() {
     this.$options.components.SidebarLinks = require("@theme/components/SidebarLinks.vue").default;

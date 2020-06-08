@@ -26,7 +26,8 @@ export default {
   components: { PageEdit, PageNav },
   data() {
     return {
-      word_time: 0
+      word_time: 0,
+      loading: 1
     };
   },
   computed: {
@@ -37,6 +38,7 @@ export default {
   },
   props: ["sidebarItems"],
   mounted() {
+    this.loading = 0;
     // setTimeout(() => {
     //   if (window.location.href.indexOf("#comments") !== -1) {
     //     document.getElementById("valine").scrollIntoView();
