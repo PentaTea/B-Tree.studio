@@ -1,6 +1,8 @@
 {
   "index_name": "b-tree-studio",
-  "start_urls": ["http://b-tree.studio"],
+  "start_urls": [
+    "https://www.b-tree.studio"
+  ],
   "stop_urls": [],
   "selectors": {
     "lvl0": {
@@ -18,5 +20,6 @@
   "scrap_start_urls": false,
   "strip_chars": " .,;:#",
   "selectors_exclude": [],
-  "only_content_level": true
+  "only_content_level": true,
+  "nb_hits": 35
 }

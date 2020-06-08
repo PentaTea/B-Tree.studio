@@ -15,7 +15,7 @@ module.exports = {
 
   },
   lang: 'zh-CN',
-  plugins: [],
+  plugins: pluginConf,
   head: headConf,
   themeConfig: {
     locales: {
