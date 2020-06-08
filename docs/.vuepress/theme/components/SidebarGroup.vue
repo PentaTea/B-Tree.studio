@@ -1,7 +1,6 @@
 <template>
   <transition name="fade">
     <section
-      v-if="!loading"
       class="sidebar-group"
       :class="[
       {
@@ -50,18 +49,14 @@ import DropdownTransition from "@theme/components/DropdownTransition.vue";
 export default {
   name: "SidebarGroup",
   data() {
-    return {
-      loading: 1
-    };
+    return {};
   },
   components: {
     DropdownTransition
   },
 
   props: ["item", "open", "collapsable", "depth"],
-  mounted: function() {
-    this.loading = 0;
-  },
+  mounted: function() {},
   // ref: https://vuejs.org/v2/guide/components-edge-cases.html#Circular-References-Between-Components
   beforeCreate() {
     this.$options.components.SidebarLinks = require("@theme/components/SidebarLinks.vue").default;

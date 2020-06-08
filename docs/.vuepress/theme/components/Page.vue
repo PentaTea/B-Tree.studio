@@ -3,7 +3,7 @@
     <slot name="top" />
 
     <transition name="fade">
-      <Content v-if="!loading" class="theme-default-content" ref="mainContent" />
+      <Content class="theme-default-content" ref="mainContent" />
     </transition>
 
     <PageEdit />
@@ -26,8 +26,7 @@ export default {
   components: { PageEdit, PageNav },
   data() {
     return {
-      word_time: 0,
-      loading: 1
+      word_time: 0
     };
   },
   computed: {
@@ -38,7 +37,6 @@ export default {
   },
   props: ["sidebarItems"],
   mounted() {
-    this.loading = 0;
     // setTimeout(() => {
     //   if (window.location.href.indexOf("#comments") !== -1) {
     //     document.getElementById("valine").scrollIntoView();

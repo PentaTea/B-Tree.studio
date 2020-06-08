@@ -1,7 +1,6 @@
 <template>
   <transition name="fade">
     <div
-      v-if="!loading"
       class="theme-container"
       :class="pageClasses"
       @touchstart="onTouchStart"
@@ -68,7 +67,6 @@ export default {
   data() {
     return {
       isSidebarOpen: false,
-      loading: 1,
       loadingInstance: null
     };
   },
@@ -122,7 +120,6 @@ export default {
   beforeCreate() {},
 
   mounted() {
-    this.loading = 0;
     this.$router.afterEach(() => {
       this.isSidebarOpen = false;
     });

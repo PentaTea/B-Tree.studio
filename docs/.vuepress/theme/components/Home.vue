@@ -1,7 +1,7 @@
 <template>
   <transition name="fade">
     <div class="full">
-      <main v-if="!loading" class="home" aria-labelledby="main-title">
+      <main class="home" aria-labelledby="main-title">
         <header class="hero">
           <div style="height:300px">
             <SP
@@ -60,7 +60,6 @@ export default {
   components: { NavLink },
   data() {
     return {
-      loading: 1,
       Comments: 0
     };
   },
@@ -79,7 +78,6 @@ export default {
     }
   },
   mounted: function() {
-    this.loading = 0;
     //setTimeout(this.ityped, 100);
     this.$nextTick().then(this.ityped);
   },
