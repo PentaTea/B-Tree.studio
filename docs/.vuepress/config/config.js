@@ -3,7 +3,7 @@ const headConf = require("./headConf");
 const navConf = require("./navConf");
 
 
-module.exports = {
+module.exports = ctx => ({
   title: "B-Tree",
   description: "B-Tree Design Studio 一个打从心底想带给你美好的工作室",
   locales: {
@@ -41,7 +41,10 @@ module.exports = {
     docsDir: "docs",
     editLinks: true,
     editLinkText: "在 GitHub 上编辑此页",
-
+    algolia: ctx.isProd ? ({
+      apiKey: '082c86ef824cb8fcc62c789f08e8c084',
+      indexName: 'b-tree-studio'
+    }) : null,
   },
   markdown: {
     lineNumbers: true,
@@ -51,4 +54,4 @@ module.exports = {
       md.use(require('markdown-it-plantuml'))
     },
   }
-}
+})

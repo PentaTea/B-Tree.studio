@@ -74,7 +74,7 @@ export default {
     }
   },
 
-  created() {
+  moment() {
     this.getRemoteLastUpdated();
   },
   methods: {

@@ -1,8 +1,7 @@
 {
   "index_name": "b-tree-studio",
-  "start_urls": [
-    "https://www.b-tree.studio"
-  ],
+  "start_urls": ["http://www.b-tree.studio", "http://www.b-tree.studio/404"],
+  "sitemap_urls": ["http://www.b-tree.studio/sitemap.xml"],
   "stop_urls": [],
   "selectors": {
     "lvl0": {
@@ -21,5 +20,5 @@
   "strip_chars": " .,;:#",
   "selectors_exclude": [],
   "only_content_level": true,
-  "nb_hits": 35
+  "nb_hits": 404
 }
