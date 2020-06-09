@@ -1,8 +1,8 @@
 name: Build and Deploy
 on:
   push:
-    branches:
-      - master
+    paths:
+      - "docs/**"
 jobs:
   build-and-deploy:
     runs-on: ubuntu-16.04

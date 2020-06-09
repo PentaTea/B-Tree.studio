@@ -44,7 +44,7 @@ module.exports = ctx => ({
     algolia: {
       appId: "Q70EA7JIBQ",
       apiKey: '082c86ef824cb8fcc62c789f08e8c084',
-      indexName: 'btree'
+      indexName: 'btree',
     }
   },
   markdown: {
