@@ -1,5 +1,5 @@
 {
-  "index_name": "b-tree-studio",
+  "index_name": "btree",
   "start_urls": ["http://www.b-tree.studio", "http://www.b-tree.studio/404"],
   "sitemap_urls": ["http://www.b-tree.studio/sitemap.xml"],
   "stop_urls": [],
@@ -19,6 +19,6 @@
   "scrap_start_urls": false,
   "strip_chars": " .,;:#",
   "selectors_exclude": [],
-  "only_content_level": true,
-  "nb_hits": 404
+  "js_render": true,
+  "nb_hits": 409
 }

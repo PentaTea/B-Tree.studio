@@ -41,10 +41,11 @@ module.exports = ctx => ({
     docsDir: "docs",
     editLinks: true,
     editLinkText: "在 GitHub 上编辑此页",
-    algolia: ctx.isProd ? ({
+    algolia: {
+      appId: "Q70EA7JIBQ",
       apiKey: '082c86ef824cb8fcc62c789f08e8c084',
-      indexName: 'b-tree-studio'
-    }) : null,
+      indexName: 'btree'
+    }
   },
   markdown: {
     lineNumbers: true,
