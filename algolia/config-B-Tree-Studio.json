@@ -1,6 +1,6 @@
 {
   "index_name": "btree",
-  "start_urls": ["http://www.b-tree.studio", "http://www.b-tree.studio/404"],
+  "start_urls": ["http://www.b-tree.studio"],
   "stop_urls": [],
   "selectors": {
     "lvl0": {
