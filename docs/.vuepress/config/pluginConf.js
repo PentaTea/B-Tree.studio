@@ -143,7 +143,7 @@ module.exports = [
   [
     "sitemap",
     {
-      hostname: "https://b-tree.studio"
+      hostname: "https://www.b-tree.studio"
     }
   ],
   [
