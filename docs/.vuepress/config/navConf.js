@@ -59,7 +59,7 @@ module.exports = [
         items: [
           {
             text: "*即将开放*",
-            link: "index"
+            link: "/"
           }
         ]
       }
@@ -86,7 +86,7 @@ module.exports = [
     items: [
       {
         text: "简体中文",
-        link: "/index"
+        link: "/"
       }
     ]
   }
