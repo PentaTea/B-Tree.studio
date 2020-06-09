@@ -1,7 +1,7 @@
 {
   "index_name": "btree",
-  "start_urls": ["http://www.b-tree.studio", "http://www.b-tree.studio/404"],
-  "stop_urls": [],
+  "start_urls": ["http://www.b-tree.studio"],
+  "stop_urls": ["index.html"],
   "selectors": {
     "lvl0": {
       "selector": "p.sidebar-heading.open",
@@ -26,5 +26,5 @@
     "attributesForFaceting": ["lang"]
   },
   "selectors_exclude": [],
-  "nb_hits": 818
+  "nb_hits": 400
 }
