@@ -1,5 +1,5 @@
 <template>
-  <div class="svg-player" :id="svgId"></div>
+  <div class="svg-player" ref="svg" :id="svgId"></div>
 </template>
 
 <script>
@@ -10,7 +10,7 @@ export default {
   data() {
     return {
       svg: null,
-      svgId: "vivus" + this._uid
+      svgId: "vivus-" + this._uid
     };
   },
   props: {
@@ -114,7 +114,7 @@ export default {
           break;
       }
       this.svg = new Vivus(
-        this.svgId,
+        this.$refs.svg,
         {
           type: this.type,
           duration: this.duration,
