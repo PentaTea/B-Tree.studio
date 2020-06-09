@@ -10,7 +10,7 @@ export default {
   data() {
     return {
       svg: null,
-      svgId: "vivus-" + this._uid
+      svgId: "vivus" + this._uid
     };
   },
   props: {
