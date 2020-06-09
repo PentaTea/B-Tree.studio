@@ -98,7 +98,9 @@ export default {
       this.waterfallComponent = module.default;
       this.refresh_handle = setInterval(this.refresh, 500);
       this.refresh();
-      this.show = 1;
+      setTimeout(() => {
+        this.show = 1;
+      }, 500);
     });
     this.themeColor = randomColor();
     this.timestamp = new Date().getTime();

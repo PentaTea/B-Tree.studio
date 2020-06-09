@@ -71,7 +71,9 @@ export default {
     }
   },
   mounted: function() {
-    this.$nextTick().then(this.initVueSvg);
+    setTimeout(() => {
+      this.initVueSvg();
+    }, 100);
   },
   methods: {
     Ready(e) {

@@ -67,5 +67,8 @@
     "vuepress-plugin-img-lazy": "^1.0.3",
     "vuepress-plugin-sitemap": "^2.3.1",
     "vuescroll": "^4.15.0"
+  },
+  "resolutions": {
+    "watchpack": "1.6.1"
   }
 }
