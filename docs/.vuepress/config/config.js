@@ -46,7 +46,8 @@ module.exports = ctx => ({
       apiKey: '082c86ef824cb8fcc62c789f08e8c084',
       indexName: 'btree',
       algoliaOptions: {
-        hitsPerPage: 10
+        hitsPerPage: 10,
+        removeWordsIfNoResults: "allOptional"
       }
     }
   },
