@@ -25,7 +25,7 @@
     "node-fetch": "^2.6.0",
     "randomcolor": "^0.5.4",
     "vivus": "^0.4.5",
-    "vue-waterfall-plugin": "^1.0.7",
+    "vue-waterfall-plugin": "1.0.4",
     "vuepress": "^1.5.0",
     "vuepress-plugin-auto-sidebar": "^1.3.1",
     "vuepress-plugin-clean-urls": "^1.1.1",

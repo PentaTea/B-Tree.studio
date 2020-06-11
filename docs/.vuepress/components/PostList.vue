@@ -8,7 +8,7 @@
       v-if="waterfallComponent"
       :is="waterfallComponent"
       :list="pages"
-      :gutter="10"
+      :gutter="0"
       :width="240"
       :gridWidth="-1"
       :breakpoints="{
@@ -100,7 +100,7 @@ export default {
       this.refresh();
       setTimeout(() => {
         this.show = 1;
-      }, 500);
+      }, 0);
     });
     this.themeColor = randomColor();
     this.timestamp = new Date().getTime();
@@ -126,7 +126,9 @@ export default {
       return Vue.component(n) || Pagination;
     },
     thumbnail(page) {
-      let thumbnail = page.frontmatter.thumbnail || [];
+      let thumbnail = page.frontmatter.thumbnail || [
+        "https://img.xjh.me/random_img.php?return=302&" + String(page.key)
+      ];
       return typeof thumbnail == "string" ? [thumbnail] : thumbnail;
     },
     imgCont(page) {
@@ -150,7 +152,7 @@ export default {
 </script>
 
 <style lang="stylus">
-$card-radius = 8px;
+$card-radius = 3px;
 
 #PostList-layout {
   max-width: 100%;
@@ -186,7 +188,7 @@ $card-radius = 8px;
   .block {
     width: 100%;
     height: 100%;
-    padding: 20px;
+    padding: 10px;
     box-sizing: border-box;
 
     >div {

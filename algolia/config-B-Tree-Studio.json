@@ -1,8 +1,14 @@
 {
   "index_name": "btree",
-  "start_urls": ["http://www.b-tree.studio"],
-  "stop_urls": ["index.html"],
-  "sitemap_urls": ["http://www.b-tree.studio/sitemap.xml"],
+  "start_urls": [
+    "http://www.b-tree.studio"
+  ],
+  "stop_urls": [
+    "index.html"
+  ],
+  "sitemap_urls": [
+    "http://www.b-tree.studio/sitemap.xml"
+  ],
   "selectors": {
     "lvl0": {
       "selector": "p.sidebar-heading.open",
@@ -24,9 +30,10 @@
   "scrap_start_urls": false,
   "strip_chars": " .,;:#",
   "custom_settings": {
-    "attributesForFaceting": ["lang"]
+    "attributesForFaceting": [
+      "lang"
+    ]
   },
   "selectors_exclude": [],
-  "js_render": true,
-  "nb_hits": 408
+  "nb_hits": 434
 }
