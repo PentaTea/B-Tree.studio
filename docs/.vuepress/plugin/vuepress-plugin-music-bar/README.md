@@ -1,6 +1,6 @@
 # vuepress-plugin-music-bar
 
-![](https://raw.githubusercontent.com/moecopilot/B-Tree.studio/master/docs/.vuepress/plugin/vuepress-plugin-music-bar/img/music-bar-0.png)
+![](https://raw.githubusercontent.com/PentaTea/B-Tree.studio/master/docs/.vuepress/plugin/vuepress-plugin-music-bar/img/music-bar-0.png)
 
 [README](./README.md) | [CHANGELOG](./CHANGELOG.md)
 
@@ -24,13 +24,13 @@ welcome everyone's star and fork
 
 ### Features
 
-- 好康,轻量 Beautiful and lightweight
-- 除本地,网络音频之外还支持从平台歌单获取链接(目前仅支持网易云音乐) In addition to local and network audio, it also supports obtaining links from the platform playlist (currently only NetEase cloud music is supported)
+- 好康，轻量 Beautiful and lightweight
+- 除本地，网络音频之外还支持从平台歌单获取链接（目前仅支持网易云音乐） In addition to local and network audio, it also supports obtaining links from the platform playlist (currently only NetEase cloud music is supported)
 - 自动加载并缓存 Load and cache automatically
 - 加载超时自动跳过 Load timeout automatically skips
 - 移动端适配 Mobile terminal adaptation
 - 多种格式支持 Multiple format support
-- 自动检测开发环境,输出 log,方便调试 Automatically detect development environment and output log for easy debugging
+- 自动检测开发环境，输出 log, 方便调试 Automatically detect development environment and output log for easy debugging
 
 ### 默认收起到左边 Default stow to left
 
@@ -40,11 +40,11 @@ welcome everyone's star and fork
 
 ![](https://raw.githubusercontent.com/moecopilot/B-Tree.studio/master/docs/.vuepress/plugin/vuepress-plugin-music-bar/img/music-bar-2.png)
 
-### 阴影进度条(可拖动) Shadow progress bar(can drag)
+### 阴影进度条（可拖动） Shadow progress bar(can drag)
 
 ![](https://raw.githubusercontent.com/moecopilot/B-Tree.studio/master/docs/.vuepress/plugin/vuepress-plugin-music-bar/img/music-bar-3.png)
 
-### 调试模式(仅在开发环境下输出 log,可关闭) Debug mode (only output log in development environment, can be closed)
+### 调试模式（仅在开发环境下输出 log, 可关闭） Debug mode (only output log in development environment, can be closed)
 
 ![](https://raw.githubusercontent.com/moecopilot/B-Tree.studio/master/docs/.vuepress/plugin/vuepress-plugin-music-bar/img/music-bar-4.png)
 

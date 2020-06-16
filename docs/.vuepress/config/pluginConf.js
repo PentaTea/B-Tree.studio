@@ -90,8 +90,6 @@ module.exports = [
       layoutChunkName: layout => "layout-" + layout.componentName
     }
   ],
-  ["vuepress-plugin-table-of-contents"],
-
   [
     "seo",
     {
