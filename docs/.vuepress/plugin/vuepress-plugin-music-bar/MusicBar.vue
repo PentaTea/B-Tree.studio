@@ -15,10 +15,6 @@
                     :format-tooltip="format"
                   ></el-slider>
                 </div>
-
-                <div class="card-log">
-                  <div class="text">{{log}}</div>
-                </div>
               </div>
 
               <div class="music-bar-top" ref="top" @click.once="FirstClick()"></div>
@@ -521,23 +517,6 @@ export default {
     height: 170px;
     width: calc(100% - 42px - 100px);
     z-index: 20;
-
-    .card-log {
-      margin-left: 20px;
-      width: 100%;
-      // background: rgba(0, 0, 0, 0.2);
-      position: relative;
-      overflow-y: hidden;
-
-      .text {
-        color: green;
-        width: 100%;
-        position: absolute;
-        bottom: 0;
-        white-space: pre-line;
-        word-wrap: break-word;
-      }
-    }
   }
 
   .music-bar-top {
