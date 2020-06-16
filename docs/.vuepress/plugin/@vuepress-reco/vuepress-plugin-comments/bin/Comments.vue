@@ -6,9 +6,9 @@
 
 <script>
 import Valine from "./Valine.vue";
-import Vssue from "./Vssue.vue";
+// import Vssue from "./Vssue.vue";
 export default {
-  components: { Valine, Vssue },
+  components: { Valine },
   props: {
     isShowComments: {
       type: Boolean,
