@@ -3,7 +3,7 @@ readingShow: false
 home: true
 heroImage: /b-tree-logo.svg
 heroText: B-Tree Design Studio
-subtitle: 嵌入式 / 软件 / 前端 / 产品 / 建模 / 算法 / 编曲 / 绘画
+subtitle: 嵌入式 / 软件 / 前端 / 产品 / 建模 / 算法 / 编曲 / 绘画 / 推拿正骨
 ityped: true
 tagline: ["一个打从心底想带给你美好的工作室"]
 actionText: 开始上手 →
