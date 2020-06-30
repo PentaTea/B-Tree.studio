@@ -5,6 +5,7 @@ thumbnail:
     - //i0.hdslb.com/bfs/emote/a0393a2d4b522f07a319dfd2e91754a3cdff2c48.png
 tag:
     - 前端
+    - javascript
 ---
 
 # 获取 B 站表情

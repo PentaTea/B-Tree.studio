@@ -62,22 +62,22 @@ export default {
     }
   },
   updated() {
-    //setTimeout(this.delay, 100);
+    setTimeout(this.delay, 100);
   },
   methods: {
     delay() {
-      document
-        .querySelectorAll(":not(comments-wrapper) p img")
-        .forEach((e, i) => {
-          let p = e.parentNode;
-          p.innerHTML = "<div>" + p.innerHTML + "</div>";
-          p.setAttribute("class", "img-content");
-          if (e.title) {
-            console.log(e.title);
-            e.style.cssText += e.title;
-            e.title = "";
-          }
-        });
+      // document
+      //   .querySelectorAll(":not(comments-wrapper) p img")
+      //   .forEach((e, i) => {
+      //     let p = e.parentNode;
+      //     p.innerHTML = "<div>" + p.innerHTML + "</div>";
+      //     p.setAttribute("class", "img-content");
+      //     if (e.title) {
+      //       console.log(e.title);
+      //       e.style.cssText += e.title;
+      //       e.title = "";
+      //     }
+      //   });
 
       if (this.$page.frontmatter.readingTime != false)
         try {

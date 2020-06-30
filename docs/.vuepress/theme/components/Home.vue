@@ -19,7 +19,7 @@
             <span
               v-if="typeof data.ityped == 'string'"
             >{{ data.tagline || $description || "Welcome to your VuePress site" }}</span>
-            <span id="ityped-description"></span>
+            <span id="ityped-description">&nbsp;</span>
           </p>
           <p v-if="data.actionText && data.actionLink" class="action">
             <NavLink class="action-button" :item="actionLink" />
