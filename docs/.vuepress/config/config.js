@@ -52,11 +52,12 @@ module.exports = ctx => ({
     }
   },
   markdown: {
-    lineNumbers: true,
+    lineNumbers: false,
     extractHeaders: ['h2', 'h3', 'h4'],
     extendMarkdown: md => {
       md.use(require('markdown-it-checkbox'))
       md.use(require('markdown-it-plantuml'))
+      md.use(require('markdown-it-abbr'))
     },
   }
 })

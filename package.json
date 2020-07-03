@@ -4,8 +4,8 @@
   "author": "moecopilot",
   "license": "MPL-2.0",
   "scripts": {
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs",
+    "docs:dev": "vuepress dev docs --no-cache",
+    "docs:build": "vuepress build docs --no-cache",
     "push": "sh ./automation/push.sh",
     "lighthouse": "cd lighthouse && lighthouse https://www.b-tree.studio",
     "music-bar更新-主版本": "sh ./automation/music-bar_update.sh major",
@@ -53,6 +53,7 @@
     "ityped": "^1.0.3",
     "jquery": "^3.5.0",
     "js-yaml": "^3.13.1",
+    "markdown-it-abbr": "^1.0.4",
     "markdown-it-checkbox": "^1.1.0",
     "markdown-it-plantuml": "^1.4.1",
     "markvis": "^0.0.12",
