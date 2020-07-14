@@ -21,7 +21,7 @@ readingTime: false
 ### Q
 
 </BTreer>
-<BTreer data="/assets/img/词典.jpg 摸鱼校尉 韩国-忠清南道-天安市 中文,English,한국어 1258878996@qq.com zhouc0042@gmail.com">
+<BTreer data="/assets/img/词典.jpg 摸鱼校尉 韩国-忠清南道-天安市 中文,English,한국어 1258878996@qq.com">
 
 ### 词典典典典
 
