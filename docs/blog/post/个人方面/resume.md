@@ -11,12 +11,11 @@ tag:
 
 > 若您看到的是 PDF 文档，建议访问 www.b-tree.studio/resume 以获得更好的阅读体验
 
- - 张家平 / 男 / 2001
- - 本科在读 / 福建工程学院 物联网专业
- - 技术博客：[https://www.b-tree.studio/blog](https://www.b-tree.studio/blog)
- - Github：[https://github.com/PentaTea](https://github.com/PentaTea)
-
--   期望职位：前端开发，嵌入式研发工程师，产品设计师
+- 张家平 / 男 / 2001
+- 本科在读 / 福建工程学院 物联网专业
+- 技术博客：[https://www.b-tree.studio/blog](https://www.b-tree.studio/blog)
+- Github：[https://github.com/PentaTea](https://github.com/PentaTea)
+- 期望职位：前端开发，嵌入式研发工程师，产品设计师
 
 ## 联系方式
 
@@ -32,11 +31,11 @@ tag:
 
 #### 嵌入式方向（ 2019 年 7 月 ~ 2019 年 8 月 ）
 
-我负责了步兵机器人的控制学计算与整机的指令控制，提出了纸杯投放器的整体设计，参与了其他机械方面的方案设计与诸多组件的建模，实现了基于 ROS 和 FreeRTOS 的控制自动化，并为算法同学写了 GUI 的测试用例。虽然最终比赛时算法对接出了问题，但我作为操作手与其他队伍的算法对战并赢下数场比赛。此间我最自豪的技术细节是在前期架构方面引入了命令 - 工厂的设计模式，尽管在比赛前一晚才拿到拼装好的机械臂等组件成品，优雅健壮的架构仍让我在几小时内完成了所有程序代码，最终赢得季军。
+负责了步兵机器人的控制学计算与整机的指令控制，提出了纸杯投放器的整体设计，参与了其他机械方面的方案设计与诸多组件的建模，实现了基于 ROS 和 FreeRTOS 的控制自动化，并为算法同学写了 GUI 的测试用例。虽然最终比赛时算法对接出了问题，但我作为操作手与其他队伍的算法对战并赢下数场比赛。此间最自豪的技术细节是在前期架构方面引入了命令 - 工厂的设计模式，尽管在比赛前一晚才拿到拼装好的机械臂等组件成品，优雅健壮的架构仍让我在几小时内完成了所有程序代码，最终赢得季军。
 
 #### 嵌入式方向（ 2019 年 1 月 ~ 2019 年 2 月 ）
 
-负责了步兵机器人的控制学计算。
+负责了步兵机器人的控制学计算，实现了基于  FreeRTOS 的控制自动化。
 
 ## 项目和作品
 
@@ -68,13 +67,13 @@ Visual Studio Code 插件，在 MarkDown 文件中调用[PicGo-Core](https://git
 
 ### 公开演讲
 
-  - 2020/09 物联网导论演讲: [人工智能的发展揭示了人类学习的原理](https://www.b-tree.studio/blog/post/人工智能的发展揭示了人类学习的原理/)
+- 2020/09 物联网导论演讲: [人工智能的发展揭示了人类学习的原理](https://www.b-tree.studio/blog/post/人工智能的发展揭示了人类学习的原理/)
 
 ## 技能清单
 
 以下为我常用到的技术栈或技能：
 
--   编程语言：`Clang`/`C++`/`HTML`/`CSS`/`JS`/`TS`/`Python`/`Shell`/`Golang`/`JAVA`/`Kotlin` 等
+- 编程语言：`Clang`/`C++`/`HTML`/`CSS`/`JS`/`TS`/`Python`/`Shell`/`Golang`/`JAVA`/`Kotlin` 等
 - 嵌入式设计
   - 原型：`Procreate`/`Blender`
   - 硬件：`立创EDA`/`Cadence Allegro`
@@ -88,10 +87,10 @@ Visual Studio Code 插件，在 MarkDown 文件中调用[PicGo-Core](https://git
 - 数据库：`MySQL`
 - 版本管理：`Git`
 - 文档和自动化部署工具：`Vuepress`/`Hexo` 等
-- 其他如正则匹配，设计模式，SVG，MarkDown，JSON 等
+- 其他如`正则匹配`，`设计模式`，`SVG`，`MarkDown`，`JSON` 等
 
 ## 致谢
 
 - 感谢您花时间阅读我的简历，期待能有机会和您共事。
-- 感谢本简历模板的提供者【冷熊简历】
+- 感谢本简历模板的提供方 【冷熊简历】
 - 感谢 coding 提供的静态站点托管服务

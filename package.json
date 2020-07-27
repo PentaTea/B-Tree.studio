@@ -73,6 +73,6 @@
     "vuescroll": "^4.15.0"
   },
   "resolutions": {
-    "watchpack": "1.5.0"
+    "watchpack": "1.6.1"
   }
 }
