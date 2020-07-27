@@ -74,22 +74,21 @@ visual studio code 插件，在markdown文件中调用[PicGo-Core](https://githu
 
 以下为我常用到的技术栈或技能：
 
--   编程语言：`C`/`C++`/`HTML`/`CSS`/`JS`/`TS`/`Python`/`Shell`/`Golang` 等
+-   编程语言：`Clang`/`C++`/`HTML`/`CSS`/`JS`/`TS`/`Python`/`Shell`/`Golang`/`JAVA`/`Kotlin` 等
 - 嵌入式设计
   - 原型：`Procreate`/`Blender`
   - 硬件：`立创EDA`/`Cadence Allegro`
   - 开发：`裸机Clang`/`hal`/`mbed`/`FreeRTOS` 等
 - Web 相关
   - 开发：`NodeJS前后端`
-  - 框架：`ElementUI`/`Vue`/`Nuxt`/`jQuery`/`electron` 等
+  - 框架：`ElementUI`/`Vue`/`Nuxt`/`jQuery`/`three.js`/`electron` 等
   - 工具：`TypeScript`/`Stylus`/`Axios`/`pm2`/`Webpack` 等
   - 测试：`Jest`/`Mocha`
 - 产品相关：`产品设计`/`UI设计`/`UX设计`
 - 数据库：`MySQL`
 - 版本管理：`Git`
 - 文档和自动化部署工具：`Vuepress`/`Hexo` 等
-
-- 其他如正则匹配等
+- 其他如正则匹配，设计模式，SVG，MarkDown，JSON 等
 
 ## 致谢
 
