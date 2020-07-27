@@ -32,7 +32,7 @@ tag:
 
 #### 嵌入式方向（ 2019 年 7 月 ~ 2019 年 8 月 ）
 
-我负责了步兵机器人的控制学计算与整机的指令控制，提出了纸杯投放器的整体设计，参与了其他机械方面的方案设计与诸多组件的建模，实现了基于 ROS 和 FreeRTOS 的控制自动化 7，并为算法同学写了 GUI 的测试用例。虽然最终比赛时算法对接出了问题，但我作为操作手与其他队伍对战并赢下数场比赛。此间我最自豪的技术细节是在前期架构方面引入了命令 - 工厂的设计模式，尽管在比赛前一晚才拿到拼装好的机械臂等组件成品，优雅健壮的架构仍让我在几小时内完成了所有程序代码，最终赢得季军。
+我负责了步兵机器人的控制学计算与整机的指令控制，提出了纸杯投放器的整体设计，参与了其他机械方面的方案设计与诸多组件的建模，实现了基于 ROS 和 FreeRTOS 的控制自动化，并为算法同学写了 GUI 的测试用例。虽然最终比赛时算法对接出了问题，但我作为操作手与其他队伍的算法对战并赢下数场比赛。此间我最自豪的技术细节是在前期架构方面引入了命令 - 工厂的设计模式，尽管在比赛前一晚才拿到拼装好的机械臂等组件成品，优雅健壮的架构仍让我在几小时内完成了所有程序代码，最终赢得季军。
 
 #### 嵌入式方向（ 2019 年 1 月 ~ 2019 年 2 月 ）
 
@@ -52,7 +52,7 @@ vuepress的音乐插件，最高周下载一千，已收录于[awesome-vuepress]
 
 #### [vs-paste-img](https://github.com/PentaTea/vs-paste-img-from-clipboard)
 
-visual studio code 插件，在markdown文件中调用[PicGo-Core](https://github.com/PicGo/PicGo-Core)获取剪切板图片下载到设定目录，并粘贴 md 格式的引用链接至光标位置
+Visual Studio Code 插件，在 MarkDown 文件中调用[PicGo-Core](https://github.com/PicGo/PicGo-Core)获取剪切板图片下载到设定目录，并粘贴 md 格式的引用链接至光标位置
 
 其他：[https://github.com/PentaTea](https://github.com/PentaTea)
 
@@ -63,7 +63,7 @@ visual studio code 插件，在markdown文件中调用[PicGo-Core](https://githu
 ### 技术文章
 
 - [JavaScript 学习笔记](https://www.b-tree.studio/blog/post/js学习笔记/)
-- [vscode 源码研读](https://www.b-tree.studio/blog/post/vscode源码研读/)
+- [VSCode 源码研读](https://www.b-tree.studio/blog/post/vscode源码研读/)
 - [依赖注入学习](https://www.b-tree.studio/blog/post/依赖注入/)
 
 ### 公开演讲
