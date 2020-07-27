@@ -9,6 +9,8 @@ tag:
 
 # 个人简历
 
+> 如果您所看到的是 PDF 文件，建议访问 www.b-tree.studio/resume 以获得更好的阅读体验
+
  - 张家平 / 男 / 2001
  - 本科在读 / 福建工程学院 物联网专业
  - 技术博客：[https://www.b-tree.studio/blog](https://www.b-tree.studio/blog)
