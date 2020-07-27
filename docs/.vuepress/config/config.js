@@ -58,6 +58,7 @@ module.exports = ctx => ({
       md.use(require('markdown-it-checkbox'))
       md.use(require('markdown-it-plantuml'))
       md.use(require('markdown-it-abbr'))
+      md.use(require('markdown-it-inline-comments'))
     },
   }
 })
