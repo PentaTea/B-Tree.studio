@@ -170,7 +170,12 @@ module.exports = [
 
       firstClickPlay: true,
 
-      background: "linear-gradient(-20deg, #00cdac 0%, #8ddad5 100%)"
+      background: "linear-gradient(-20deg, #00cdac 0%, #8ddad5 100%)",
+
+      "/blog/": {
+        background: "#66ccff",
+      }
+
     }
   ],
   [

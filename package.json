@@ -45,6 +45,8 @@
   "dependencies": {
     "@vuepress-reco/vuepress-plugin-comments": "^1.4.3",
     "axios": "^0.19.2",
+    "babel-core": "^6.26.3",
+    "babel-loader": "7",
     "clipboard": "^2.0.6",
     "core-js": "2",
     "esm": "^3.2.25",
@@ -59,6 +61,7 @@
     "markdown-it-plantuml": "^1.4.1",
     "markvis": "^0.0.12",
     "moment": "^2.25.1",
+    "node-match-path": "^0.4.3",
     "node-sass": "^4.14.1",
     "piecon": "^0.5.0",
     "sass-loader": "^8.0.2",
