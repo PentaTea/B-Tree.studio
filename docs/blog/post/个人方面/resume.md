@@ -19,15 +19,21 @@ tag:
 
 ## 联系方式
 
-- 手机：13864029857
+- 手机：13864029857 （微信同号，暂时接收不到短信）
 - Email：PentaTea@B-Tree.Studio
 - QQ：2490445193
 
-## 实习经历
+## 工作或实习经历
 
 > 由于本人平常都在接单，拥有实习证明的经历不太多
 
-### 大疆 robomaster 暑期营
+### 且论（ 2020 年 8 月至今 ）
+
+项目状态：（内测中）
+
+大学生创业项目，本人担任职责：小程序前端，产品原型设计，产品 UI 设计
+
+### 大疆 robomaster 暑期营（实习）
 
 #### 嵌入式方向（ 2019 年 7 月 ~ 2019 年 8 月 ）
 
@@ -72,23 +78,24 @@ Visual Studio Code 插件，在 MarkDown 文件中调用[PicGo-Core](https://git
 ## 自我评价
 
 本人拥有五年以上的编程经验，使用过各领域下的开发语言。2019 年通过了哈工大的自主招生和港科大 isdn 初试（面试英语不过关）。接单经验丰富，可以快速理解客户需求，拥有从零构建产品的能力。拥有较强的学习能力，快速学习各种语言或框架，快速阅读相关文档并应用的能力。在项目中具备撰写文档，总结问题的能力，经常运用设计模式，写单元测试，努力写出具有易读，易维护，易扩展的代码。
-本人拥有较强的人际交往能力，与队友相处融洽，也会独立思考，拥有与各领域队友交流讨论的能力。
+本人拥有较强的人际交往能力，与同事相处融洽，也会独立思考，拥有与各领域同事交流讨论的能力。
 综上，本人可以胜任各种角色的职位，拥有较强的适应能力，相信自己可以满足客户的各项要求。
 
 ## 技能清单
 
 以下为我常用到的技术栈或技能：
 
-- 编程语言：`Clang`/`C++`/`HTML`/`CSS`/`JS`/`TS`/`Python`/`Shell`/`Golang`/`JAVA`/`Kotlin` 等
+- 编程语言：`Clang`/`C++`/`HTML`/`CSS`/`JS`/`TS`/`Python`/`Shell` 等
 - 嵌入式设计
   - 原型：`Procreate`/`Blender`
-  - 硬件：`立创EDA`/`Cadence Allegro`
+  - 硬件：`立创EDA`/`AD`/`Cadence Allegro`
   - 开发：`裸机Clang`/`hal`/`mbed`/`FreeRTOS` 等
 - Web 相关
+  - 设计：`Adobe XD`/`Procreate`
   - 开发：`NodeJS前后端`
-  - 框架：`ElementUI`/`Vue`/`Nuxt`/`jQuery`/`three.js`/`electron` 等
-  - 工具：`TypeScript`/`Stylus`/`Axios`/`pm2`/`Webpack` 等
-  - 测试：`Jest`/`Mocha`
+  - 框架：`Vue`/`jQuery`/`three.js`/`electron` 等
+  - 工具：`TypeScript`/`Scss`/`Stylus`/`Axios`/`pm2`/`Webpack` 等
+  - 测试：`Jest`
 - 产品相关：`产品设计`/`UI设计`/`UX设计`
 - 数据库：`MySQL`
 - 版本管理：`Git`
