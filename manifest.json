@@ -1,0 +1,10 @@
+{
+    "name": "B-Tree",
+    "short_name": "B-Tree",
+    "display": "standalone",
+    "theme_color": "#2196f3",
+    "background_color": "#fff",
+    "description": "B-Tree Design Studio 一个打从心底想带给你美好的工作室",
+    "scope": "/",
+    "start_url": "/"
+}

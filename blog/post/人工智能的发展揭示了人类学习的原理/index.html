@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>人工智能的发展揭示了人类学习的原理 | B-Tree</title>
+    <meta name="generator" content="VuePress 1.5.0">
+    <link rel="icon" href="/favicon.jpeg">
+    <link rel="manifest" href="/manifest.json">
+    <script src="/js/jquery-3.5.1.min.js"></script>
+    <meta name="description" content="2020/09 物联网导论演讲">
+    <meta property="og:site_name" content="B-Tree">
+    <meta property="og:title" content="人工智能的发展揭示了人类学习的原理">
+    <meta property="og:description" content="2020/09 物联网导论演讲">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="/blog/post/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%9A%84%E5%8F%91%E5%B1%95%E6%8F%AD%E7%A4%BA%E4%BA%86%E4%BA%BA%E7%B1%BB%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%8E%9F%E7%90%86/">
+    <meta name="twitter:title" content="人工智能的发展揭示了人类学习的原理">
+    <meta name="twitter:description" content="2020/09 物联网导论演讲">
+    <meta name="twitter:url" content="/blog/post/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%9A%84%E5%8F%91%E5%B1%95%E6%8F%AD%E7%A4%BA%E4%BA%86%E4%BA%BA%E7%B1%BB%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%8E%9F%E7%90%86/">
+    <meta name="twitter:card" content="/favicon.jpeg">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="keywords" content="b-tree,studio,hardware,embed,mbed,b树,设计,工作室,硬件,嵌入式">
+    <link rel="preload" href="/assets/css/0.styles.45a20ea4.css" as="style"><link rel="preload" href="/assets/js/app.6fe03fea.js" as="script"><link rel="preload" href="/assets/js/layout-Layout.37a3f2ea.js" as="script"><link rel="preload" href="/assets/js/vendors~layout-BlogLayout~layout-Layout.1057d3a6.js" as="script"><link rel="preload" href="/assets/js/page-821642f2.3ccc1a4d.js" as="script"><link rel="preload" href="/assets/js/43.cdb73440.js" as="script"><link rel="prefetch" href="/assets/js/1.a26acc85.js"><link rel="prefetch" href="/assets/js/2.f5cc1a51.js"><link rel="prefetch" href="/assets/js/39.bd582f59.js"><link rel="prefetch" href="/assets/js/4.9fe59e3d.js"><link rel="prefetch" href="/assets/js/40.3ca916da.js"><link rel="prefetch" href="/assets/js/41.5b2996d0.js"><link rel="prefetch" href="/assets/js/42.e9f274c0.js"><link rel="prefetch" href="/assets/js/44.dca33c1f.js"><link rel="prefetch" href="/assets/js/45.d6b7fa8b.js"><link rel="prefetch" href="/assets/js/46.b1c4a407.js"><link rel="prefetch" href="/assets/js/47.46b6c753.js"><link rel="prefetch" href="/assets/js/48.18758223.js"><link rel="prefetch" href="/assets/js/49.71cedd49.js"><link rel="prefetch" href="/assets/js/50.55bceecb.js"><link rel="prefetch" href="/assets/js/51.950de0b6.js"><link rel="prefetch" href="/assets/js/52.5bcb0706.js"><link rel="prefetch" href="/assets/js/53.89e5117d.js"><link rel="prefetch" href="/assets/js/54.fbb6cb47.js"><link rel="prefetch" href="/assets/js/layout-BlogLayout.710ba91b.js"><link rel="prefetch" href="/assets/js/layout-NotFound.ed7653f8.js"><link rel="prefetch" href="/assets/js/page-024d2588.69d265f7.js"><link rel="prefetch" href="/assets/js/page-0577d216.622746dc.js"><link rel="prefetch" href="/assets/js/page-1060d900.1da4af75.js"><link rel="prefetch" href="/assets/js/page-144cc9af.703eb720.js"><link rel="prefetch" href="/assets/js/page-1529d322.a0176a50.js"><link rel="prefetch" href="/assets/js/page-191607df.60053888.js"><link rel="prefetch" href="/assets/js/page-1a4f1c8d.f4f553f7.js"><link rel="prefetch" href="/assets/js/page-2365fec5.6fb400bd.js"><link rel="prefetch" href="/assets/js/page-33bb370a.443a31d8.js"><link rel="prefetch" href="/assets/js/page-3ca0adb9.1e0d1982.js"><link rel="prefetch" href="/assets/js/page-3df03909.cea4274f.js"><link rel="prefetch" href="/assets/js/page-3fbe065f.225275b2.js"><link rel="prefetch" href="/assets/js/page-44a3bb07.980a4980.js"><link rel="prefetch" href="/assets/js/page-44be7669.f3340c11.js"><link rel="prefetch" href="/assets/js/page-4657340f.55b9f2d2.js"><link rel="prefetch" href="/assets/js/page-4c1c756a.d9800622.js"><link rel="prefetch" href="/assets/js/page-7edc4636.f57e0d0d.js"><link rel="prefetch" href="/assets/js/page-84892b5a.8ae8def5.js"><link rel="prefetch" href="/assets/js/page-8c279030.0f679d34.js"><link rel="prefetch" href="/assets/js/page-979841b4.28b8ae95.js"><link rel="prefetch" href="/assets/js/page-9cf3858e.7ce47ba3.js"><link rel="prefetch" href="/assets/js/page-a8e0d4ca.3727d717.js"><link rel="prefetch" href="/assets/js/page-bdc1a630.1a890c5b.js"><link rel="prefetch" href="/assets/js/page-c2aab718.32b6043f.js"><link rel="prefetch" href="/assets/js/page-cc47165c.cc9201d4.js"><link rel="prefetch" href="/assets/js/page-d7d99876.cc9a3967.js"><link rel="prefetch" href="/assets/js/page-e3367b2c.ab592cf9.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.723e0e07.js"><link rel="prefetch" href="/assets/js/vuejs-paginate.1eb4edcc.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.45a20ea4.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/favicon.jpeg" alt="B-Tree" class="logo"> <span class="site-name can-hide">B-Tree</span></a> <div class="links"><form id="search-form" role="search" class="algolia-search-wrapper search-box"><input id="algolia-search-input" class="search-query"></form> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="指南" class="dropdown-title"><span class="title">指南</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guide/" class="nav-link">
+  了解 B-Tree
+</a></li><li class="dropdown-subitem"><a href="/guide/#产品" class="nav-link">
+  产品
+</a></li><li class="dropdown-subitem"><a href="/doc/" class="nav-link">
+  文档
+</a></li></ul></li><li class="dropdown-item"><h4>
+          视频
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://space.bilibili.com/11443411" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Bilibili
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="生态" class="dropdown-title"><span class="title">生态</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          帮助
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://jq.qq.com/?_wv=1027&amp;k=5B48Hdg" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  QQ群
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          信息
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/" class="nav-link router-link-active">
+  博客
+</a></li></ul></li><li class="dropdown-item"><h4>
+          工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/" class="nav-link">
+  *即将开放*
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/guide/team.html" class="nav-link">
+  团队
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="资源" class="dropdown-title"><span class="title">资源</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/resources/ZhouYiEncode.html" class="nav-link">
+  周易加解密
+</a></li></ul></div></div><div class="nav-item"><a href="/support/" class="nav-link">
+  支持 B-Tree
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="选择语言" class="dropdown-title"><span class="title">选择语言</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/" class="nav-link">
+  简体中文
+</a></li></ul></div></div> <a href="https://github.com/PentaTea/B-Tree.studio" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="指南" class="dropdown-title"><span class="title">指南</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guide/" class="nav-link">
+  了解 B-Tree
+</a></li><li class="dropdown-subitem"><a href="/guide/#产品" class="nav-link">
+  产品
+</a></li><li class="dropdown-subitem"><a href="/doc/" class="nav-link">
+  文档
+</a></li></ul></li><li class="dropdown-item"><h4>
+          视频
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://space.bilibili.com/11443411" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Bilibili
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="生态" class="dropdown-title"><span class="title">生态</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          帮助
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://jq.qq.com/?_wv=1027&amp;k=5B48Hdg" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  QQ群
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          信息
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/" class="nav-link router-link-active">
+  博客
+</a></li></ul></li><li class="dropdown-item"><h4>
+          工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/" class="nav-link">
+  *即将开放*
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/guide/team.html" class="nav-link">
+  团队
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="资源" class="dropdown-title"><span class="title">资源</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/resources/ZhouYiEncode.html" class="nav-link">
+  周易加解密
+</a></li></ul></div></div><div class="nav-item"><a href="/support/" class="nav-link">
+  支持 B-Tree
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="选择语言" class="dropdown-title"><span class="title">选择语言</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/" class="nav-link">
+  简体中文
+</a></li></ul></div></div> <a href="https://github.com/PentaTea/B-Tree.studio" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>文章</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/post/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%9A%84%E5%8F%91%E5%B1%95%E6%8F%AD%E7%A4%BA%E4%BA%86%E4%BA%BA%E7%B1%BB%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%8E%9F%E7%90%86/" aria-current="page" class="active sidebar-link">人工智能的发展揭示了人类学习的原理</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/post/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%9A%84%E5%8F%91%E5%B1%95%E6%8F%AD%E7%A4%BA%E4%BA%86%E4%BA%BA%E7%B1%BB%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%8E%9F%E7%90%86/#涌现" class="sidebar-link">涌现</a></li><li class="sidebar-sub-header"><a href="/blog/post/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%9A%84%E5%8F%91%E5%B1%95%E6%8F%AD%E7%A4%BA%E4%BA%86%E4%BA%BA%E7%B1%BB%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%8E%9F%E7%90%86/#指数级发展" class="sidebar-link">指数级发展</a></li><li class="sidebar-sub-header"><a href="/blog/post/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%9A%84%E5%8F%91%E5%B1%95%E6%8F%AD%E7%A4%BA%E4%BA%86%E4%BA%BA%E7%B1%BB%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%8E%9F%E7%90%86/#学习本质" class="sidebar-link">学习本质</a></li><li class="sidebar-sub-header"><a href="/blog/post/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%9A%84%E5%8F%91%E5%B1%95%E6%8F%AD%E7%A4%BA%E4%BA%86%E4%BA%BA%E7%B1%BB%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%8E%9F%E7%90%86/#启示" class="sidebar-link">启示</a></li><li class="sidebar-sub-header"><a href="/blog/post/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%9A%84%E5%8F%91%E5%B1%95%E6%8F%AD%E7%A4%BA%E4%BA%86%E4%BA%BA%E7%B1%BB%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%8E%9F%E7%90%86/#最后" class="sidebar-link">最后</a></li></ul></li><li><a href="/blog/post/%E6%9C%AC%E7%BD%91%E7%AB%99%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/" class="sidebar-link">本网站构建流程</a></li><li><a href="/blog/post/%E6%B1%87%E7%BB%9F%E8%8A%B1%E5%9B%AD%E8%AE%AE%E4%BA%8B%E8%A7%84%E5%88%99/" class="sidebar-link">汇统花园议事规则</a></li><li><a href="/blog/post/%E8%8E%B7%E5%8F%96b%E7%AB%99%E8%A1%A8%E6%83%85/" class="sidebar-link">获取 B 站表情</a></li></ul></section></li></ul>  <div class="sidebar-bottom"></div></aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="人工智能的发展揭示了人类学习的原理"><a href="#人工智能的发展揭示了人类学习的原理" class="header-anchor">#</a> 人工智能的发展揭示了人类学习的原理</h1> <blockquote><p>「摘要」论当今信息产业涌现发展的规律及神经网络深度学习技术对大学生学习规划的启示</p></blockquote> <blockquote><p>「关键词」人工智能；深度学习；信息产业发展；</p></blockquote> <p>人工智能，神经网络，深度学习是当今最流行的明星算法，但它对人类社会最大的贡献不是解决了多少问题，而是揭示了人类学习的原理。</p> <h2 id="涌现"><a href="#涌现" class="header-anchor">#</a> 涌现</h2> <p>我们都知道实现功能的最小单位是蛋白质，虽然单个蛋白质能实现的功能只相当于开关门那么简单，但大量蛋白质有组织并行工作就有了质变，试想一栋高楼只是由简单的砖块和其他建筑类材料构成的，每一个体材料都很小，少量简单的胡乱堆叠只会形成一堆垃圾，而大量而有序的结合却可以构成更高级的结构，单个蛋白质的功能非常简单，经过漫长的演化过程却出现了如此多的生命体，这种由量变引起质变的现象就是涌现（emergence）。</p> <p>涌现可以跃进式的增强体系发展，比如寒武纪生命大爆发，蚂蚁社群，免疫系统，以及现在的人类文明，尤其是互联网以及信息产业。</p> <h2 id="指数级发展"><a href="#指数级发展" class="header-anchor">#</a> 指数级发展</h2> <p>随着体系的发展和系统信息的积累，涌现得到的知识又会缩短下一次涌现的出现。在没有任何限制下，周期不断变短的连续涌现造成了当今人类文明的爆炸式的指数级发展，从而更加加快了体系信息积累的速度，而更快的信息累积则会造成更频繁的涌现，直到任何人都无法预测人类科技树几年，几个月，几天，甚至几小时后的样子，正应了斯宾塞・约翰逊那句 “世界上唯一不变的是变化本身”。</p> <h2 id="学习本质"><a href="#学习本质" class="header-anchor">#</a> 学习本质</h2> <p>生物体任何的决策都是为了更好的生存（维持自身低熵条件），而想要存活就必须通过学习已有情况的知识来预测未知情况。地球上第一个学习系统是演化 —— 通过大量的突变克隆体尝试、询问环境，不能预测危机发生的个体都会被环境淘汰，以牺牲一部分个体为代价来筛选出能正确的预测模型以稳定熵减。而随着个体生长周期和成本的增加，一些复杂生命体演化出了的第二种学习方法 —— 神经网络，允许个体不再以死亡为代价来学习模型。</p> <p>人工神经网络的运行机制：</p> <p>用搜集来的训练集中的问题和答案来训练模型，用测试集来测试模型的质量，训练好的模型可以去解决实际从没遇到过的问题。</p> <p><img src="/assets/img/20200727003001.fd5fa6d7.png" alt=""></p> <p>而这是由神经网络算法的启示的人类学习机制：</p> <p>利用习题和练习册来训练自己的做题能力，用周测月考期末考试等测试来检测学习质量，最终的目的是解决高考当中的从未遇到过的问题。</p> <p><img src="/assets/img/20200727003052.bf9e58c4.png" alt=""></p> <p><strong>即学习的本质就是利用已有的样本找到规律，以此来解决未来的新问题。</strong></p> <h2 id="启示"><a href="#启示" class="header-anchor">#</a> 启示</h2> <blockquote><p>“站在风口上，猪都能飞起来”</p></blockquote> <p>在当今指数级发展的互联网信息风口当中，如何成为那个站在巨人肩膀上，抓住一次次涌现的机会，扶摇直上的猪？很多人以为雷总是借台风，其实难的是长翅膀，更难的是飞得更高而不被台风吹得乱飞，最难的是平稳降落摔不死。所以要加紧磨练技能，拓宽眼界，锻炼项目能力，努力生长羽翼。</p> <p>而最重要的就是项目实践能力，因为在书本上学到的只是知识的描述，甚至是滞后了相当一段时间的理论，面对当前日新月异的世界就显得力不从心。而用足够的样本来训练自己，才能在未来解决新的问题，这是人工神经网络带给我们的启示。</p> <h2 id="最后"><a href="#最后" class="header-anchor">#</a> 最后</h2> <p>从有演化这个第一套学习系统开始至少经历了 20 亿年的不断试错才出现了神经网络这个第二套学习系统。</p> <p>而神经网络在此之后依然不断完善，如今已经发展成人类大脑，可以允许我们在个体生命周期内学习知识来预测信息。也帮助人工智能用深度学习算法使语音、图像等识别达到了人类水平。</p> <p>这也给大多数普通人的未来工作带来了巨大的挑战，因为知识是我们获得信息的源泉，是维持自身价值的必要条件。计算机已经可以根据信息来归纳知识，但很多人却还像十几年前的计算机一样去记忆信息，天真的认为人脑的容量是无限的，认为人类是不可代替的。可在这种毫无创造性的任务当中，作为人类并不会比计算机做的更好。</p> <p><strong>讽刺的是，我们教会了计算机如何学习，却从来没有教过学生如何使用演化出来的大脑。</strong></p></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/PentaTea/B-Tree.studio/edit/master/docs/blog/post/文章/人工智能的发展揭示了人类学习的原理.md" target="_blank" rel="noopener noreferrer">在 GitHub 上编辑此页</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2021/03/07 13:19:26</span></div></footer> <!---->  <div class="comments-wrapper theme-default-content"><div class="valine-wrapper"><div id="valine"></div></div></div></main> <div id="footer">
+    MPL-2.0 Licensed | Copyright © 2021
+    <a href="https://github.com/PentaTea" target="_blank">PentaTea</a> |
+    <a href="/py-list/">友人帐</a> |
+    <a href="/funcTest/">funcTest</a> |
+    <i class="el-icon-view"></i> <span id="0" data-flag-title="人工智能的发展揭示了人类学习的原理 | B-Tree" class="leancloud-visitors"><a class="leancloud-visitors-count"></a></span></div></div><div class="global-ui"><!----><!----><div class="reading-progress top" data-v-21b39eda><div class="progress" data-v-21b39eda></div></div><!----></div></div>
+    <script src="/assets/js/app.6fe03fea.js" defer></script><script src="/assets/js/layout-Layout.37a3f2ea.js" defer></script><script src="/assets/js/vendors~layout-BlogLayout~layout-Layout.1057d3a6.js" defer></script><script src="/assets/js/page-821642f2.3ccc1a4d.js" defer></script><script src="/assets/js/43.cdb73440.js" defer></script>
+  </body>
+</html>

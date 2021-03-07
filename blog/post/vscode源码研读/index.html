@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>vscode 源码研读 | B-Tree</title>
+    <meta name="generator" content="VuePress 1.5.0">
+    <link rel="icon" href="/favicon.jpeg">
+    <link rel="manifest" href="/manifest.json">
+    <script src="/js/jquery-3.5.1.min.js"></script>
+    <meta name="description" content="可以预想到的大工程以及咕咕咕">
+    <meta property="og:site_name" content="B-Tree">
+    <meta property="og:title" content="vscode 源码研读">
+    <meta property="og:description" content="可以预想到的大工程以及咕咕咕">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="/blog/post/vscode%E6%BA%90%E7%A0%81%E7%A0%94%E8%AF%BB/">
+    <meta name="twitter:title" content="vscode 源码研读">
+    <meta name="twitter:description" content="可以预想到的大工程以及咕咕咕">
+    <meta name="twitter:url" content="/blog/post/vscode%E6%BA%90%E7%A0%81%E7%A0%94%E8%AF%BB/">
+    <meta name="twitter:card" content="/favicon.jpeg">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="keywords" content="b-tree,studio,hardware,embed,mbed,b树,设计,工作室,硬件,嵌入式">
+    <link rel="preload" href="/assets/css/0.styles.45a20ea4.css" as="style"><link rel="preload" href="/assets/js/app.6fe03fea.js" as="script"><link rel="preload" href="/assets/js/layout-Layout.37a3f2ea.js" as="script"><link rel="preload" href="/assets/js/vendors~layout-BlogLayout~layout-Layout.1057d3a6.js" as="script"><link rel="preload" href="/assets/js/page-3df03909.cea4274f.js" as="script"><link rel="preload" href="/assets/js/43.cdb73440.js" as="script"><link rel="prefetch" href="/assets/js/1.a26acc85.js"><link rel="prefetch" href="/assets/js/2.f5cc1a51.js"><link rel="prefetch" href="/assets/js/39.bd582f59.js"><link rel="prefetch" href="/assets/js/4.9fe59e3d.js"><link rel="prefetch" href="/assets/js/40.3ca916da.js"><link rel="prefetch" href="/assets/js/41.5b2996d0.js"><link rel="prefetch" href="/assets/js/42.e9f274c0.js"><link rel="prefetch" href="/assets/js/44.dca33c1f.js"><link rel="prefetch" href="/assets/js/45.d6b7fa8b.js"><link rel="prefetch" href="/assets/js/46.b1c4a407.js"><link rel="prefetch" href="/assets/js/47.46b6c753.js"><link rel="prefetch" href="/assets/js/48.18758223.js"><link rel="prefetch" href="/assets/js/49.71cedd49.js"><link rel="prefetch" href="/assets/js/50.55bceecb.js"><link rel="prefetch" href="/assets/js/51.950de0b6.js"><link rel="prefetch" href="/assets/js/52.5bcb0706.js"><link rel="prefetch" href="/assets/js/53.89e5117d.js"><link rel="prefetch" href="/assets/js/54.fbb6cb47.js"><link rel="prefetch" href="/assets/js/layout-BlogLayout.710ba91b.js"><link rel="prefetch" href="/assets/js/layout-NotFound.ed7653f8.js"><link rel="prefetch" href="/assets/js/page-024d2588.69d265f7.js"><link rel="prefetch" href="/assets/js/page-0577d216.622746dc.js"><link rel="prefetch" href="/assets/js/page-1060d900.1da4af75.js"><link rel="prefetch" href="/assets/js/page-144cc9af.703eb720.js"><link rel="prefetch" href="/assets/js/page-1529d322.a0176a50.js"><link rel="prefetch" href="/assets/js/page-191607df.60053888.js"><link rel="prefetch" href="/assets/js/page-1a4f1c8d.f4f553f7.js"><link rel="prefetch" href="/assets/js/page-2365fec5.6fb400bd.js"><link rel="prefetch" href="/assets/js/page-33bb370a.443a31d8.js"><link rel="prefetch" href="/assets/js/page-3ca0adb9.1e0d1982.js"><link rel="prefetch" href="/assets/js/page-3fbe065f.225275b2.js"><link rel="prefetch" href="/assets/js/page-44a3bb07.980a4980.js"><link rel="prefetch" href="/assets/js/page-44be7669.f3340c11.js"><link rel="prefetch" href="/assets/js/page-4657340f.55b9f2d2.js"><link rel="prefetch" href="/assets/js/page-4c1c756a.d9800622.js"><link rel="prefetch" href="/assets/js/page-7edc4636.f57e0d0d.js"><link rel="prefetch" href="/assets/js/page-821642f2.3ccc1a4d.js"><link rel="prefetch" href="/assets/js/page-84892b5a.8ae8def5.js"><link rel="prefetch" href="/assets/js/page-8c279030.0f679d34.js"><link rel="prefetch" href="/assets/js/page-979841b4.28b8ae95.js"><link rel="prefetch" href="/assets/js/page-9cf3858e.7ce47ba3.js"><link rel="prefetch" href="/assets/js/page-a8e0d4ca.3727d717.js"><link rel="prefetch" href="/assets/js/page-bdc1a630.1a890c5b.js"><link rel="prefetch" href="/assets/js/page-c2aab718.32b6043f.js"><link rel="prefetch" href="/assets/js/page-cc47165c.cc9201d4.js"><link rel="prefetch" href="/assets/js/page-d7d99876.cc9a3967.js"><link rel="prefetch" href="/assets/js/page-e3367b2c.ab592cf9.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.723e0e07.js"><link rel="prefetch" href="/assets/js/vuejs-paginate.1eb4edcc.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.45a20ea4.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/favicon.jpeg" alt="B-Tree" class="logo"> <span class="site-name can-hide">B-Tree</span></a> <div class="links"><form id="search-form" role="search" class="algolia-search-wrapper search-box"><input id="algolia-search-input" class="search-query"></form> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="指南" class="dropdown-title"><span class="title">指南</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guide/" class="nav-link">
+  了解 B-Tree
+</a></li><li class="dropdown-subitem"><a href="/guide/#产品" class="nav-link">
+  产品
+</a></li><li class="dropdown-subitem"><a href="/doc/" class="nav-link">
+  文档
+</a></li></ul></li><li class="dropdown-item"><h4>
+          视频
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://space.bilibili.com/11443411" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Bilibili
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="生态" class="dropdown-title"><span class="title">生态</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          帮助
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://jq.qq.com/?_wv=1027&amp;k=5B48Hdg" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  QQ群
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          信息
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/" class="nav-link router-link-active">
+  博客
+</a></li></ul></li><li class="dropdown-item"><h4>
+          工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/" class="nav-link">
+  *即将开放*
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/guide/team.html" class="nav-link">
+  团队
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="资源" class="dropdown-title"><span class="title">资源</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/resources/ZhouYiEncode.html" class="nav-link">
+  周易加解密
+</a></li></ul></div></div><div class="nav-item"><a href="/support/" class="nav-link">
+  支持 B-Tree
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="选择语言" class="dropdown-title"><span class="title">选择语言</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/" class="nav-link">
+  简体中文
+</a></li></ul></div></div> <a href="https://github.com/PentaTea/B-Tree.studio" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="指南" class="dropdown-title"><span class="title">指南</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guide/" class="nav-link">
+  了解 B-Tree
+</a></li><li class="dropdown-subitem"><a href="/guide/#产品" class="nav-link">
+  产品
+</a></li><li class="dropdown-subitem"><a href="/doc/" class="nav-link">
+  文档
+</a></li></ul></li><li class="dropdown-item"><h4>
+          视频
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://space.bilibili.com/11443411" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Bilibili
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="生态" class="dropdown-title"><span class="title">生态</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          帮助
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://jq.qq.com/?_wv=1027&amp;k=5B48Hdg" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  QQ群
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          信息
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/" class="nav-link router-link-active">
+  博客
+</a></li></ul></li><li class="dropdown-item"><h4>
+          工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/" class="nav-link">
+  *即将开放*
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/guide/team.html" class="nav-link">
+  团队
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="资源" class="dropdown-title"><span class="title">资源</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/resources/ZhouYiEncode.html" class="nav-link">
+  周易加解密
+</a></li></ul></div></div><div class="nav-item"><a href="/support/" class="nav-link">
+  支持 B-Tree
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="选择语言" class="dropdown-title"><span class="title">选择语言</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/" class="nav-link">
+  简体中文
+</a></li></ul></div></div> <a href="https://github.com/PentaTea/B-Tree.studio" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>编程笔记</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/post/ar%E7%9C%BC%E9%95%9C/" class="sidebar-link">AR 眼镜</a></li><li><a href="/blog/post/js%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="sidebar-link">JavaScript 学习笔记</a></li><li><a href="/blog/post/js%E9%94%99%E9%A2%98%E6%9C%AC/" class="sidebar-link">JavaScript 错题本</a></li><li><a href="/blog/post/vscode%E6%BA%90%E7%A0%81%E7%A0%94%E8%AF%BB/" aria-current="page" class="active sidebar-link">vscode 源码研读</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/post/vscode%E6%BA%90%E7%A0%81%E7%A0%94%E8%AF%BB/#主进程启动流程" class="sidebar-link">主进程启动流程</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/post/vscode%E6%BA%90%E7%A0%81%E7%A0%94%E8%AF%BB/#src-main-js" class="sidebar-link">src/main.js</a></li><li class="sidebar-sub-header"><a href="/blog/post/vscode%E6%BA%90%E7%A0%81%E7%A0%94%E8%AF%BB/#src-vs-code-electron-main-main-ts" class="sidebar-link">src/vs/code/electron-main/main.ts</a></li><li class="sidebar-sub-header"><a href="/blog/post/vscode%E6%BA%90%E7%A0%81%E7%A0%94%E8%AF%BB/#src-vs-code-electron-main-app-ts" class="sidebar-link">src/vs/code/electron-main/app.ts</a></li><li class="sidebar-sub-header"><a href="/blog/post/vscode%E6%BA%90%E7%A0%81%E7%A0%94%E8%AF%BB/#src-vs-code-electron-main-window-ts" class="sidebar-link">src/vs/code/electron-main/window.ts</a></li></ul></li><li class="sidebar-sub-header"><a href="/blog/post/vscode%E6%BA%90%E7%A0%81%E7%A0%94%E8%AF%BB/#渲染进程启动流程" class="sidebar-link">渲染进程启动流程</a></li></ul></li><li><a href="/blog/post/%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/" class="sidebar-link">依赖注入</a></li><li><a href="/blog/post/%E5%B8%B8%E7%94%A8node%E5%BA%93%E8%AE%B0%E5%BD%95/" class="sidebar-link">常用 node 库记录</a></li><li><a href="/blog/post/%E9%87%8D%E6%9E%84%E7%BD%91%E7%AB%99/" class="sidebar-link">重构网站</a></li></ul></section></li></ul>  <div class="sidebar-bottom"></div></aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="vscode-源码研读"><a href="#vscode-源码研读" class="header-anchor">#</a> vscode 源码研读</h1> <p><img src="https://raw.githubusercontent.com/fzxa/VSCode-sourcecode-analysis/master/vscode-vside-zh.png" alt=""></p> <h2 id="主进程启动流程"><a href="#主进程启动流程" class="header-anchor">#</a> 主进程启动流程</h2> <h3 id="src-main-js"><a href="#src-main-js" class="header-anchor">#</a> src/main.js</h3> <ol><li>环境设置
+<ul><li>获得一些平台环境的设置，比如 temp 文件的位置和运行参数相关设置</li> <li>启动 node.asar 的支持</li> <li>注册并用刚获得的设置启动崩溃日志记录  <code>electron::crashReporter</code>  服务</li> <li>设置 log 目录，当前运行目录</li> <li>注册监听服务，监听拖拽到图标打开文件等操作</li></ul></li> <li>app.once('ready'...
+<ul><li>启用内容追踪  <code>electron::contentTracing</code>  性能检测优化相关</li> <li>尝试获取本地配置信息</li> <li>检查用户语言环境配置，如果没有设置默认使用英语</li> <li>加载启动文件  <code>vs/code/electron-main/main</code></li></ul></li></ol> <h3 id="src-vs-code-electron-main-main-ts"><a href="#src-vs-code-electron-main-main-ts" class="header-anchor">#</a> src/vs/code/electron-main/main.ts</h3> <ol><li><p>初始化基础服务</p> <ul><li><p>运行环境服务  <code>EnvironmentService</code></p> <blockquote><p>src/vs/platform/environment/node/environmentService.ts</p></blockquote> <p>通过这个服务获取当前启动目录，日志目录，操作系统信息，配置文件目录，用户目录等。</p></li> <li><p>日志服务  <code>MultiplexLogService</code></p> <blockquote><p>src/vs/platform/log/common/log.ts</p></blockquote> <p>默认使用控制台日志 ConsoleLogMainService 其中包含性能追踪和释放信息，日志输出级别</p></li> <li><p>配置服务  <code>ConfigurationService</code></p> <blockquote><p>src/vs/platform/configuration/node/configurationService.ts</p></blockquote> <p>从运行环境服务获取内容</p></li> <li><p>生命周期服务  <code>LifecycleService</code></p> <blockquote><p>src/vs/platform/lifecycle/common/lifecycleService.ts</p></blockquote> <p>监听事件，electron app 模块 比如：ready， window-all-closed，before-quit</p> <p>可以参考官方 electron app 文档</p></li> <li><p>状态服务  <code>StateService</code></p> <blockquote><p>src/vs/platform/state/node/stateService.ts</p></blockquote> <p>通过 FileStorage 读写 storage.json 存储，里记录一些与程序运行状态有关的键值对</p></li> <li><p>请求服务  <code>RequestService</code></p> <blockquote><p>src/vs/platform/request/browser/requestService.ts</p></blockquote> <p>这里使用的是原生 ajax 请求，实现了 request 方法</p></li> <li><p>主题服务  <code>ThemeMainService</code></p> <blockquote><p>src/vs/platform/theme/electron-main/themeMainService.ts</p></blockquote> <p>这里只设置背景颜色，通过 getBackgroundColor 方法 IStateService 存储</p></li> <li><p>签名服务  <code>SignService</code></p> <blockquote><p>src/vs/platform/sign/node/signService.ts</p></blockquote></li></ul></li> <li><p>加载 CodeApplication, mainIpcServer, instanceEnvironment</p></li> <li><p>启动 APP</p></li></ol> <h3 id="src-vs-code-electron-main-app-ts"><a href="#src-vs-code-electron-main-app-ts" class="header-anchor">#</a> src/vs/code/electron-main/app.ts</h3> <p>开始处理 app 级别任务，创建窗口，创建 IPC 服务</p> <ol><li>创建共享进程</li> <li>创建 app 实例</li> <li>打开窗口</li> <li>执行生命周期和授权操作</li> <li>结束性能问题追踪</li></ol> <h3 id="src-vs-code-electron-main-window-ts"><a href="#src-vs-code-electron-main-window-ts" class="header-anchor">#</a> src/vs/code/electron-main/window.ts</h3> <p>创建实例窗口，注册窗口监听器和生命周期，启动 Workbench 等渲染进程</p> <p>主进程流程基本完毕</p> <h2 id="渲染进程启动流程"><a href="#渲染进程启动流程" class="header-anchor">#</a> 渲染进程启动流程</h2> <p>待续 ...</p></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/PentaTea/B-Tree.studio/edit/master/docs/blog/post/编程笔记/vscode源码研读.md" target="_blank" rel="noopener noreferrer">在 GitHub 上编辑此页</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2021/03/07 13:19:26</span></div></footer> <!---->  <div class="comments-wrapper theme-default-content"><div class="valine-wrapper"><div id="valine"></div></div></div></main> <div id="footer">
+    MPL-2.0 Licensed | Copyright © 2021
+    <a href="https://github.com/PentaTea" target="_blank">PentaTea</a> |
+    <a href="/py-list/">友人帐</a> |
+    <a href="/funcTest/">funcTest</a> |
+    <i class="el-icon-view"></i> <span id="0" data-flag-title="vscode 源码研读 | B-Tree" class="leancloud-visitors"><a class="leancloud-visitors-count"></a></span></div></div><div class="global-ui"><!----><!----><div class="reading-progress top" data-v-21b39eda><div class="progress" data-v-21b39eda></div></div><!----></div></div>
+    <script src="/assets/js/app.6fe03fea.js" defer></script><script src="/assets/js/layout-Layout.37a3f2ea.js" defer></script><script src="/assets/js/vendors~layout-BlogLayout~layout-Layout.1057d3a6.js" defer></script><script src="/assets/js/page-3df03909.cea4274f.js" defer></script><script src="/assets/js/43.cdb73440.js" defer></script>
+  </body>
+</html>
