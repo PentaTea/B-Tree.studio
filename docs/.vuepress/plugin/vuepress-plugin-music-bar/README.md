@@ -1,6 +1,6 @@
 # vuepress-plugin-music-bar
 
-![](https://raw.githubusercontent.com/PentaTea/B-Tree.studio/master/docs/.vuepress/plugin/vuepress-plugin-music-bar/img/music-bar-0.png)
+![](img/music-bar-0.png)
 
 [README](./README.md) | [CHANGELOG](./CHANGELOG.md)
 
